@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>image/UI/Close_Button.png</file>
+        <file>image/UI/FullScreen_Button.png</file>
+        <file>image/UI/Minimize_Button.png</file>
+        <file>image/Logo/logo.png</file>
+        <file>image/UI/icon.png</file>
+        <file>image/UI/Camera.png</file>
+        <file>image/UI/Replay.png</file>
+        <file>image/UI/Retrieval.png</file>
+        <file>image/UI/Cenfiguration.png</file>
+        <file>image/UI/begin.png</file>
+        <file>image/UI/stop.png</file>
+        <file>image/UI/begin_1.png</file>
+        <file>image/UI/begin_2.png</file>
+        <file>image/UI/stop_1.png</file>
+        <file>image/UI/stop_2.png</file>
+    </qresource>
+</RCC>

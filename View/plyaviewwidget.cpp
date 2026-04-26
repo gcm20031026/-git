@@ -1,0 +1,268 @@
+﻿#include "plyaviewwidget.h"
+#include<QDebug>
+#include<QMouseEvent>
+
+plyaViewWidget::plyaViewWidget(QWidget *parent,int id,QString devName) : QWidget(parent)
+{
+    this->id = id;
+    this->devName = devName;
+
+    // 主布局
+    mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins(0, 0, 0, 0);  // 无外边距
+    mainLayout->setSpacing(0);                  // 无间距
+
+    this->setTimeLable();//显示时间
+
+    videoPlay->setStyleSheet("border: 2px solid gray;");  // 设置红色边框
+
+    // 初始化右键菜单
+    createMenu();
+    myCamera = new MyCamera(this);
+    //摄像头显示
+    showCamera();
+
+
+
+
+}
+
+void plyaViewWidget::setTimeLable()
+{
+    // 时间标签 - 现在放在顶部
+    timeLabel = new QLabel(this);
+    timeLabel->setAlignment(Qt::AlignCenter);
+    timeLabel->setStyleSheet("color: white; background-color: rgba(0,0,0,0.7); padding: 2px;");
+    timeLabel->setFixedHeight(24);  // 稍微增加高度
+
+    // 视频内容区域
+//    videoArea = new QWidget();
+//    videoArea->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    videoPlay = new QLabel(this);
+    videoPlay->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+//    videoLayout = new QVBoxLayout(videoArea);
+//    videoLayout->addWidget(videoPlay);
+
+    // 调整添加顺序：先时间标签，后视频区域
+    mainLayout->addWidget(timeLabel);
+    mainLayout->addWidget(videoPlay, 1);  // 添加伸缩因子确保视频区域填满剩余空间
+
+    // 定时器更新时间
+    timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &plyaViewWidget::updateTime);
+
+    timer->start(1000);
+    updateTime();
+
+    //videoPlay->resize(x,y);
+
+
+
+}
+
+void plyaViewWidget::createMenu()
+{
+    menuRD = new QMenu(this);
+    changeMenu = new QMenu(tr("切换设备"), this); // 创建切换设备菜单并直接设置标题
+    // 设置菜单样式：白色背景 + 黑色文字
+    menuRD->setStyleSheet(
+     "QMenu {"
+     "    background-color: white;"      // 背景色
+     "    color: black;"                // 文字颜色
+     "    border: 1px solid #DDDDDD;"   // 边框（可选）
+     "}"
+     "QMenu::item {"
+     "    padding: 5px 20px 5px 10px;"  // 项内边距
+     "}"
+     "QMenu::item:selected {"
+     "    background-color: #E0E0E0;"   // 选中项背景色
+     "}"
+    );
+    // 设置子菜单样式（与主菜单相同）
+    changeMenu->setStyleSheet(menuRD->styleSheet());
+
+    // 将子菜单添加到主菜单
+    this->m_pActionChange = menuRD->addMenu(changeMenu);
+    this->m_pActionClose = menuRD->addAction(tr("暂停视频"));
+    m_pActionScreenshot = menuRD->addAction(tr("截图"));
+    this->detectFace = menuRD->addAction("开启人脸检测");
+    this->saveVideos = menuRD->addAction("保存视频");
+    menuRD->addSeparator();
+    connect(menuRD, SIGNAL(triggered(QAction*)), this, SLOT(SlotMenuClicked(QAction*)));
+    connect(changeMenu, SIGNAL(triggered(QAction*)), this, SLOT(SlotMenuDevClicked(QAction*)));
+    addMenuSwitchItem();
+
+}
+
+//鼠标进入区域显示青色框
+void plyaViewWidget::enterEvent(QEvent *event)
+{
+    videoPlay->setStyleSheet("border: 2px solid cyan;");  // 设置青色边框
+}
+//鼠标离开显示黑色边框
+void plyaViewWidget::leaveEvent(QEvent *event)
+{
+    videoPlay->setStyleSheet("border: 2px solid gray;");  // 设置灰色边框
+}
+//鼠标右击出现上下文菜单
+void plyaViewWidget::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::RightButton)
+    {
+        menuRD->exec(QCursor::pos());
+    }
+
+}
+
+void plyaViewWidget::showCamera()
+{
+
+    QString cameraName = QString("video=%1").arg(myCamera->getCameraInfo(id));
+    if(!myCamera->getCameraInfo(id).isEmpty())
+    {
+        video = new DecodeThread(cameraName,this->devName);
+        video->start();
+        connect(this->video,&DecodeThread::sentImg,this,&plyaViewWidget::getImg);
+        connect(this,&plyaViewWidget::savePicture,this->video,&DecodeThread::savaPictureScr);
+        connect(this,&plyaViewWidget::startStopDetectfaceSignal,this->video,&DecodeThread::startStopDetectfaceSlot);
+        connect(this,&plyaViewWidget::saveVideosSignal,this->video,&DecodeThread::saveVideos);
+        connect(this,&plyaViewWidget::setTimeSignal,this->video,&DecodeThread::getTime);
+    }
+}
+//更新时间
+void plyaViewWidget:: updateTime()
+{
+    QString currentTime = QDateTime::currentDateTime().toString("%1   yyyy-MM-dd HH:mm:ss").arg(devName);
+    timeLabel->setText(currentTime);
+}
+//获取视频流
+void plyaViewWidget::getImg(QImage img)
+{
+    x = videoPlay->width();
+    y = videoPlay->height();
+//    // 录制视频（添加到编码队列）
+//    writer->addFrame(img);
+
+    QPixmap pix;
+    int pixX = pix.width();
+    int pixY = pix.height();
+    pix = QPixmap::fromImage(img);
+
+    // 照片缩放与videoPlay长宽一样并且居中
+    pix = pix.scaled(x, y, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+    videoPlay->setPixmap(pix);
+    videoPlay->setAlignment(Qt::AlignCenter); // 居中显示
+    update();
+
+}
+//改变大小
+void plyaViewWidget::changeSize()
+{
+    x = videoPlay->width();
+    y = videoPlay->height();
+
+    emit this->sent_X_Y(x,y);
+
+    // 确保视频显示区域适应新的大小
+    if (videoPlay->pixmap()) {
+        QPixmap pix = videoPlay->pixmap()->scaled(x, y, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        videoPlay->setPixmap(pix);
+        videoPlay->setAlignment(Qt::AlignCenter);
+    }
+
+}
+
+void plyaViewWidget::SlotMenuClicked(QAction *action)
+{
+    static int i=0;
+    if (action == this->m_pActionChange)
+    {
+        qDebug()<<"切换";
+    }
+    else if (action == this->m_pActionClose)
+    {
+        if(playFlag)
+        {
+            video->pause();//暂停
+            action->setText("开始视频");
+            playFlag=false;
+
+        }else{
+            video->resume();//开始
+            action->setText("暂停视频");
+            playFlag=true;
+        }
+
+    }
+    else if (action == this->m_pActionScreenshot)
+    {
+        //发送保存图片信号
+        // 获取当前日期时间
+         QDateTime currentDateTime = QDateTime::currentDateTime();
+
+         // 转换为自定义格式的字符串
+        QString picName = currentDateTime.toString("yyyy-MM-dd-hh-mm-ss");
+        emit this->savePicture(picName);
+
+    }else if(action == this->detectFace)
+    {
+        if(detectFaceFlag)
+        {
+            action->setText("开启人脸检测");
+            detectFaceFlag=false;
+            emit this->startStopDetectfaceSignal(detectFaceFlag);
+        }else
+        {
+            action->setText("关闭人脸检测");
+            detectFaceFlag=true;
+            emit this->startStopDetectfaceSignal(detectFaceFlag);
+
+        }
+    }else if(action == this->saveVideos)
+    {
+        emit this->saveVideosSignal();
+        // 获取当前日期时间
+         QDateTime currentDateTime = QDateTime::currentDateTime();
+         // 转换为自定义格式的字符串
+        QString m_times = currentDateTime.toString("yyyy-MM-dd-hh-mm-ss");
+        emit this->setTimeSignal(m_times);
+    }
+
+
+}
+//添加切换菜单项
+void plyaViewWidget::addMenuSwitchItem()
+{
+    for(int i=1;i<=16;++i)
+    {
+        //判断当前设备名
+        QString devName = QString("摄像头%1").arg(i);
+        //不添加当前设备的选项
+        if(this->devName == devName)continue;
+        //添加菜单项
+        QAction* devAction = new QAction(devName, this);
+        changeMenu->addAction(devAction);
+
+    }
+}
+//点击捕捉要切换设备
+void plyaViewWidget::SlotMenuDevClicked(QAction *action)
+{
+    qDebug()<<action->text();
+    //发送要切换设备信号
+    emit this->sentSwichDev(this->devName,action->text());
+
+}
+
+plyaViewWidget::~plyaViewWidget()
+{
+//    if(video) {
+//        writer->stop();
+//        video->wait();
+//        delete video;
+//    }
+//    writer->stop();
+}
+
