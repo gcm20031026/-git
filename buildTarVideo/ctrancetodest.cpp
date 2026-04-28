@@ -222,6 +222,11 @@ void CTranceToDest::setFlag(bool flag)
     this->flag = flag;
 }
 
+void CTranceToDest::setOutputFile(QString fileName)
+{
+    this->fileName = fileName;
+}
+
 void CTranceToDest::run()
 {
     while (true)

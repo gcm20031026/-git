@@ -2,6 +2,7 @@
 #include<QDebug>
 #include <QStyle>
 #include <QTimer>
+#include <QMessageBox>
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 {
     initialize_window();
@@ -416,12 +417,12 @@ void MainWindow::initialize_control()
     this->btn10 = new QPushButton("摄像头9");
     this->btn10->setFixedHeight(30);
     this->btn10->setStyleSheet("color: white; ");
-    btn10->setObjectName(QString("btn%1").arg(10));
+    btn10->setObjectName(QString("%1").arg(10));
 
     this->btn11 = new QPushButton("摄像头10");
     this->btn11->setFixedHeight(30);
     this->btn11->setStyleSheet("color: white;");
-    btn11->setObjectName(QString("btn%1").arg(11));
+    btn11->setObjectName(QString("%1").arg(11));
 
 
 }
@@ -636,6 +637,19 @@ void MainWindow::singleShow()
     // 获取按钮名称（如 "btn01"）
     QString btnName = clickedBtn->objectName();
 
+    bool selectedOk = false;
+    int selectedIndex = btnName.toInt(&selectedOk) - 1;
+    if (!selectedOk || selectedIndex < 0 || selectedIndex >= widgets.size())
+    {
+        QMessageBox::information(this, "提示", "摄像头编号无效。");
+        return;
+    }
+    if (!widgets.at(selectedIndex)->isCameraAvailable())
+    {
+        QMessageBox::information(this, "提示", "该摄像头不存在或未连接。");
+        return;
+    }
+
     //隐藏所有通道
     this->hide_video_all();
 
@@ -654,7 +668,18 @@ void MainWindow::singleShow()
     int w = windowWidth;
     int h = windowHeight;
 
-    int i = btnName.toUInt()-1;
+    bool ok = false;
+    int i = btnName.toInt(&ok) - 1;
+    if (!ok || i < 0 || i >= widgets.size())
+    {
+        QMessageBox::information(this, "提示", "摄像头编号无效。");
+        return;
+    }
+    if (!widgets.at(i)->isCameraAvailable())
+    {
+        QMessageBox::information(this, "提示", "该摄像头不存在或未连接。");
+        return;
+    }
     //按照按列数排列通道
     for (int r = 0; r < 1; ++r)
     {

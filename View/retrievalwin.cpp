@@ -1,164 +1,134 @@
 #include "retrievalwin.h"
+#include <QFileInfo>
 
 RetrievalWin::RetrievalWin(QWidget *parent) : QWidget(parent)
 {
     initialize_control();
     addControl_control();
-    connect(this->refreshButton,SIGNAL(clicked()),this,SLOT(refresh()));
-    connect(this->additionBtn,SIGNAL(clicked()),this,SLOT(addition_fileFormat()));
-    connect(this->subtractionBtn,SIGNAL(clicked()),this,SLOT(subtraction_fileFormat()));
-    connect(this->yesButton,SIGNAL(clicked()),this,SLOT(save()));
+
+    connect(this->refreshButton, SIGNAL(clicked()), this, SLOT(refresh()));
+    connect(this->additionBtn, SIGNAL(clicked()), this, SLOT(addition_fileFormat()));
+    connect(this->subtractionBtn, SIGNAL(clicked()), this, SLOT(subtraction_fileFormat()));
+    connect(this->yesButton, SIGNAL(clicked()), this, SLOT(save()));
+    connect(this->searchEdit, SIGNAL(textChanged(QString)), this, SLOT(refresh()));
+    connect(this->fileFormat, SIGNAL(currentIndexChanged(int)), this, SLOT(refresh()));
+    connect(this->fileFormat, SIGNAL(editTextChanged(QString)), this, SLOT(refresh()));
+
+    refresh();
 }
 
 void RetrievalWin::initialize_control()
 {
-    //设置字体font01
-    this->font01.setFamily("黑体");
-    this->font01.setPointSize(20);
-    //设置字体font02
-    this->font02.setFamily("黑体");
-    this->font02.setPointSize(15);
-    //设置字体font03
-    this->font03.setFamily("宋体");
-    this->font03.setPointSize(15);
-    this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint); //隐藏系统边框
+    this->font01.setFamily(QString::fromUtf8("黑体"));
+    this->font01.setPointSize(12);
+    this->font02.setFamily(QString::fromUtf8("黑体"));
+    this->font02.setPointSize(12);
+    this->font03.setFamily(QString::fromUtf8("宋体"));
+    this->font03.setPointSize(12);
+
+    this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     this->mainLayout = new QVBoxLayout();
     this->mainLayout->setMargin(0);
     this->mainLayout->setSpacing(0);
+
     this->mainWin = new QWidget();
-    this->mainWin->setStyleSheet(
-                "background-color: #383838;"
-                );
+    this->mainWin->setStyleSheet("background-color: #20242b;");
     this->mianUpAndDownLayout = new QVBoxLayout();
-    this->mianUpAndDownLayout->setMargin(0);
-    this->mianUpAndDownLayout->setSpacing(0);
+    this->mianUpAndDownLayout->setContentsMargins(18, 16, 18, 18);
+    this->mianUpAndDownLayout->setSpacing(14);
+
     this->UpWin = new QWidget();
-    this->UpWin->setFixedHeight(70);
+    this->UpWin->setFixedHeight(92);
     this->UpWin->setStyleSheet(
-                "border-bottom: 2px solid #989898;"
-                );
+        "QWidget { background-color: #2b313a; border: 1px solid #3d4652; border-radius: 8px; }"
+        "QLabel { border: none; background: transparent; color: #dfe7f3; }");
     this->UpWin_Layout = new QHBoxLayout();
-    this->UpWin_Layout->setMargin(0);
-    this->UpWin_Layout->setSpacing(0);
+    this->UpWin_Layout->setContentsMargins(18, 12, 18, 12);
+    this->UpWin_Layout->setSpacing(12);
+
     this->searchEdit = new QLineEdit();
-    this->searchEdit->setPlaceholderText("文件路径/bin目录下的相对路径...");
-    this->searchEdit->setText("savaVideos");
+    this->searchEdit->setPlaceholderText(QString::fromUtf8("输入摄像头、文件名或保存时间，自动查询"));
     this->searchEdit->setFont(this->font02);
-    this->searchEdit->setFixedSize(300,35);
+    this->searchEdit->setMinimumSize(300, 38);
     this->searchEdit->setStyleSheet(
-                "QLineEdit {"
-                "border: 1px solid gray;"
-                "border-radius: 8px;"
-                "color: white;"
-                "}"
-                "QLineEdit:hover {"
-                "border-radius: 8px;"
-                "background-color: #787878"
-                "}"
-                );
-    this->refreshButton = new QPushButton("刷新");
+        "QLineEdit { background-color: #20242b; border: 1px solid #4b5563; border-radius: 6px; color: #f8fafc; padding: 0 12px; }"
+        "QLineEdit:focus { border: 1px solid #5aa9ff; }");
+
+    this->refreshButton = new QPushButton(QString::fromUtf8("刷新"));
     this->refreshButton->setFont(this->font02);
-    this->refreshButton->setFixedHeight(35);
-    this->refreshButton->setFixedWidth(70);
+    this->refreshButton->setFixedSize(74, 38);
     this->refreshButton->setStyleSheet(
-                "QPushButton {"
-                "border: 1px solid gray;"
-                "border-radius: 8px;"
-                "color: white;"
-                "}"
-                "QPushButton:hover {"
-                "border-radius: 8px;"
-                "background-color: #787878"
-                "}"
-                );
-    this->fileFormat = new QComboBox(); //文件格式
-    this->fileFormat->setEditable(true); // 允许用户编辑
-    this->fileFormat->setFixedSize(120,35);
+        "QPushButton { background-color: #384250; border: 1px solid #536071; border-radius: 6px; color: #f8fafc; }"
+        "QPushButton:hover { background-color: #465466; }"
+        "QPushButton:pressed { background-color: #2f3845; }");
+
+    this->fileFormat = new QComboBox();
+    this->fileFormat->setEditable(true);
+    this->fileFormat->setFixedSize(126, 38);
     this->fileFormat->setFont(font02);
     this->fileFormat->setStyleSheet(
-                "QComboBox {"
-                "color: white;"
-                "}"
-                );
+        "QComboBox { background-color: #20242b; border: 1px solid #4b5563; border-radius: 6px; color: #f8fafc; padding-left: 10px; }"
+        "QComboBox::drop-down { width: 24px; border: none; }"
+        "QComboBox QAbstractItemView { background-color: #2b313a; color: #f8fafc; selection-background-color: #3f8cff; }");
+    this->fileFormat->addItem(QString::fromUtf8("全部"));
     this->fileFormat->addItem(".mp4");
+    this->fileFormat->addItem(".flv");
+    this->fileFormat->addItem(".avi");
+    this->fileFormat->addItem(".wmv");
+
     this->additionBtn = new QPushButton("+");
-    this->additionBtn->setFixedSize(35,35);
-    this->additionBtn->setStyleSheet(
-                "QPushButton {"
-                "border: 1px solid gray;"
-                "border-radius: 5px;"
-                "color: white;"
-                "}"
-                "QPushButton:hover {"
-                "background-color: #787878;"
-                "border-radius: 5px;"
-                "}"
-                );
+    this->additionBtn->setFixedSize(38, 38);
     this->subtractionBtn = new QPushButton("-");
-    this->subtractionBtn->setFixedSize(35,35);
-    this->subtractionBtn->setStyleSheet(
-                "QPushButton {"
-                "border: 1px solid gray;"
-                "border-radius: 5px;"
-                "color: white;"
-                "}"
-                "QPushButton:hover {"
-                "background-color: #787878;"
-                "border-radius: 5px;"
-                "}"
-                );
-    this->yesButton = new QPushButton("保存");
+    this->subtractionBtn->setFixedSize(38, 38);
+    QString smallButtonStyle =
+        "QPushButton { background-color: #384250; border: 1px solid #536071; border-radius: 6px; color: #f8fafc; font-size: 18px; }"
+        "QPushButton:hover { background-color: #465466; }"
+        "QPushButton:pressed { background-color: #2f3845; }";
+    this->additionBtn->setStyleSheet(smallButtonStyle);
+    this->subtractionBtn->setStyleSheet(smallButtonStyle);
+
+    this->yesButton = new QPushButton(QString::fromUtf8("回放"));
     this->yesButton->setFont(this->font02);
-    this->yesButton->setFixedHeight(35);
-    this->yesButton->setFixedWidth(70);
+    this->yesButton->setFixedSize(82, 38);
     this->yesButton->setStyleSheet(
-                "QPushButton {"
-                "border: 1px solid gray;"
-                "border-radius: 8px;"
-                "color: white;"
-                "}"
-                "QPushButton:hover {"
-                "border-radius: 8px;"
-                "background-color: #787878;"
-                "}"
-                );
+        "QPushButton { background-color: #2f7dd3; border: 1px solid #4093f0; border-radius: 6px; color: white; }"
+        "QPushButton:hover { background-color: #3b8ce3; }"
+        "QPushButton:pressed { background-color: #286db9; }");
+
     this->DownWin = new QWidget();
+    this->DownWin->setStyleSheet("QWidget { background-color: transparent; }");
     this->listOne_outSide_Layout = new QVBoxLayout();
     this->listOne_outSide_Layout->setMargin(0);
     this->listOne_outSide_Layout->setSpacing(0);
     this->listOne = new QScrollArea();
     this->listOne->setWidgetResizable(true);
-    //this->listOne->setStyleSheet();
+    this->listOne->setFrameShape(QFrame::NoFrame);
+    this->listOne->setStyleSheet(
+        "QScrollArea { background-color: transparent; border: none; }"
+        "QScrollBar:vertical { background: #252b33; width: 10px; margin: 0; border-radius: 5px; }"
+        "QScrollBar::handle:vertical { background: #566273; border-radius: 5px; min-height: 28px; }"
+        "QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }");
     this->listOne_Win = new QWidget();
+    this->listOne_Win->setStyleSheet("QWidget { background-color: transparent; }");
     this->listOne_InSide_Layout = new QVBoxLayout();
-    //下面是提示模块
+    this->listOne_InSide_Layout->setContentsMargins(0, 0, 0, 0);
+    this->listOne_InSide_Layout->setSpacing(10);
+
     this->HintWin = new QWidget();
-    HintWin->setStyleSheet(
-                "QWidget {"
-                "background-color: #282828;"
-                "}"
-                );
-    HintWin->setFixedHeight(40);
-    QHBoxLayout *fileWinLayout = new QHBoxLayout();
-    fileWinLayout->setMargin(0);
-    fileWinLayout->setSpacing(0);
-    HintWin->setLayout(fileWinLayout);
-    QLabel *fileLabel = new QLabel("请先在回放窗口添加摄像头");
-    fileLabel->setFont(this->font03);
-    fileLabel->setStyleSheet(
-                "QLabel {"
-                "color: white;"
-                "}"
-                );
-    fileWinLayout->addStretch(0);
-    fileWinLayout->addWidget(fileLabel);
-    fileWinLayout->addStretch(0);
-    //预设路径！！！
-    this->Path01 = "savaVideos";
-    this->Path02<<".mp4";
-    addFileList(Path01,Path02);
-    //qDebug()<<"1111"<<findFilesByKeywords(Path01,Path02)<<"1111";
-    qDebug()<<FileListWin.size();
+    HintWin->setStyleSheet("QWidget { background-color: #2b313a; border: 1px solid #3d4652; border-radius: 8px; }");
+    HintWin->setFixedHeight(78);
+    QHBoxLayout *hintLayout = new QHBoxLayout();
+    hintLayout->setContentsMargins(12, 0, 12, 0);
+    hintLayout->setSpacing(0);
+    HintWin->setLayout(hintLayout);
+    QLabel *hintLabel = new QLabel(QString::fromUtf8("暂无匹配录像记录"));
+    hintLabel->setFont(this->font03);
+    hintLabel->setStyleSheet("QLabel { color: #aab4c2; border: none; background: transparent; }");
+    hintLayout->addStretch(0);
+    hintLayout->addWidget(hintLabel);
+    hintLayout->addStretch(0);
+
+    QMySqlite::getInstance(QDir::current().filePath("monitor_records.db"))->initVideoRecordTable();
 }
 
 void RetrievalWin::addControl_control()
@@ -168,207 +138,183 @@ void RetrievalWin::addControl_control()
     this->mainWin->setLayout(this->mianUpAndDownLayout);
     this->mianUpAndDownLayout->addWidget(this->UpWin);
     this->mianUpAndDownLayout->addWidget(this->DownWin);
+
+    QLabel *titleLabel = new QLabel(QString::fromUtf8("录像检索"));
+    titleLabel->setFont(this->font01);
+    titleLabel->setFixedWidth(92);
+
+    QLabel *formatLabel = new QLabel(QString::fromUtf8("格式"));
+    formatLabel->setFont(this->font02);
+    formatLabel->setFixedWidth(36);
+
     this->UpWin->setLayout(this->UpWin_Layout);
-    this->UpWin_Layout->addStretch(0);
-    this->UpWin_Layout->addWidget(this->searchEdit);
+    this->UpWin_Layout->addWidget(titleLabel);
+    this->UpWin_Layout->addWidget(this->searchEdit, 1);
     this->UpWin_Layout->addWidget(this->refreshButton);
-    this->UpWin_Layout->addStretch(0);
+    this->UpWin_Layout->addSpacing(8);
+    this->UpWin_Layout->addWidget(formatLabel);
     this->UpWin_Layout->addWidget(this->fileFormat);
     this->UpWin_Layout->addWidget(this->additionBtn);
     this->UpWin_Layout->addWidget(this->subtractionBtn);
-    this->UpWin_Layout->addStretch(0);
+    this->UpWin_Layout->addSpacing(8);
     this->UpWin_Layout->addWidget(this->yesButton);
-    this->UpWin_Layout->addStretch(0);
+
     this->DownWin->setLayout(this->listOne_outSide_Layout);
     this->listOne_outSide_Layout->addWidget(this->listOne);
     this->listOne->setWidget(this->listOne_Win);
     this->listOne_Win->setLayout(this->listOne_InSide_Layout);
 }
 
-void RetrievalWin::addFileList(QString &directoryPath, QStringList &keywords)
+void RetrievalWin::addRecordList(const QVector<VideoRecord> &records)
 {
     clear_FileList();
-    QStringList result = findFilesByKeywords(directoryPath,keywords);
-    for(int i=0;i<result.size();i++)
+    videoRecords = records;
+
+    for (int i = 0; i < records.size(); ++i)
     {
+        const VideoRecord &record = records.at(i);
         QWidget *fileWin = new QWidget();
+        fileWin->setMinimumHeight(72);
         fileWin->setStyleSheet(
-                    "QWidget {"
-                    "background-color: #585858;"
-                    "}"
-                    "QWidget:hover {"
-                    "background-color: #484848;"
-                    "}"
-                    "QWidget:pressed {"
-                    "}"
-                    "}"
-                    );
-        fileWin->setFixedHeight(40);
+            "QWidget { background-color: #2b313a; border: 1px solid #3d4652; border-radius: 8px; }"
+            "QWidget:hover { background-color: #333b46; border-color: #536071; }");
+
         QHBoxLayout *fileWinLayout = new QHBoxLayout();
-        fileWinLayout->setMargin(0);
-        fileWinLayout->setSpacing(0);
+        fileWinLayout->setContentsMargins(14, 8, 14, 8);
+        fileWinLayout->setSpacing(12);
         fileWin->setLayout(fileWinLayout);
-        QLabel *fileLabel = new QLabel(result.at(i));
-        fileLabel->setFont(this->font01);
-        fileLabel->setStyleSheet(
-                    "QLabel {"
-                    "color: white;"
-                    "}"
-                    );
-        QComboBox *comboBox = new QComboBox();
-        comboBox->setFixedSize(120,35);
-        comboBox->setFont(font02);
-        comboBox->setStyleSheet(
-                    "QComboBox {"
-                    "color: white;"
-                    "}"
-                    );
-        comboBox->addItem("无");
-        //comboBox->setMaxVisibleItems(3); // 下拉框最多显示3个选项（超出则滚动）
-        fileWinLayout->addWidget(fileLabel);
-        fileWinLayout->addStretch(0);
-        fileWinLayout->addWidget(comboBox);
+
+        QCheckBox *checkBox = new QCheckBox(fileWin);
+        checkBox->setStyleSheet(
+            "QCheckBox { color: white; border: none; background: transparent; }"
+            "QCheckBox::indicator { width: 18px; height: 18px; }");
+        checkBoxList.push_back(checkBox);
+
+        QLabel *infoLabel = new QLabel(
+            QString::fromUtf8("%1    %2    %3\n%4")
+                .arg(record.cameraName)
+                .arg(record.saveTime)
+                .arg(record.format)
+                .arg(record.filePath));
+        infoLabel->setFont(this->font01);
+        infoLabel->setWordWrap(true);
+        infoLabel->setStyleSheet("QLabel { color: #eef2f7; border: none; background: transparent; }");
+
+        fileWinLayout->addWidget(checkBox);
+        fileWinLayout->addWidget(infoLabel, 1);
         this->listOne_InSide_Layout->addWidget(fileWin);
         FileListWin.push_back(fileWin);
-        comboBoxList.push_back(comboBox);
-        yesfileName.push_back(fileLabel);
     }
-    this->listOne_InSide_Layout->addWidget(HintWin);
-    this->listOne_InSide_Layout->addStretch(0);
+
+    if (records.isEmpty())
+    {
+        this->listOne_InSide_Layout->addWidget(HintWin);
+    }
+    this->listOne_InSide_Layout->addStretch(1);
+}
+
+void RetrievalWin::addFileList(QString &directoryPath, QStringList &keywords)
+{
+    Q_UNUSED(directoryPath);
+    Q_UNUSED(keywords);
+    refresh();
 }
 
 QStringList RetrievalWin::findFilesByKeywords(QString &directoryPath, QStringList &keywords, bool recursive)
 {
-    QStringList result;
-    // 设置迭代器标志
-    QDirIterator::IteratorFlags flags = recursive
-            ? QDirIterator::Subdirectories
-            : QDirIterator::NoIteratorFlags;
-    QDirIterator it(directoryPath, QDir::Files | QDir::NoSymLinks, flags);
-    while (it.hasNext())
-    {
-        QString filePath = it.next();
-        QString fileName = QFileInfo(filePath).fileName(); // 获取纯文件名
-        // 检查是否包含任意一个关键词
-        for (const QString &keyword : keywords)
-        {
-            if (fileName.contains(keyword, Qt::CaseInsensitive))
-            {
-                result.append(filePath);
-                break; // 只要匹配一个关键词就添加，然后检查下一个文件
-            }
-        }
-    }
-    return result;
+    Q_UNUSED(directoryPath);
+    Q_UNUSED(keywords);
+    Q_UNUSED(recursive);
+    return QStringList();
 }
 
 bool RetrievalWin::repeatedJudgment(QList<QComboBox *> comboBoxList)
 {
-    for (int i = 0; i < comboBoxList.size(); i++)
-    {
-        for (int j = i + 1; j < comboBoxList.size(); ++j)
-        {
-            if (comboBoxList.at(i)->currentText() == comboBoxList.at(j)->currentText())
-            {
-                if(comboBoxList.at(i)->currentText()=="无")
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-        }
-    }
+    Q_UNUSED(comboBoxList);
     return false;
 }
 
 void RetrievalWin::clear_FileList()
 {
-    if(FileListWin.size()==0)
-    {
-        return;
-    }
-    QLayoutItem* item;
+    QLayoutItem *item;
     while ((item = this->listOne_InSide_Layout->takeAt(0)) != nullptr)
     {
-        // 不删除控件，仅移除布局项
-        delete item; // 必须删除 QLayoutItem，否则内存泄漏，只释放了控件管理item的内存，不释放控件内存
+        delete item;
     }
-    for(int i=0;i<FileListWin.size();i++) //释放控件内存
+    for (int i = 0; i < FileListWin.size(); i++)
     {
         delete FileListWin.at(i);
     }
-    qDebug()<<"FileListWin.size()="<<FileListWin.size();
     FileListWin.clear();
     comboBoxList.clear();
     yesfileName.clear();
-    qDebug()<<"FileListWin.size()="<<FileListWin.size();
+    checkBoxList.clear();
 }
 
 void RetrievalWin::camerasNum_change_retrievalwin(QList<QPushButton *> WatchList_QWidget_Buttons)
 {
-    qDebug()<<"In retrievalwin of WatchList_QWidget_Buttons.size():"<<WatchList_QWidget_Buttons.size();
-    for(int index=0;index<comboBoxList.size();index++) //这是遍历每个下拉框
-    {
-        //先清除下拉框中的选项
-        comboBoxList.at(index)->clear();
-        comboBoxList.at(index)->addItem("无");
-        for(int j=0;j<WatchList_QWidget_Buttons.size();j++) //这是遍历下拉框中的每个选项
-        {
-            comboBoxList.at(index)->addItem(WatchList_QWidget_Buttons.at(j)->text());
-        }
-    }
+    Q_UNUSED(WatchList_QWidget_Buttons);
 }
 
 void RetrievalWin::refresh()
 {
-    this->Path01=this->searchEdit->text();
-    this->Path02.clear();
-    for (int i = 0; i < this->fileFormat->count(); i++)
-    {
-        this->Path02<<this->fileFormat->itemText(i);
-    }
-    addFileList(Path01,Path02);
+    QString format = this->fileFormat->currentText();
+    QVector<VideoRecord> records = QMySqlite::getInstance(QDir::current().filePath("monitor_records.db"))
+                                       ->queryVideoRecords(this->searchEdit->text(), format);
+    addRecordList(records);
 }
 
 void RetrievalWin::addition_fileFormat()
 {
-    //this->fileFormat->addItem("."); //逻辑修改
-    QMessageBox::information(this,"添加格式","为了避免冗余直接在左侧编辑框修改，并回车即可添加文件格式！","好的");
+    QString text = this->fileFormat->currentText().trimmed();
+    if (text.isEmpty() || this->fileFormat->findText(text) >= 0)
+    {
+        return;
+    }
+    this->fileFormat->addItem(text);
+    this->fileFormat->setCurrentText(text);
+    refresh();
 }
 
 void RetrievalWin::subtraction_fileFormat()
 {
-    if(this->fileFormat->count()<2)
+    if (this->fileFormat->currentText() == QString::fromUtf8("全部") || this->fileFormat->count() <= 1)
     {
-        QMessageBox::information(this,"删除失败","至少需要查询一种文件格式！","好的");
         return;
     }
-    this->fileFormat->removeItem(this->fileFormat->currentIndex()); //删除当前选中
+    this->fileFormat->removeItem(this->fileFormat->currentIndex());
+    refresh();
 }
 
 void RetrievalWin::save()
 {
-    //检查有没有重复摄像头
-    if(repeatedJudgment(comboBoxList))
+    cameraList_fileName.clear();
+    cameraList_cameraName.clear();
+
+    for (int i = 0; i < checkBoxList.size() && i < videoRecords.size(); ++i)
     {
-        QMessageBox::information(this,"摄像头重复","同一摄像头只能播放一个回放，请重新选择！","好的");
-        return;
-    }
-    cameraList_fileName.clear(); //清空播放文件路径缓冲区
-    cameraList_cameraName.clear(); //清空播放缓摄像头名称冲区
-    for(int i=0;i<comboBoxList.size();i++)
-    {
-        if(comboBoxList.at(i)->currentText()!="无")
+        if (checkBoxList.at(i)->isChecked())
         {
-            cameraList_fileName<<yesfileName.at(i)->text();
-            cameraList_cameraName<<comboBoxList.at(i)->currentText();
+            if (!QFileInfo::exists(videoRecords.at(i).filePath))
+            {
+                QMessageBox::warning(this, QString::fromUtf8("提示"), QString::fromUtf8("选中的录像文件不存在，请重新检索。"));
+                continue;
+            }
+            cameraList_fileName << videoRecords.at(i).filePath;
+            cameraList_cameraName << videoRecords.at(i).cameraName;
         }
     }
-    qDebug()<<cameraList_fileName;
-    qDebug()<<cameraList_cameraName;
-    //QMessageBox::information(this,"保存成功","保存成功，可前往回放窗口查看回放。","好的"); //有bug？？？
-    to_save(cameraList_fileName,cameraList_cameraName); //发送回回放界面
+
+    if (cameraList_fileName.isEmpty())
+    {
+        QMessageBox::information(this, QString::fromUtf8("提示"), QString::fromUtf8("请先勾选需要回放的录像。"));
+        return;
+    }
+
+    emit to_save(cameraList_fileName, cameraList_cameraName);
+}
+
+bool RetrievalWin::eventFilter(QObject *obj, QEvent *event)
+{
+    return QWidget::eventFilter(obj, event);
 }

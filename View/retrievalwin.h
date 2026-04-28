@@ -1,51 +1,64 @@
 #ifndef RETRIEVALWIN_H
 #define RETRIEVALWIN_H
 
-#include <QWidget>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QLabel>
+#include <QCheckBox>
+#include <QComboBox>
 #include <QDebug>
-#include <QScrollArea>
 #include <QDir>
 #include <QDirIterator>
-#include <QDebug>
-#include <QList>
-#include <QPushButton>
-#include <QComboBox>
-#include <QMessageBox>
+#include <QEvent>
+#include <QFrame>
+#include <QHBoxLayout>
+#include <QLabel>
 #include <QLineEdit>
+#include <QList>
+#include <QMessageBox>
+#include <QPushButton>
+#include <QScrollArea>
+#include <QVector>
+#include <QVBoxLayout>
+#include <QWidget>
+#include "data/qmysqlite.h"
 
-class RetrievalWin : public QWidget //检索窗口
+class RetrievalWin : public QWidget
 {
     Q_OBJECT
 private:
     QString Path01;
-    QStringList Path02,cameraList_fileName,cameraList_cameraName;
-    QVBoxLayout *mainLayout,*mianUpAndDownLayout,*listOne_outSide_Layout,*listOne_InSide_Layout;
+    QStringList Path02, cameraList_fileName, cameraList_cameraName;
+    QVBoxLayout *mainLayout, *mianUpAndDownLayout, *listOne_outSide_Layout, *listOne_InSide_Layout;
     QHBoxLayout *UpWin_Layout;
-    QWidget *mainWin,*UpWin,*DownWin,*listOne_Win;
+    QWidget *mainWin, *UpWin, *DownWin, *listOne_Win;
     QScrollArea *listOne;
-    QList<QWidget*>FileListWin;
-    QList<QComboBox*>comboBoxList;
-    QFont font01,font02,font03;
-    QPushButton *yesButton,*refreshButton,*additionBtn,*subtractionBtn;
-    QList<QLabel*>yesfileName;
+    QList<QWidget *> FileListWin;
+    QList<QCheckBox *> checkBoxList;
+    QVector<VideoRecord> videoRecords;
+    QList<QComboBox *> comboBoxList;
+    QFont font01, font02, font03;
+    QPushButton *yesButton, *refreshButton, *additionBtn, *subtractionBtn;
+    QList<QLabel *> yesfileName;
     QLineEdit *searchEdit;
-    QComboBox *fileFormat; //文件格式
-    QWidget *HintWin; //提示模块
+    QComboBox *fileFormat;
+    QWidget *HintWin;
+
 public:
     explicit RetrievalWin(QWidget *parent = nullptr);
     void initialize_control();
     void addControl_control();
     void addFileList(QString &directoryPath, QStringList &keywords);
-    QStringList findFilesByKeywords(QString &directoryPath,QStringList &keywords,bool recursive = true); //关键词查找文件，返回的路径是绝对还是相对取决于传入的目录（都是在bin目录下）
-    bool repeatedJudgment(QList<QComboBox*>comboBoxList);
-    void clear_FileList(); //移除文件列表的控件
+    void addRecordList(const QVector<VideoRecord> &records);
+    QStringList findFilesByKeywords(QString &directoryPath, QStringList &keywords, bool recursive = true);
+    bool repeatedJudgment(QList<QComboBox *> comboBoxList);
+    void clear_FileList();
+    void playRecordAt(int index);
+    bool eventFilter(QObject *obj, QEvent *event);
+
 signals:
-    void to_save(QStringList fileName,QStringList cameraName);
+    void to_save(QStringList fileName, QStringList cameraName);
+    void requestReplayPage();
+
 public slots:
-    void camerasNum_change_retrievalwin(QList<QPushButton*>);
+    void camerasNum_change_retrievalwin(QList<QPushButton *>);
     void refresh();
     void addition_fileFormat();
     void subtraction_fileFormat();

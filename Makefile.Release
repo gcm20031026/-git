@@ -1591,9 +1591,21 @@ release/moc_replaywin.cpp: View/replaywin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QCalendarWidget \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcalendarwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatetime.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QSlider \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QComboBox \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcombobox.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qstyleoption.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractspinbox.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvalidator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qregularexpression.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qslider.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractslider.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qstyle.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabbar.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qrubberband.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractitemmodel.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QSlider \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QList \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
@@ -1601,22 +1613,27 @@ release/moc_replaywin.cpp: View/replaywin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainter.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextoption.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpen.h \
-		playThread/ffmpegtorgbkun.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
+		playThread/ffmpegtorgbkun.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutex \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
+		data/qmysqlite.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		sqlite3.h \
 		release/moc_predefs.h \
 		../../../QtFile/5.12.9/mingw73_32/bin/moc.exe
 	D:\QtFile\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include D:/biyesheji/Security_surveillance_system/Security_surveillance_system2/release/moc_predefs.h -ID:/QtFile/5.12.9/mingw73_32/mkspecs/win32-g++ -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2 -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/OpenCV_X86/include -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/ffmpeglib/include -ID:/QtFile/5.12.9/mingw73_32/include -ID:/QtFile/5.12.9/mingw73_32/include/QtMultimedia -ID:/QtFile/5.12.9/mingw73_32/include/QtWidgets -ID:/QtFile/5.12.9/mingw73_32/include/QtGui -ID:/QtFile/5.12.9/mingw73_32/include/QtANGLE -ID:/QtFile/5.12.9/mingw73_32/include/QtNetwork -ID:/QtFile/5.12.9/mingw73_32/include/QtCore -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward View\replaywin.h -o release\moc_replaywin.cpp
 
 release/moc_retrievalwin.cpp: View/retrievalwin.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QCheckBox \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcheckbox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobal.h \
@@ -1642,68 +1659,71 @@ release/moc_retrievalwin.cpp: View/retrievalwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgets-config.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiterator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstring.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qchar.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearray.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringliteral.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringalgorithms.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringview.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringbuilder.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlist.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiterator.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpair.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearraylist.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringlist.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qregexp.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixmap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcoreevent.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qscopedpointer.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetatype.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpalette.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qbrush.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qmatrix.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpolygon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qregion.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixmap.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qkeysequence.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpalette.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qbrush.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfont.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontmetrics.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontinfo.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qsizepolicy.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcursor.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qkeysequence.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qevent.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvariant.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmap.h \
@@ -1718,29 +1738,6 @@ release/moc_retrievalwin.cpp: View/retrievalwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHBoxLayout \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QVBoxLayout \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QScrollArea \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qscrollarea.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDirIterator \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdiriterator.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QList \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QComboBox \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcombobox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
@@ -1754,16 +1751,44 @@ release/moc_retrievalwin.cpp: View/retrievalwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabbar.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qrubberband.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractitemmodel.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDirIterator \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdiriterator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QEvent \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QFrame \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHBoxLayout \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLineEdit \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlineedit.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextcursor.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextformat.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpen.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextoption.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QList \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QScrollArea \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qscrollarea.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QVBoxLayout \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
+		data/qmysqlite.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
+		sqlite3.h \
 		release/moc_predefs.h \
 		../../../QtFile/5.12.9/mingw73_32/bin/moc.exe
 	D:\QtFile\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include D:/biyesheji/Security_surveillance_system/Security_surveillance_system2/release/moc_predefs.h -ID:/QtFile/5.12.9/mingw73_32/mkspecs/win32-g++ -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2 -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/OpenCV_X86/include -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/ffmpeglib/include -ID:/QtFile/5.12.9/mingw73_32/include -ID:/QtFile/5.12.9/mingw73_32/include/QtMultimedia -ID:/QtFile/5.12.9/mingw73_32/include/QtWidgets -ID:/QtFile/5.12.9/mingw73_32/include/QtGui -ID:/QtFile/5.12.9/mingw73_32/include/QtANGLE -ID:/QtFile/5.12.9/mingw73_32/include/QtNetwork -ID:/QtFile/5.12.9/mingw73_32/include/QtCore -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward View\retrievalwin.h -o release\moc_retrievalwin.cpp
@@ -2784,16 +2809,22 @@ release/moc_mainwindow.cpp: view/mainwindow.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QPainter \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainter.h \
-		playThread/ffmpegtorgbkun.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
+		playThread/ffmpegtorgbkun.h \
+		data/qmysqlite.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		sqlite3.h \
 		view/retrievalwin.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QCheckBox \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcheckbox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDirIterator \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdiriterator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QFrame \
 		view/configurationwin.h \
 		Control/jdtmypushbutton.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QPropertyAnimation \
@@ -2803,7 +2834,6 @@ release/moc_mainwindow.cpp: view/mainwindow.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractanimation.h \
 		Control/infowidget.h \
 		Control/versoninfowidget.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QPair \
 		release/moc_predefs.h \
 		../../../QtFile/5.12.9/mingw73_32/bin/moc.exe
@@ -2895,8 +2925,6 @@ release/moc_ffmpegtorgbkun.cpp: playThread/ffmpegtorgbkun.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
@@ -2919,6 +2947,10 @@ release/moc_ffmpegtorgbkun.cpp: playThread/ffmpegtorgbkun.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutex \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
 		release/moc_predefs.h \
 		../../../QtFile/5.12.9/mingw73_32/bin/moc.exe
 	D:\QtFile\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include D:/biyesheji/Security_surveillance_system/Security_surveillance_system2/release/moc_predefs.h -ID:/QtFile/5.12.9/mingw73_32/mkspecs/win32-g++ -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2 -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/OpenCV_X86/include -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/ffmpeglib/include -ID:/QtFile/5.12.9/mingw73_32/include -ID:/QtFile/5.12.9/mingw73_32/include/QtMultimedia -ID:/QtFile/5.12.9/mingw73_32/include/QtWidgets -ID:/QtFile/5.12.9/mingw73_32/include/QtGui -ID:/QtFile/5.12.9/mingw73_32/include/QtANGLE -ID:/QtFile/5.12.9/mingw73_32/include/QtNetwork -ID:/QtFile/5.12.9/mingw73_32/include/QtCore -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward playThread\ffmpegtorgbkun.h -o release\moc_ffmpegtorgbkun.cpp
@@ -4182,7 +4214,10 @@ release/plyaviewwidget.o: View/plyaviewwidget.cpp View/plyaviewwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QQueue \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qqueue.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QMouseEvent
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QMouseEvent \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\plyaviewwidget.o View\plyaviewwidget.cpp
 
 release/replaywin.o: View/replaywin.cpp View/replaywin.h \
@@ -4309,9 +4344,21 @@ release/replaywin.o: View/replaywin.cpp View/replaywin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QCalendarWidget \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcalendarwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatetime.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QSlider \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QComboBox \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcombobox.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qstyleoption.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractspinbox.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvalidator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qregularexpression.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qslider.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractslider.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qstyle.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabbar.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qrubberband.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractitemmodel.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QSlider \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QList \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
@@ -4319,20 +4366,26 @@ release/replaywin.o: View/replaywin.cpp View/replaywin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainter.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextoption.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpen.h \
-		playThread/ffmpegtorgbkun.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
+		playThread/ffmpegtorgbkun.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutex \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
+		data/qmysqlite.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		sqlite3.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QFileInfo
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\replaywin.o View\replaywin.cpp
 
 release/retrievalwin.o: View/retrievalwin.cpp View/retrievalwin.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QCheckBox \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcheckbox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobal.h \
@@ -4358,68 +4411,71 @@ release/retrievalwin.o: View/retrievalwin.cpp View/retrievalwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgets-config.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiterator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstring.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qchar.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearray.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringliteral.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringalgorithms.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringview.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringbuilder.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlist.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiterator.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpair.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearraylist.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringlist.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qregexp.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixmap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcoreevent.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qscopedpointer.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetatype.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpalette.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qbrush.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qmatrix.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpolygon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qregion.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixmap.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qkeysequence.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpalette.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qbrush.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfont.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontmetrics.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontinfo.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qsizepolicy.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcursor.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qkeysequence.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qevent.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvariant.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmap.h \
@@ -4434,29 +4490,6 @@ release/retrievalwin.o: View/retrievalwin.cpp View/retrievalwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHBoxLayout \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QVBoxLayout \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QScrollArea \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qscrollarea.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDirIterator \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdiriterator.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QList \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QComboBox \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcombobox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
@@ -4470,16 +4503,45 @@ release/retrievalwin.o: View/retrievalwin.cpp View/retrievalwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabbar.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qrubberband.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractitemmodel.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDirIterator \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdiriterator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QEvent \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QFrame \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHBoxLayout \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLineEdit \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlineedit.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextcursor.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextformat.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpen.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextoption.h
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextoption.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QList \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QScrollArea \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qscrollarea.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QVBoxLayout \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
+		data/qmysqlite.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
+		sqlite3.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QFileInfo
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\retrievalwin.o View\retrievalwin.cpp
 
 release/cdecodetorgb.o: buildTarVideo/cdecodetorgb.cpp buildTarVideo/cdecodetorgb.h \
@@ -5188,11 +5250,9 @@ release/qmysqlite.o: data/qmysqlite.cpp data/qmysqlite.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringalgorithms.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringview.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringbuilder.h \
-		sqlite3.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdebug.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiterator.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlist.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
@@ -5201,6 +5261,11 @@ release/qmysqlite.o: data/qmysqlite.cpp data/qmysqlite.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringlist.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qregexp.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
+		sqlite3.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdebug.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmap.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtextstream.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
@@ -5216,12 +5281,11 @@ release/qmysqlite.o: data/qmysqlite.cpp data/qmysqlite.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlocale.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvariant.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qset.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontiguouscache.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QStringList
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\qmysqlite.o data\qmysqlite.cpp
 
 release/main.o: main.cpp view/mainwindow.h \
@@ -5593,16 +5657,22 @@ release/main.o: main.cpp view/mainwindow.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QPainter \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainter.h \
-		playThread/ffmpegtorgbkun.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
+		playThread/ffmpegtorgbkun.h \
+		data/qmysqlite.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		sqlite3.h \
 		view/retrievalwin.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QCheckBox \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcheckbox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDirIterator \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdiriterator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QFrame \
 		view/configurationwin.h \
 		Control/jdtmypushbutton.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QPropertyAnimation \
@@ -5612,7 +5682,6 @@ release/main.o: main.cpp view/mainwindow.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractanimation.h \
 		Control/infowidget.h \
 		Control/versoninfowidget.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QPair \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QApplication \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qapplication.h \
@@ -6042,7 +6111,14 @@ release/decodethread.o: playThread/decodethread.cpp playThread/decodethread.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractitemmodel.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QTime \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatetime.h
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatetime.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDateTime \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
+		data/qmysqlite.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		sqlite3.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\decodethread.o playThread\decodethread.cpp
 
 release/ffmpegwriterdest.o: playThread/ffmpegwriterdest.cpp playThread/ffmpegwriterdest.h \
@@ -6544,16 +6620,22 @@ release/mainwindow.o: view/mainwindow.cpp view/mainwindow.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QPainter \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainter.h \
-		playThread/ffmpegtorgbkun.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
+		playThread/ffmpegtorgbkun.h \
+		data/qmysqlite.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		sqlite3.h \
 		view/retrievalwin.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QCheckBox \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcheckbox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDirIterator \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdiriterator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QFrame \
 		view/configurationwin.h \
 		Control/jdtmypushbutton.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QPropertyAnimation \
@@ -6563,7 +6645,6 @@ release/mainwindow.o: view/mainwindow.cpp view/mainwindow.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractanimation.h \
 		Control/infowidget.h \
 		Control/versoninfowidget.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QPair \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QStyle
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o view\mainwindow.cpp
@@ -6654,8 +6735,6 @@ release/ffmpegtorgbkun.o: playThread/ffmpegtorgbkun.cpp playThread/ffmpegtorgbku
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
@@ -6678,6 +6757,14 @@ release/ffmpegtorgbkun.o: playThread/ffmpegtorgbkun.cpp playThread/ffmpegtorgbku
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutex \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutexLocker \
 		ffmpeglib/include/libavcodec/avcodec.h \
 		ffmpeglib/include/libavutil/samplefmt.h \
 		ffmpeglib/include/libavutil/avutil.h \

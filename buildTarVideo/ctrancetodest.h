@@ -23,6 +23,7 @@ public:
     void tranceToDest(); //转码操作
     void generateDestFile();
     void setFlag(bool flag);
+    void setOutputFile(QString fileName);
 private:
     AVFormatContext *pformat,*pformatdest;   //视频上下文封装结构体   源：pformat    目标：pformatdest
     int video_index;
