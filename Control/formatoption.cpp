@@ -1,16 +1,24 @@
 #include "formatoption.h"
-#include"QDebug"
+#include <QDebug>
+
 QString savaFormat;
+
 FormatOption::FormatOption(QWidget *parent) : QWidget(parent)
 {
     initControl();
     initLayout();
     savaFormat = comboBox->currentText();
+
+    connect(comboBox, SIGNAL(currentTextChanged(QString)), this, SIGNAL(formatChanged(QString)));
+    connect(comboBox, &QComboBox::currentTextChanged, this, [](const QString &format) {
+        savaFormat = format;
+        qDebug() << "save video format changed:" << savaFormat;
+    });
 }
 
 void FormatOption::initControl()
 {
-    lab = new QLabel("下载视频的格式",this);
+    lab = new QLabel(QString::fromUtf8(u8"录像格式"), this);
     comboBox = new QComboBox(this);
     comboBox->addItem(".mp4");
     comboBox->addItem(".flv");
@@ -21,41 +29,20 @@ void FormatOption::initControl()
 void FormatOption::initLayout()
 {
     mainLayout = new QHBoxLayout(this);
+    mainLayout->setContentsMargins(0, 10, 0, 10);
+    mainLayout->setSpacing(12);
     mainLayout->addWidget(lab);
     mainLayout->addWidget(comboBox);
-    this->setStyleSheet(
-        "FormatOption {"
-        "   border: none;"  // 移除外层边框（如果需要可以保留）
-        "   border-radius: 4px;"
-        "   background-color: #444444;"  // 背景色
-        "   color: white;"  // 默认文字颜色
-        "}"
-        "FormatOption QLabel {"
-        "   color: white;"
-        "   padding: 3px 8px;"  // 增加内边距让边框更明显
-        "   background-color: transparent;"  // 透明背景
-        "   border: 1px solid white;"  // 添加白色边框
-        "   border-radius: 10px;"  // 圆角
-        "}"
-        "FormatOption QComboBox {"
-        "   color: black;"  // 文字颜色
-        "   background-color: white;"  // 背景色
-        "   border: 1px solid white;"  // 边框
-        "   padding: 3px 8px;"  // 内边距
-        "   border-radius: 1px;"  // 圆角
-        "}"
-        "FormatOption QComboBox QAbstractItemView {"
-        "   color: black;"  // 下拉列表中文字颜色
-        "   background-color: white;"  // 下拉列表背景色
-        "   selection-color: white;"  // 选中项文字颜色
-        "   selection-background-color: #444444;"  // 选中项背景色
-        "}"
-        );
-    mainLayout->setContentsMargins(0, 10, 0, 10);  // 移除内边距
+
+    setStyleSheet(
+        "FormatOption { border: 1px solid #334155; border-radius: 8px; background-color: #182235; color: white; }"
+        "FormatOption QLabel { color: #e2e8f0; padding: 4px 12px; background-color: #0f172a; border: 1px solid #263244; border-radius: 6px; }"
+        "FormatOption QComboBox { min-height: 30px; color: #e2e8f0; background-color: #0f172a; border: 1px solid #334155; padding: 0 10px; border-radius: 6px; }"
+        "FormatOption QComboBox:hover { border-color: #22d3ee; }"
+        "FormatOption QComboBox QAbstractItemView { color: #e2e8f0; background-color: #111827; selection-background-color: #0f766e; }");
 }
 
 QString FormatOption::getSelectedFormat() const
 {
-    qDebug()<<"1111111111111111"<<comboBox->currentText();
     return comboBox->currentText();
 }

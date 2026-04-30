@@ -141,39 +141,25 @@ void CTranceToDest::tranceToDest()   //pformat---save.h264 源   pformatdest---t
             continue;
         }
         framecount++;  //帧数 0  1
-        qDebug() << "第" << framecount << "帧";
         //
         if(pkt->pts == AV_NOPTS_VALUE)  //pts是显示时间基
         {                                                                                                    //时间基的转换
             AVRational time_base1=pformat->streams[video_index]->time_base;// 源文件的时间基
-            //计算两帧之前的长度:转换   获取视频的长度   2*2
             int64_t duration=(double)AV_TIME_BASE/
             av_q2d(pformat->streams[video_index]->r_frame_rate);  //帧率    1/9
-            //计算显示l时间基：（当前帧数*两帧之间的长度）/（输入时间基*AV_TIME_BASE）
             pkt->pts=(double)(framecount*duration)/(double)(av_q2d(time_base1)*AV_TIME_BASE);
-            //解码时间基=显示时间基:没有B帧   直播的时候
             pkt->dts=pkt->pts;
-            //目标两帧之间的长度
             pkt->duration=duration/(double)(av_q2d(time_base1)*AV_TIME_BASE);
         }
-        /*
-         *  样的情况可能发生在一些特殊的情况下，比如在某些容器格式中，帧的显示时间戳（PTS）可能会在解码时间戳（DTS）之前。
-         * 这通常不符合常规情况下的时间戳顺序，可能是由于容器或编码器的特殊设置或错误所导致的
-         * 如果 pkt->pts < pkt->dts，则意味着时间戳顺序出现了异常，为了避免可能导致的解码错误或其他问题，选择跳过当前帧，继续处理下一帧数据。
-         * 这就是使用 continue 的目的，它会使程序跳过当前循环迭代，直接进入下一次循环迭代。
-       */
+
         else if(pkt->pts < pkt->dts)
         {
             continue;
         }
 
-        //时间基的转换：参数 1：要换算的值；参数 2：原来的时间基，参数 3：现在的时间基
-        //参数 4：换算的规则
+        //时间基的转换：参数 1：要换算的值；参数 2：原来的时间基，参数 3：现在的时间基/*  */
         //显示时间基的转化
-        pkt->pts = av_rescale_q_rnd(pkt->pts,
-                                    pformat->streams[video_index]->time_base,
-                                    newStream->time_base,
-                                    (AVRounding)(AV_ROUND_INF|AV_ROUND_PASS_MINMAX));
+        pkt->pts = av_rescale_q_rnd(pkt->pts, pformat->streams[video_index]->time_base,newStream->time_base, (AVRounding)(AV_ROUND_INF|AV_ROUND_PASS_MINMAX));
         //解码时间基的转换
 
         pkt->dts=av_rescale_q_rnd(pkt->dts,
@@ -182,11 +168,7 @@ void CTranceToDest::tranceToDest()   //pformat---save.h264 源   pformatdest---t
                                     (AVRounding)(AV_ROUND_INF|AV_ROUND_PASS_MINMAX)
                               );
         //数据的时长，以所属媒体流的时间基准为单位 1s，未知则值为默认值0
-        pkt->duration=av_rescale_q(pkt->duration,
-                                    pformat->streams[video_index]->time_base,
-                                    newStream->time_base);
-        //数据在流媒体中的位置，未知则值为默认值-1
-        //这个操作将位置信息设置为 -1。在某些情况下，可能无法确定数据在输入文件中的确切位置（比如从网络流读取数据），因此将位置设置为 -1 表示未知。
+        pkt->duration=av_rescale_q(pkt->duration, pformat->streams[video_index]->time_base, newStream->time_base);
         pkt->pos=-1;
         //标识，结合AV_PKT_FLAG使用，其中最低为1表示该数据是一个关键帧
         //这个标志用于指示当前数据包是否为关键帧（I帧
@@ -195,8 +177,6 @@ void CTranceToDest::tranceToDest()   //pformat---save.h264 源   pformatdest---t
         pkt->stream_index=0;
         //写入数据到输出视频信息结构体汇总
         av_interleaved_write_frame(pformatdest,pkt);// 码流数据进行封装
-
-        //清空
         av_packet_unref(pkt);
     }
     //写入尾帧

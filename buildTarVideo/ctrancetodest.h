@@ -15,15 +15,16 @@ extern "C"
 class CTranceToDest : public QThread
 {
 public:
+    // 构造转封装线程，指定源 H.264 文件和目标文件。
     CTranceToDest(QString fileName,QString fileH264);
     //注册
-    void registerTrance();  //注册
-    int openFileGetStream(); //打开文件找到视频流
-    int initTrance();  //转码初始工作
-    void tranceToDest(); //转码操作
-    void generateDestFile();
-    void setFlag(bool flag);
-    void setOutputFile(QString fileName);
+    void registerTrance();  // 注册 FFmpeg 相关组件。
+    int openFileGetStream(); // 打开源文件并查找视频流。
+    int initTrance();  // 初始化目标封装格式和输出流。
+    void tranceToDest(); // 执行转封装过程。
+    void generateDestFile(); // 生成最终目标视频文件。
+    void setFlag(bool flag); // 设置线程转封装开关。
+    void setOutputFile(QString fileName); // 设置输出文件路径。
 private:
     AVFormatContext *pformat,*pformatdest;   //视频上下文封装结构体   源：pformat    目标：pformatdest
     int video_index;
@@ -34,7 +35,7 @@ private:
     QString fileName;
     bool flag = false;
 protected:
-    void run() override;  // 线程入口函数
+    void run() override;  // 转封装线程入口。
 };
 
 #endif // CTRANCETODEST_H

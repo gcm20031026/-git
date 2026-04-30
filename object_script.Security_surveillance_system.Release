@@ -4,7 +4,9 @@ release/jdtmypushbutton.o
 release/mycamera.o
 release/pathwitheditbutton.o
 release/versoninfowidget.o
+release/alarmwin.o
 release/configurationwin.o
+release/loginwindow.o
 release/plyaviewwidget.o
 release/replaywin.o
 release/retrievalwin.o
@@ -14,6 +16,7 @@ release/cencodetoh264.o
 release/ctrancetodest.o
 release/opencvdetect.o
 release/qmysqlite.o
+release/userstorage.o
 release/main.o
 release/audiodecodethread.o
 release/decodethread.o
@@ -27,7 +30,9 @@ release/moc_jdtmypushbutton.o
 release/moc_mycamera.o
 release/moc_pathwitheditbutton.o
 release/moc_versoninfowidget.o
+release/moc_alarmwin.o
 release/moc_configurationwin.o
+release/moc_loginwindow.o
 release/moc_plyaviewwidget.o
 release/moc_replaywin.o
 release/moc_retrievalwin.o

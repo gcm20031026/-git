@@ -4,7 +4,9 @@ debug/jdtmypushbutton.o
 debug/mycamera.o
 debug/pathwitheditbutton.o
 debug/versoninfowidget.o
+debug/alarmwin.o
 debug/configurationwin.o
+debug/loginwindow.o
 debug/plyaviewwidget.o
 debug/replaywin.o
 debug/retrievalwin.o
@@ -14,6 +16,7 @@ debug/cencodetoh264.o
 debug/ctrancetodest.o
 debug/opencvdetect.o
 debug/qmysqlite.o
+debug/userstorage.o
 debug/main.o
 debug/audiodecodethread.o
 debug/decodethread.o
@@ -27,7 +30,9 @@ debug/moc_jdtmypushbutton.o
 debug/moc_mycamera.o
 debug/moc_pathwitheditbutton.o
 debug/moc_versoninfowidget.o
+debug/moc_alarmwin.o
 debug/moc_configurationwin.o
+debug/moc_loginwindow.o
 debug/moc_plyaviewwidget.o
 debug/moc_replaywin.o
 debug/moc_retrievalwin.o

@@ -16,17 +16,18 @@ extern "C" {
 class AudioDecodeThread:public QThread
 {
 public:
+    // 构造音频解码线程。
     AudioDecodeThread();
-    void initDecode();
+    void initDecode(); // 初始化音频解码器、重采样器等资源。
 
-    void run() override;
-    void correctAudioDelay(int64_t pts);
+    void run() override; // 音频解码线程入口。
+    void correctAudioDelay(int64_t pts); // 根据视频 PTS 校正音频播放延迟。
     // 获取音频时钟的方法
-    double getAudioClock();
-    void cleanup();
-    void resetDecoder();
+    double getAudioClock(); // 获取当前音频时钟。
+    void cleanup(); // 清理解码相关资源。
+    void resetDecoder(); // 重置音频解码器状态。
 public slots:
-    void checkFlag(bool flag);
+    void checkFlag(bool flag); // 接收播放/暂停状态。
 private:
     AVFormatContext *VPContext;
     AVCodecContext *Vcodecontext;

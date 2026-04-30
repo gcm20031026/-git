@@ -4,21 +4,29 @@
 #include <QDateTime>
 #include <QDir>
 #include "data/qmysqlite.h"
+#include "data/userstorage.h"
 extern QString savaFormat;
 DecodeThread::DecodeThread(QString fileName, QString devName)
 {
     this->fileName = fileName;
     this->devName = devName;
     initDecode();
+    if (!decodeReady)
+    {
+        return;
+    }
     this->detectFace = new openCVDetect();
-    file264 = QString("%1/%2.h264").arg(SavePath).arg(devName);
-    file_h264 = new CEncodeToh264(file264);
-    file_h264->getWidthAndHeight(Vcodecontext->width, Vcodecontext->height); // 必须先设置宽高
-    file_h264->initEncode();
-    file_h264->start();
-    QString saveVideoFile = QString("%1/%2%3").arg(SavePath).arg(devName).arg(savaFormat);
-    de = new CTranceToDest(saveVideoFile, file264);
-    de->start();
+    if (cameraInput)
+    {
+        file264 = QString("%1/%2.h264").arg(SavePath).arg(devName);
+        file_h264 = new CEncodeToh264(file264);
+        file_h264->getWidthAndHeight(Vcodecontext->width, Vcodecontext->height); // 必须先设置宽高
+        file_h264->initEncode();
+        file_h264->start();
+        QString saveVideoFile = QString("%1/%2%3").arg(SavePath).arg(devName).arg(savaFormat);
+        de = new CTranceToDest(saveVideoFile, file264);
+        de->start();
+    }
 }
 
 DecodeThread::~DecodeThread()
@@ -27,6 +35,10 @@ DecodeThread::~DecodeThread()
 // 线程跑动解码播放
 void DecodeThread::run()
 {
+    if (!decodeReady)
+    {
+        return;
+    }
     // 7、读码流数据
     int num = 0;
     QString path;
@@ -36,6 +48,7 @@ void DecodeThread::run()
     double durationInSeconds = duration * timebase.num / (double)timebase.den;
     emit this->sentvideoTime(durationInSeconds);
 
+    const int frameDelayMs = cameraInput ? 10 : 33;
     while (1)
     {
         m_mutex.lock();
@@ -44,7 +57,8 @@ void DecodeThread::run()
             m_pauseCondition.wait(&m_mutex); // 阻塞直到被唤醒
         }
         m_mutex.unlock();
-        if (av_read_frame(VPContext, packet) == 0) // 将视频一帧一帧读出来，放在码流数据中。avpacket（码流数据） 解封装。
+        int readResult = av_read_frame(VPContext, packet);
+        if (readResult == 0) // 将视频一帧一帧读出来，放在码流数据中。avpacket（码流数据） 解封装。
         {
             int ptr = -1;
             if (packet->stream_index == index) // 确保是视频的数据，因为里面也有可能有音频。 解码流数据。
@@ -56,36 +70,33 @@ void DecodeThread::run()
                     // sws_scale用于 图像缩放和像素格式转换
                     sws_scale(sws, (const uint8_t *const *)picture->data, picture->linesize,
                               0, Vcodecontext->height, pictureRGB->data, pictureRGB->linesize);
-                    // 转换为YUV420P格式
-                    sws_scale(swsYUV, (const uint8_t *const *)picture->data, picture->linesize,
-                              0, Vcodecontext->height, pictureYUV->data, pictureYUV->linesize);
-                    file_h264->addFrame(pictureYUV);
+                    if (file_h264 != nullptr && swsYUV != nullptr && pictureYUV != nullptr)
+                    {
+                        // 只有真实摄像头录制时才转换 YUV，模拟视频只做预览。
+                        sws_scale(swsYUV, (const uint8_t *const *)picture->data, picture->linesize,
+                                  0, Vcodecontext->height, pictureYUV->data, pictureYUV->linesize);
+                        file_h264->addFrame(pictureYUV);
+                    }
                     QImage img = QImage((uchar *)bufferRGB, Vcodecontext->width, Vcodecontext->height, QImage::Format_RGB32);
                     if (detectFaceFlag)
                     {
-                        static int frameCount = 0;
-                        frameCount++;
-
-                        // 每3帧检测一次，减少检测频率
-                        if (frameCount % 3 == 0)
+                        bool runFaceDetection = false;
+                        if (detectFaceFlag)
                         {
-                            // 在子线程中异步处理，避免阻塞
-                            // 或者使用 QMetaObject::invokeMethod 在其他线程处理
-                            img = detectFace->ImageTocvMat(img);
+                            ++faceDetectFrameCount;
+                            runFaceDetection = (faceDetectFrameCount == 1 || faceDetectFrameCount % 2 == 0);
                         }
                         else
                         {
-                            // 跳过检测，直接使用原图
-                            // 但仍需要确保格式正确
-                            if (img.format() != QImage::Format_RGB32)
-                            {
-                                img = img.convertToFormat(QImage::Format_RGB32);
-                            }
+                            faceDetectFrameCount = 0;
                         }
+
+                        img = detectFace->detectAndDraw(img, detectFaceFlag, runFaceDetection);
                     }
 
                     emit this->sentImg(img);
-                    QString file = QString("./savaPicture/%1.png").arg(this->picSrcName);
+                    UserStorage::ensureCurrentUserDirs();
+                    QString file = QDir(UserStorage::pictureDir()).filePath(QString("%1.png").arg(this->picSrcName));
                     // 截图保存
                     if (savaflagScr == true)
                     {
@@ -94,10 +105,21 @@ void DecodeThread::run()
                         savaflagScr = false;
                     }
 
-                    QThread::msleep(10);
+                    QThread::msleep(frameDelayMs);
                 }
             }
             av_packet_unref(packet); // 释放packet引用
+        }
+        else if (!cameraInput)
+        {
+            av_seek_frame(VPContext, index, 0, AVSEEK_FLAG_BACKWARD);
+            avcodec_flush_buffers(Vcodecontext);
+            av_packet_unref(packet);
+            QThread::msleep(frameDelayMs);
+        }
+        else
+        {
+            QThread::msleep(10);
         }
     }
 }
@@ -123,12 +145,16 @@ void DecodeThread::initDecode()
      * windows上打开摄像头
      * dshow：推流方式
      */
-    AVInputFormat *fmt = av_find_input_format("dshow");
+    cameraInput = fileName.startsWith("video=");
+    AVInputFormat *fmt = cameraInput ? av_find_input_format("dshow") : nullptr;
+    QByteArray inputName = cameraInput
+            ? fileName.toUtf8()
+            : QDir::toNativeSeparators(fileName).toLocal8Bit();
 
-    res = avformat_open_input(&VPContext, fileName.toUtf8(), fmt, nullptr);
+    res = avformat_open_input(&VPContext, inputName.constData(), fmt, nullptr);
     if (res != 0)
     {
-        qDebug() << "摄像头打开失败";
+        qDebug() << (cameraInput ? "摄像头打开失败" : "模拟视频打开失败") << fileName;
         return;
     }
 
@@ -155,6 +181,7 @@ void DecodeThread::initDecode()
     if (index == -1)
     {
         qDebug() << "not stream";
+        return;
     }
 
     // 5放入编解码器上下文封装
@@ -185,36 +212,36 @@ void DecodeThread::initDecode()
     // AVFrame用于保存数据帧的数据结构，AVFrame 用于保存转换之后的帧
     this->picture = av_frame_alloc();    // 需要这个空间用来填充一帧AVFrame
     this->pictureRGB = av_frame_alloc(); // 这个空间用来填充一帧的RGB
-    // 初始化YUV帧
-    this->pictureYUV = av_frame_alloc();
-    if (!pictureYUV)
+    if (cameraInput)
     {
-        qDebug() << "Failed to allocate YUV frame!";
-        return;
-    }
-    // 设置 YUV 帧的格式、宽度和高度
-    pictureYUV->format = AV_PIX_FMT_YUV420P;
-    pictureYUV->width = Vcodecontext->width;
-    pictureYUV->height = Vcodecontext->height;
-    // 计算YUV格式所需缓冲区大小
-    int numbytesYUV = avpicture_get_size(AV_PIX_FMT_YUV420P, Vcodecontext->width, Vcodecontext->height);
-    this->bufferYUV = (uint8_t *)av_malloc(numbytesYUV * sizeof(uint8_t));
-    if (!bufferYUV)
-    {
-        qDebug() << "Failed to allocate YUV buffer!";
-        return;
-    }
+        // 初始化YUV帧。只有真实摄像头需要写入录制编码队列。
+        this->pictureYUV = av_frame_alloc();
+        if (!pictureYUV)
+        {
+            qDebug() << "Failed to allocate YUV frame!";
+            return;
+        }
+        pictureYUV->format = AV_PIX_FMT_YUV420P;
+        pictureYUV->width = Vcodecontext->width;
+        pictureYUV->height = Vcodecontext->height;
+        int numbytesYUV = avpicture_get_size(AV_PIX_FMT_YUV420P, Vcodecontext->width, Vcodecontext->height);
+        this->bufferYUV = (uint8_t *)av_malloc(numbytesYUV * sizeof(uint8_t));
+        if (!bufferYUV)
+        {
+            qDebug() << "Failed to allocate YUV buffer!";
+            return;
+        }
 
-    // 填充 YUV 帧
-    avpicture_fill((AVPicture *)pictureYUV, bufferYUV, AV_PIX_FMT_YUV420P, Vcodecontext->width, Vcodecontext->height);
-    this->swsYUV = sws_getContext(
-        Vcodecontext->width, Vcodecontext->height, Vcodecontext->pix_fmt,
-        Vcodecontext->width, Vcodecontext->height,
-        AV_PIX_FMT_YUV420P, SWS_BILINEAR, nullptr, nullptr, nullptr);
-    if (!swsYUV)
-    {
-        qDebug() << "Failed to create YUV conversion context!";
-        return;
+        avpicture_fill((AVPicture *)pictureYUV, bufferYUV, AV_PIX_FMT_YUV420P, Vcodecontext->width, Vcodecontext->height);
+        this->swsYUV = sws_getContext(
+            Vcodecontext->width, Vcodecontext->height, Vcodecontext->pix_fmt,
+            Vcodecontext->width, Vcodecontext->height,
+            AV_PIX_FMT_YUV420P, SWS_BILINEAR, nullptr, nullptr, nullptr);
+        if (!swsYUV)
+        {
+            qDebug() << "Failed to create YUV conversion context!";
+            return;
+        }
     }
 
     // 需要计算一下，填充一帧RGB格式需要多大空间
@@ -238,6 +265,7 @@ void DecodeThread::initDecode()
         Vcodecontext->width, Vcodecontext->height, Vcodecontext->pix_fmt,
         Vcodecontext->width, Vcodecontext->height, // 输出尺寸减小
         AV_PIX_FMT_RGB32, SWS_BICUBIC, nullptr, nullptr, nullptr);
+    decodeReady = sws != nullptr && (!cameraInput || swsYUV != nullptr);
 }
 // 跳转到具体的秒
 void DecodeThread::seekToFrame(int seconds)
@@ -316,14 +344,26 @@ void DecodeThread::savaPictureScr(QString picSrcName)
 void DecodeThread::startStopDetectfaceSlot(bool detectFaceFlag)
 {
     this->detectFaceFlag = detectFaceFlag;
+    this->faceDetectFrameCount = 0;
 }
 
 void DecodeThread::saveVideos()
 {
+    if (de == nullptr)
+    {
+        qDebug() << "模拟视频通道不启动录制转码";
+        emit alarmRaised(QString::fromUtf8(u8"低"), devName, QString::fromUtf8(u8"模拟视频不支持录像"));
+        return;
+    }
+
     QDir dir(SavePath);
     if (!dir.exists())
     {
-        dir.mkpath(".");
+        if (!dir.mkpath("."))
+        {
+            emit alarmRaised(QString::fromUtf8(u8"高"), devName, QString::fromUtf8(u8"录像目录创建失败"));
+            return;
+        }
     }
 
     QString saveTime = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
@@ -343,8 +383,11 @@ void DecodeThread::saveVideos()
     de->setOutputFile(saveVideoFile);
     de->setFlag(true);
 
-    QMySqlite *db = QMySqlite::getInstance(QDir::current().filePath("monitor_records.db"));
-    db->insertVideoRecord(devName, saveVideoFile, saveTime, savaFormat);
+    QMySqlite *db = QMySqlite::getInstance(UserStorage::recordDbPath());
+    if (!db->insertVideoRecord(devName, saveVideoFile, saveTime, savaFormat))
+    {
+        emit alarmRaised(QString::fromUtf8(u8"高"), devName, QString::fromUtf8(u8"录像写入数据库失败"));
+    }
 }
 
 void DecodeThread::getTime(QString m_times)

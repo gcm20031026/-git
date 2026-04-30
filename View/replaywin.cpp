@@ -1,6 +1,9 @@
 ﻿#include "replaywin.h"
+#include "data/userstorage.h"
 #include "math.h"
 #include <QFileInfo>
+#include <QTextCharFormat>
+#include <QToolButton>
 ReplayWin::ReplayWin(QWidget *parent) : QWidget(parent)
 {
     // Test file path must be relative to the application working directory.
@@ -9,6 +12,7 @@ ReplayWin::ReplayWin(QWidget *parent) : QWidget(parent)
     // connect(this->pt,SIGNAL(toImg(QImage,QLabel*)),this,SLOT(showImage(QImage,QLabel*)));
     // pt->setbeginAndStopBool(false);
     // pt->start();
+    applyModernUi();
 }
 
 void ReplayWin::initialize_control()
@@ -182,6 +186,94 @@ void ReplayWin::addControl_control()
     this->progressBarButtonLayout->addWidget(this->speedComboBox);
     this->progressBarButtonLayout->addStretch(0);
     refreshReplayRecordList();
+}
+
+void ReplayWin::applyModernUi()
+{
+    font01.setFamily("Microsoft YaHei UI");
+    font02.setFamily("Microsoft YaHei UI");
+    font02.setPointSize(20);
+
+    listWin_Widget->setStyleSheet("background-color: #111827; border-right: 1px solid #263244;");
+    vedioWin_Widget->setStyleSheet("background-color: #050816;");
+    vedio_Widget_NO->setStyleSheet("background-color: #050816;");
+    vedio_Widget_NOWin->setStyleSheet("background-color: transparent;");
+    scrollArea_Widget->setStyleSheet("background-color: transparent;");
+    listItem_Widget->setStyleSheet("background-color: transparent;");
+    recordListHintLabel->setText(QString::fromUtf8(u8"选择日期查看录像"));
+    recordListHintLabel->setFont(font01);
+    recordListHintLabel->setStyleSheet("QLabel { color: #dbeafe; background-color: #182235; border-top: 1px solid #263244; border-bottom: 1px solid #263244; font-weight: 700; }");
+    noCameraLabel->setText(QString::fromUtf8(u8"当前未选择录像\n请在左侧日期列表中选择录像，或从检索模块勾选录像回放"));
+    noCameraLabel->setFont(font02);
+    noCameraLabel->setAlignment(Qt::AlignCenter);
+    noCameraLabel->setStyleSheet("QLabel { color: #cbd5e1; background: transparent; font-weight: 500; }");
+
+    QTextCharFormat weekdayFormat;
+    weekdayFormat.setForeground(QColor("#cbd5e1"));
+    weekdayFormat.setBackground(QColor("#111827"));
+    QTextCharFormat weekendFormat;
+    weekendFormat.setForeground(QColor("#fca5a5"));
+    weekendFormat.setBackground(QColor("#111827"));
+    qCalendarWidgetTime->setWeekdayTextFormat(Qt::Monday, weekdayFormat);
+    qCalendarWidgetTime->setWeekdayTextFormat(Qt::Tuesday, weekdayFormat);
+    qCalendarWidgetTime->setWeekdayTextFormat(Qt::Wednesday, weekdayFormat);
+    qCalendarWidgetTime->setWeekdayTextFormat(Qt::Thursday, weekdayFormat);
+    qCalendarWidgetTime->setWeekdayTextFormat(Qt::Friday, weekdayFormat);
+    qCalendarWidgetTime->setWeekdayTextFormat(Qt::Saturday, weekendFormat);
+    qCalendarWidgetTime->setWeekdayTextFormat(Qt::Sunday, weekendFormat);
+    qCalendarWidgetTime->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
+    qCalendarWidgetTime->setHorizontalHeaderFormat(QCalendarWidget::ShortDayNames);
+    qCalendarWidgetTime->setGridVisible(false);
+    qCalendarWidgetTime->setNavigationBarVisible(true);
+    qCalendarWidgetTime->setFont(font01);
+
+    qCalendarWidgetTime->setStyleSheet(
+        "QCalendarWidget { background-color: #111827; border: none; color: #e2e8f0; }"
+        "QCalendarWidget QWidget { background-color: #111827; color: #e2e8f0; }"
+        "QCalendarWidget QWidget#qt_calendar_navigationbar { background-color: #0f172a; border-bottom: 1px solid #263244; }"
+        "QCalendarWidget QToolButton { height: 30px; min-width: 34px; color: #f8fafc; background-color: #182235; border: 1px solid #334155; border-radius: 8px; margin: 4px; padding: 2px 8px; font-weight: 700; }"
+        "QCalendarWidget QToolButton:hover { background-color: #233148; border-color: #22d3ee; }"
+        "QCalendarWidget QToolButton:pressed { background-color: #0f766e; border-color: #2dd4bf; }"
+        "QCalendarWidget QToolButton::menu-indicator { image: none; width: 0; }"
+        "QCalendarWidget QMenu { background-color: #111827; color: #e2e8f0; border: 1px solid #334155; padding: 6px; }"
+        "QCalendarWidget QMenu::item { padding: 6px 18px; border-radius: 5px; }"
+        "QCalendarWidget QMenu::item:selected { background-color: #0f766e; color: #ffffff; }"
+        "QCalendarWidget QSpinBox { height: 28px; margin: 4px; color: #f8fafc; background-color: #182235; border: 1px solid #334155; border-radius: 8px; padding: 0 8px; selection-background-color: #0f766e; }"
+        "QCalendarWidget QSpinBox::up-button, QCalendarWidget QSpinBox::down-button { width: 0; border: none; }"
+        "QCalendarWidget QTableView { background-color: #111827; alternate-background-color: #111827; color: #e2e8f0; selection-background-color: #0f766e; selection-color: white; border: none; outline: none; gridline-color: #111827; }"
+        "QCalendarWidget QAbstractItemView { background-color: #111827; color: #e2e8f0; selection-background-color: #0f766e; selection-color: white; outline: none; border: none; }"
+        "QCalendarWidget QHeaderView::section { background-color: #182235; color: #94a3b8; border: none; padding: 7px 0; font-weight: 700; }");
+    if (QToolButton *prevButton = qCalendarWidgetTime->findChild<QToolButton *>("qt_calendar_prevmonth")) {
+        prevButton->setText("<");
+        prevButton->setIcon(QIcon());
+    }
+    if (QToolButton *nextButton = qCalendarWidgetTime->findChild<QToolButton *>("qt_calendar_nextmonth")) {
+        nextButton->setText(">");
+        nextButton->setIcon(QIcon());
+    }
+    cameraArea_scrollArea->setStyleSheet(
+        "QScrollArea { background: transparent; border: none; }"
+        "QScrollBar:vertical { background: #111827; width: 8px; margin: 0; border-radius: 4px; }"
+        "QScrollBar::handle:vertical { background: #475569; border-radius: 4px; min-height: 28px; }"
+        "QScrollBar::handle:vertical:hover { background: #64748b; }"
+        "QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }");
+    cameraListLayout->setContentsMargins(12, 12, 12, 12);
+    cameraListLayout->setSpacing(8);
+
+    progressBar_Widget->setFixedHeight(72);
+    progressBar_Widget->setStyleSheet("background-color: #0f172a; border-top: 1px solid #263244;");
+    progressBarButton_Widget->setStyleSheet("background-color: #0f172a;");
+    progressBar->setStyleSheet(
+        "QSlider::groove:horizontal { height: 8px; border-radius: 4px; background: #0f172a; }"
+        "QSlider::sub-page:horizontal { border-radius: 4px; background: #14b8a6; }"
+        "QSlider::add-page:horizontal { border-radius: 4px; background: #334155; }"
+        "QSlider::handle:horizontal { width: 16px; height: 16px; margin: -5px 0; border-radius: 8px; background: #f8fafc; border: 1px solid #67e8f9; }"
+        "QSlider::handle:horizontal:hover { background: #ffffff; border-color: #22d3ee; }");
+    speedComboBox->setStyleSheet(
+        "QComboBox { color: #f8fafc; background-color: #182235; border: 1px solid #334155; border-radius: 8px; padding-left: 8px; }"
+        "QComboBox:hover { border: 1px solid #22d3ee; }"
+        "QComboBox::drop-down { width: 18px; border: none; }"
+        "QComboBox QAbstractItemView { color: #f8fafc; background-color: #111827; selection-background-color: #0f766e; outline: none; }");
 }
 
 void ReplayWin::initialize_camera(int CameraNum)
@@ -382,7 +474,7 @@ void ReplayWin::refreshReplayRecordList()
     replayRecordList.clear();
 
     QString dateText = qCalendarWidgetTime->selectedDate().toString("yyyy-MM-dd");
-    QVector<VideoRecord> records = QMySqlite::getInstance(QDir::current().filePath("monitor_records.db"))
+    QVector<VideoRecord> records = QMySqlite::getInstance(UserStorage::recordDbPath())
                                        ->queryVideoRecords(dateText, QString());
 
     for (int i = 0; i < records.size(); ++i)
@@ -402,7 +494,7 @@ void ReplayWin::refreshReplayRecordList()
         emptyLabel->setAlignment(Qt::AlignCenter);
         emptyLabel->setFixedHeight(48);
         emptyLabel->setFont(this->font01);
-        emptyLabel->setStyleSheet("QLabel { color: #d0d0d0; background-color: #343434; }");
+        emptyLabel->setStyleSheet("QLabel { color: #94a3b8; background-color: #182235; border: 1px solid #263244; border-radius: 8px; }");
         cameraListLayout->addWidget(emptyLabel);
         cameraListLayout->addStretch(0);
         return;
@@ -426,18 +518,9 @@ void ReplayWin::refreshReplayRecordList()
         button->setFixedHeight(58);
         button->setFont(this->font01);
         button->setStyleSheet(
-            "QPushButton {"
-            "text-align: left;"
-            "padding-left: 10px;"
-            "border: 1px solid #666666;"
-            "border-radius: 6px;"
-            "color: white;"
-            "background-color: #3b3b3b;"
-            "}"
-            "QPushButton:hover {"
-            "border: 1px solid #14b8c7;"
-            "background-color: #474747;"
-            "}");
+            "QPushButton { text-align: left; padding-left: 10px; border: 1px solid #263244; border-radius: 8px; color: #e2e8f0; background-color: #182235; }"
+            "QPushButton:hover { border: 1px solid #22d3ee; background-color: #233148; color: #ffffff; }"
+            "QPushButton:pressed { background-color: #0f766e; border-color: #5eead4; }");
         connect(button, &QPushButton::clicked, this, [this, button]()
                 { playRecordAt(button->property("recordIndex").toInt()); });
         Buttons.push_back(button);

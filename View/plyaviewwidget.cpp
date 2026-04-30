@@ -1,7 +1,11 @@
 ﻿#include "plyaviewwidget.h"
 #include <QDebug>
+#include <QDir>
+#include <QFileInfo>
 #include <QMouseEvent>
 #include <QMessageBox>
+
+static DecodeThread *sharedSimulationVideos[4] = {nullptr, nullptr, nullptr, nullptr};
 
 plyaViewWidget::plyaViewWidget(QWidget *parent, int id, QString devName) : QWidget(parent)
 {
@@ -15,13 +19,14 @@ plyaViewWidget::plyaViewWidget(QWidget *parent, int id, QString devName) : QWidg
 
     this->setTimeLable(); // 显示时间
 
-    videoPlay->setStyleSheet("border: 2px solid gray;"); // 设置红色边框
+    videoPlay->setStyleSheet("border: 1px solid #263244; border-radius: 2px; background-color: #020617;");
 
     // 初始化右键菜单
     createMenu();
     myCamera = new MyCamera(this);
-    // 摄像头显示
-    showCamera();
+    videoPlay->setText("等待打开");
+    videoPlay->setAlignment(Qt::AlignCenter);
+    videoPlay->setStyleSheet("border: 1px solid #263244; border-radius: 2px; color: #94a3b8; background-color: #020617;");
 }
 
 void plyaViewWidget::setTimeLable()
@@ -29,7 +34,7 @@ void plyaViewWidget::setTimeLable()
     // 时间标签 - 现在放在顶部
     timeLabel = new QLabel(this);
     timeLabel->setAlignment(Qt::AlignCenter);
-    timeLabel->setStyleSheet("color: white; background-color: rgba(0,0,0,0.7); padding: 2px;");
+    timeLabel->setStyleSheet("color: #dbeafe; background-color: #111827; border-bottom: 1px solid #263244; padding: 2px; font-weight: 700;");
     timeLabel->setFixedHeight(24); // 稍微增加高度
 
     // 视频内容区域
@@ -92,11 +97,11 @@ void plyaViewWidget::enterEvent(QEvent *event)
 {
     if (cameraAvailable)
     {
-        videoPlay->setStyleSheet("border: 2px solid cyan;");
+        videoPlay->setStyleSheet("border: 1px solid #22d3ee; border-radius: 2px;");
     }
     else
     {
-        videoPlay->setStyleSheet("border: 2px solid cyan; color: white; background-color: black;");
+        videoPlay->setStyleSheet("border: 1px solid #22d3ee; border-radius: 2px; color: #f8fafc; background-color: #020617;");
     }
 }
 // 鼠标离开显示黑色边框
@@ -104,11 +109,11 @@ void plyaViewWidget::leaveEvent(QEvent *event)
 {
     if (cameraAvailable)
     {
-        videoPlay->setStyleSheet("border: 2px solid gray;");
+        videoPlay->setStyleSheet("border: 1px solid #263244; border-radius: 2px;");
     }
     else
     {
-        videoPlay->setStyleSheet("border: 2px solid gray; color: white; background-color: black;");
+        videoPlay->setStyleSheet("border: 1px solid #263244; border-radius: 2px; color: #94a3b8; background-color: #020617;");
     }
 }
 // 鼠标右击出现上下文菜单
@@ -120,30 +125,108 @@ void plyaViewWidget::mousePressEvent(QMouseEvent *event)
     }
 }
 
+void plyaViewWidget::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton)
+    {
+        emit doubleClicked(id);
+        event->accept();
+        return;
+    }
+    QWidget::mouseDoubleClickEvent(event);
+}
+
 void plyaViewWidget::showCamera()
 {
-
-    QString cameraInfo = myCamera->getCameraInfo(id);
-    if (cameraInfo.isEmpty())
+    if (previewStarted)
     {
-        cameraAvailable = false;
-        videoPlay->setText("摄像头不存在");
-        videoPlay->setAlignment(Qt::AlignCenter);
-        videoPlay->setStyleSheet("border: 2px solid gray; color: white; background-color: black;");
+        return;
+    }
+    previewStarted = true;
+
+    QString inputName;
+    if (id < 2)
+    {
+        QString cameraInfo = myCamera->getCameraInfo(id);
+        if (cameraInfo.isEmpty())
+        {
+            cameraAvailable = false;
+            videoPlay->setText("摄像头不存在");
+            videoPlay->setAlignment(Qt::AlignCenter);
+            videoPlay->setStyleSheet("border: 1px solid #263244; border-radius: 2px; color: #94a3b8; background-color: #020617;");
+            emit alarmRaised(QString::fromUtf8(u8"高"), devName, QString::fromUtf8(u8"设备离线"));
+            return;
+        }
+        inputName = QString("video=%1").arg(cameraInfo);
+    }
+    else
+    {
+        int simulationIndex = 0;
+        if (id >= 12)
+        {
+            simulationIndex = 3;
+        }
+        else if (id >= 8)
+        {
+            simulationIndex = 2;
+        }
+        else if (id >= 4)
+        {
+            simulationIndex = 1;
+        }
+
+        const QString videoFileName = QString("VurVideo%1.mp4").arg(simulationIndex);
+
+        inputName = QDir::current().filePath(QString("savaVideos/%1").arg(videoFileName));
+        if (!QFileInfo::exists(inputName))
+        {
+            inputName = QString("D:/biyesheji/Security_surveillance_system/Security_surveillance_system2/bin/savaVideos/%1").arg(videoFileName);
+        }
+        if (!QFileInfo::exists(inputName))
+        {
+            cameraAvailable = false;
+            videoPlay->setText(QString::fromUtf8("模拟视频不存在"));
+            videoPlay->setAlignment(Qt::AlignCenter);
+            videoPlay->setStyleSheet("border: 1px solid #263244; border-radius: 2px; color: #94a3b8; background-color: #020617;");
+            emit alarmRaised(QString::fromUtf8(u8"中"), devName, QString::fromUtf8(u8"视频源文件缺失"));
+            return;
+        }
+
+        if (sharedSimulationVideos[simulationIndex] == nullptr)
+        {
+            sharedSimulationVideos[simulationIndex] = new DecodeThread(
+                inputName,
+                QString::fromUtf8("模拟视频源%1").arg(simulationIndex));
+            sharedSimulationVideos[simulationIndex]->start();
+        }
+
+        video = sharedSimulationVideos[simulationIndex];
+        cameraAvailable = true;
+        connect(this->video, &DecodeThread::sentImg, this, &plyaViewWidget::getImg, Qt::UniqueConnection);
+        connect(this->video, &DecodeThread::alarmRaised, this, &plyaViewWidget::alarmRaised, Qt::UniqueConnection);
+        connect(this, &plyaViewWidget::savePicture, this->video, &DecodeThread::savaPictureScr, Qt::UniqueConnection);
+        connect(this, &plyaViewWidget::startStopDetectfaceSignal, this->video, &DecodeThread::startStopDetectfaceSlot, Qt::UniqueConnection);
+        connect(this, &plyaViewWidget::saveVideosSignal, this->video, &DecodeThread::saveVideos, Qt::UniqueConnection);
+        connect(this, &plyaViewWidget::setTimeSignal, this->video, &DecodeThread::getTime, Qt::UniqueConnection);
         return;
     }
 
-    QString cameraName = QString("video=%1").arg(cameraInfo);
-    if (!cameraInfo.isEmpty())
+    video = new DecodeThread(inputName, this->devName);
+    video->start();
+    cameraAvailable = true;
+    connect(this->video, &DecodeThread::sentImg, this, &plyaViewWidget::getImg, Qt::UniqueConnection);
+    connect(this->video, &DecodeThread::alarmRaised, this, &plyaViewWidget::alarmRaised, Qt::UniqueConnection);
+    connect(this, &plyaViewWidget::savePicture, this->video, &DecodeThread::savaPictureScr, Qt::UniqueConnection);
+    connect(this, &plyaViewWidget::startStopDetectfaceSignal, this->video, &DecodeThread::startStopDetectfaceSlot, Qt::UniqueConnection);
+    connect(this, &plyaViewWidget::saveVideosSignal, this->video, &DecodeThread::saveVideos, Qt::UniqueConnection);
+    connect(this, &plyaViewWidget::setTimeSignal, this->video, &DecodeThread::getTime, Qt::UniqueConnection);
+}
+
+void plyaViewWidget::startPreviewIfNeeded()
+{
+    if (!previewStarted)
     {
-        video = new DecodeThread(cameraName, this->devName);
-        video->start();
-        cameraAvailable = true;
-        connect(this->video, &DecodeThread::sentImg, this, &plyaViewWidget::getImg);
-        connect(this, &plyaViewWidget::savePicture, this->video, &DecodeThread::savaPictureScr);
-        connect(this, &plyaViewWidget::startStopDetectfaceSignal, this->video, &DecodeThread::startStopDetectfaceSlot);
-        connect(this, &plyaViewWidget::saveVideosSignal, this->video, &DecodeThread::saveVideos);
-        connect(this, &plyaViewWidget::setTimeSignal, this->video, &DecodeThread::getTime);
+        showCamera();
     }
 }
 
@@ -169,7 +252,7 @@ void plyaViewWidget::getImg(QImage img)
     QPixmap pix = QPixmap::fromImage(img);
 
     // 按显示区域大小填充，避免边框内出现黑边
-    pix = pix.scaled(x, y, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    pix = pix.scaled(x, y, Qt::IgnoreAspectRatio, Qt::FastTransformation);
 
     videoPlay->setPixmap(pix);
     videoPlay->setAlignment(Qt::AlignCenter);
@@ -186,7 +269,7 @@ void plyaViewWidget::changeSize()
     // 确保视频显示区域适应新的大小
     if (videoPlay->pixmap())
     {
-        QPixmap pix = videoPlay->pixmap()->scaled(x, y, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+        QPixmap pix = videoPlay->pixmap()->scaled(x, y, Qt::IgnoreAspectRatio, Qt::FastTransformation);
         videoPlay->setPixmap(pix);
         videoPlay->setAlignment(Qt::AlignCenter);
     }
@@ -246,15 +329,11 @@ void plyaViewWidget::SlotMenuClicked(QAction *action)
 
         if (detectFaceFlag)
         {
-            action->setText("开启人脸检测");
-            detectFaceFlag = false;
-            emit this->startStopDetectfaceSignal(detectFaceFlag);
+            setFaceDetectEnabled(false);
         }
         else
         {
-            action->setText("关闭人脸检测");
-            detectFaceFlag = true;
-            emit this->startStopDetectfaceSignal(detectFaceFlag);
+            setFaceDetectEnabled(true);
         }
     }
     else if (action == this->saveVideos)
@@ -262,6 +341,7 @@ void plyaViewWidget::SlotMenuClicked(QAction *action)
         if (video == nullptr)
         {
             QMessageBox::information(this, "提示", "当前摄像头不存在，无法保存视频。");
+            emit alarmRaised(QString::fromUtf8(u8"中"), devName, QString::fromUtf8(u8"录像操作失败"));
             return;
         }
 
@@ -273,6 +353,20 @@ void plyaViewWidget::SlotMenuClicked(QAction *action)
         emit this->setTimeSignal(m_times);
     }
 }
+
+void plyaViewWidget::setFaceDetectEnabled(bool enabled)
+{
+    detectFaceFlag = enabled;
+    if (detectFace != nullptr)
+    {
+        detectFace->setText(enabled ? QString::fromUtf8("关闭人脸检测") : QString::fromUtf8("开启人脸检测"));
+    }
+    if (video != nullptr)
+    {
+        emit this->startStopDetectfaceSignal(detectFaceFlag);
+    }
+}
+
 // 添加切换菜单项
 void plyaViewWidget::addMenuSwitchItem()
 {

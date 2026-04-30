@@ -53,7 +53,9 @@ SOURCES       = Control\formatoption.cpp \
 		Control\mycamera.cpp \
 		Control\pathwitheditbutton.cpp \
 		Control\versoninfowidget.cpp \
+		View\alarmwin.cpp \
 		View\configurationwin.cpp \
+		View\loginwindow.cpp \
 		View\plyaviewwidget.cpp \
 		View\replaywin.cpp \
 		View\retrievalwin.cpp \
@@ -63,6 +65,7 @@ SOURCES       = Control\formatoption.cpp \
 		buildTarVideo\ctrancetodest.cpp \
 		buildTarVideo\opencvdetect.cpp \
 		data\qmysqlite.cpp \
+		data\userstorage.cpp \
 		main.cpp \
 		playThread\audiodecodethread.cpp \
 		playThread\decodethread.cpp \
@@ -75,7 +78,9 @@ SOURCES       = Control\formatoption.cpp \
 		release\moc_mycamera.cpp \
 		release\moc_pathwitheditbutton.cpp \
 		release\moc_versoninfowidget.cpp \
+		release\moc_alarmwin.cpp \
 		release\moc_configurationwin.cpp \
+		release\moc_loginwindow.cpp \
 		release\moc_plyaviewwidget.cpp \
 		release\moc_replaywin.cpp \
 		release\moc_retrievalwin.cpp \
@@ -90,7 +95,9 @@ OBJECTS       = release/formatoption.o \
 		release/mycamera.o \
 		release/pathwitheditbutton.o \
 		release/versoninfowidget.o \
+		release/alarmwin.o \
 		release/configurationwin.o \
+		release/loginwindow.o \
 		release/plyaviewwidget.o \
 		release/replaywin.o \
 		release/retrievalwin.o \
@@ -100,6 +107,7 @@ OBJECTS       = release/formatoption.o \
 		release/ctrancetodest.o \
 		release/opencvdetect.o \
 		release/qmysqlite.o \
+		release/userstorage.o \
 		release/main.o \
 		release/audiodecodethread.o \
 		release/decodethread.o \
@@ -113,7 +121,9 @@ OBJECTS       = release/formatoption.o \
 		release/moc_mycamera.o \
 		release/moc_pathwitheditbutton.o \
 		release/moc_versoninfowidget.o \
+		release/moc_alarmwin.o \
 		release/moc_configurationwin.o \
+		release/moc_loginwindow.o \
 		release/moc_plyaviewwidget.o \
 		release/moc_replaywin.o \
 		release/moc_retrievalwin.o \
@@ -129,7 +139,9 @@ DIST          =  Control\formatoption.h \
 		Control\mycamera.h \
 		Control\pathwitheditbutton.h \
 		Control\versoninfowidget.h \
+		View\alarmwin.h \
 		View\configurationwin.h \
+		View\loginwindow.h \
 		View\plyaviewwidget.h \
 		View\replaywin.h \
 		View\retrievalwin.h \
@@ -139,6 +151,7 @@ DIST          =  Control\formatoption.h \
 		buildTarVideo\ctrancetodest.h \
 		buildTarVideo\opencvdetect.h \
 		data\qmysqlite.h \
+		data\userstorage.h \
 		playThread\audiodecodethread.h \
 		playThread\decodethread.h \
 		playThread\ffmpegwriterdest.h \
@@ -149,7 +162,9 @@ DIST          =  Control\formatoption.h \
 		Control\mycamera.cpp \
 		Control\pathwitheditbutton.cpp \
 		Control\versoninfowidget.cpp \
+		View\alarmwin.cpp \
 		View\configurationwin.cpp \
+		View\loginwindow.cpp \
 		View\plyaviewwidget.cpp \
 		View\replaywin.cpp \
 		View\retrievalwin.cpp \
@@ -159,6 +174,7 @@ DIST          =  Control\formatoption.h \
 		buildTarVideo\ctrancetodest.cpp \
 		buildTarVideo\opencvdetect.cpp \
 		data\qmysqlite.cpp \
+		data\userstorage.cpp \
 		main.cpp \
 		playThread\audiodecodethread.cpp \
 		playThread\decodethread.cpp \
@@ -184,10 +200,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) Security_surveillance_system.zip $(SOURCES) $(DIST) Security_surveillance_system.pro ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\spec_pre.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\qdevice.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\device_config.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\common\sanitize.conf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\common\gcc-base.conf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\common\g++-base.conf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\common\angle.conf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\common\windows-vulkan.conf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\common\g++-win32.conf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\qconfig.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3danimation.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dextras.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3drender.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3drender_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axbase.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axserver.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_core.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_core_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_dbus.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_designer.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_edid_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gui.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_help.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_help_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_location.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_location_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_network.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_network_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_nfc.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_opengl.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioning.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioningquick.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioningquick_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qml.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quick.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_repparser.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_repparser_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_scxml.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sensors.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialport.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sql.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_svg.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_testlib.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_texttospeech.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_uitools.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_websockets.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_widgets.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_winextras.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xml.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\qt_functions.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\qt_config.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\win32-g++\qmake.conf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\exclusive_builds.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\toolchain.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\default_pre.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\win32\default_pre.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\resolve_config.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\exclusive_builds_post.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\default_post.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\build_pass.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\qml_debug.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\precompile_header.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\warn_on.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\qt.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\resources.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\moc.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\win32\opengl.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\uic.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\qmake_use.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\file_copies.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\win32\windows.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\testcase_targets.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\exceptions.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\yacc.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\lex.prf Security_surveillance_system.pro image.qrc ..\..\..\QtFile\5.12.9\mingw73_32\lib\Qt5Multimedia.prl ..\..\..\QtFile\5.12.9\mingw73_32\lib\Qt5Widgets.prl ..\..\..\QtFile\5.12.9\mingw73_32\lib\Qt5Gui.prl ..\..\..\QtFile\5.12.9\mingw73_32\lib\Qt5Network.prl ..\..\..\QtFile\5.12.9\mingw73_32\lib\Qt5Core.prl ..\..\..\QtFile\5.12.9\mingw73_32\lib\qtmain.prl   image.qrc ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\data\dummy.cpp Control\formatoption.h Control\infowidget.h Control\jdtmypushbutton.h Control\mycamera.h Control\pathwitheditbutton.h Control\versoninfowidget.h View\configurationwin.h View\plyaviewwidget.h View\replaywin.h View\retrievalwin.h buildTarVideo\cdecodetorgb.h buildTarVideo\cdecodetoyuv.h buildTarVideo\cencodetoh264.h buildTarVideo\ctrancetodest.h buildTarVideo\opencvdetect.h data\qmysqlite.h playThread\audiodecodethread.h playThread\decodethread.h playThread\ffmpegwriterdest.h view\mainwindow.h playThread\ffmpegtorgbkun.h  Control\formatoption.cpp Control\infowidget.cpp Control\jdtmypushbutton.cpp Control\mycamera.cpp Control\pathwitheditbutton.cpp Control\versoninfowidget.cpp View\configurationwin.cpp View\plyaviewwidget.cpp View\replaywin.cpp View\retrievalwin.cpp buildTarVideo\cdecodetorgb.cpp buildTarVideo\cdecodetoyuv.cpp buildTarVideo\cencodetoh264.cpp buildTarVideo\ctrancetodest.cpp buildTarVideo\opencvdetect.cpp data\qmysqlite.cpp main.cpp playThread\audiodecodethread.cpp playThread\decodethread.cpp playThread\ffmpegwriterdest.cpp view\mainwindow.cpp playThread\ffmpegtorgbkun.cpp     
+	$(ZIP) Security_surveillance_system.zip $(SOURCES) $(DIST) Security_surveillance_system.pro ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\spec_pre.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\qdevice.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\device_config.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\common\sanitize.conf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\common\gcc-base.conf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\common\g++-base.conf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\common\angle.conf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\common\windows-vulkan.conf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\common\g++-win32.conf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\qconfig.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3danimation.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dextras.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3drender.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_3drender_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axbase.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axserver.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_core.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_core_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_dbus.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_designer.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_edid_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gui.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_help.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_help_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_location.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_location_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_network.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_network_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_nfc.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_opengl.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioning.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioningquick.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_positioningquick_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qml.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quick.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_repparser.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_repparser_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_scxml.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sensors.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialport.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sql.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_svg.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_testlib.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_texttospeech.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_uitools.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_websockets.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_widgets.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_winextras.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xml.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\qt_functions.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\qt_config.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\win32-g++\qmake.conf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\exclusive_builds.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\toolchain.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\default_pre.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\win32\default_pre.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\resolve_config.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\exclusive_builds_post.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\default_post.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\build_pass.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\qml_debug.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\precompile_header.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\warn_on.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\qt.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\resources.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\moc.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\win32\opengl.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\uic.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\qmake_use.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\file_copies.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\win32\windows.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\testcase_targets.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\exceptions.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\yacc.prf ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\lex.prf Security_surveillance_system.pro image.qrc ..\..\..\QtFile\5.12.9\mingw73_32\lib\Qt5Multimedia.prl ..\..\..\QtFile\5.12.9\mingw73_32\lib\Qt5Widgets.prl ..\..\..\QtFile\5.12.9\mingw73_32\lib\Qt5Gui.prl ..\..\..\QtFile\5.12.9\mingw73_32\lib\Qt5Network.prl ..\..\..\QtFile\5.12.9\mingw73_32\lib\Qt5Core.prl ..\..\..\QtFile\5.12.9\mingw73_32\lib\qtmain.prl   image.qrc ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\data\dummy.cpp Control\formatoption.h Control\infowidget.h Control\jdtmypushbutton.h Control\mycamera.h Control\pathwitheditbutton.h Control\versoninfowidget.h View\alarmwin.h View\configurationwin.h View\loginwindow.h View\plyaviewwidget.h View\replaywin.h View\retrievalwin.h buildTarVideo\cdecodetorgb.h buildTarVideo\cdecodetoyuv.h buildTarVideo\cencodetoh264.h buildTarVideo\ctrancetodest.h buildTarVideo\opencvdetect.h data\qmysqlite.h data\userstorage.h playThread\audiodecodethread.h playThread\decodethread.h playThread\ffmpegwriterdest.h view\mainwindow.h playThread\ffmpegtorgbkun.h  Control\formatoption.cpp Control\infowidget.cpp Control\jdtmypushbutton.cpp Control\mycamera.cpp Control\pathwitheditbutton.cpp Control\versoninfowidget.cpp View\alarmwin.cpp View\configurationwin.cpp View\loginwindow.cpp View\plyaviewwidget.cpp View\replaywin.cpp View\retrievalwin.cpp buildTarVideo\cdecodetorgb.cpp buildTarVideo\cdecodetoyuv.cpp buildTarVideo\cencodetoh264.cpp buildTarVideo\ctrancetodest.cpp buildTarVideo\opencvdetect.cpp data\qmysqlite.cpp data\userstorage.cpp main.cpp playThread\audiodecodethread.cpp playThread\decodethread.cpp playThread\ffmpegwriterdest.cpp view\mainwindow.cpp playThread\ffmpegtorgbkun.cpp     
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\formatoption.o release\infowidget.o release\jdtmypushbutton.o release\mycamera.o release\pathwitheditbutton.o release\versoninfowidget.o release\configurationwin.o release\plyaviewwidget.o release\replaywin.o release\retrievalwin.o release\cdecodetorgb.o release\cdecodetoyuv.o release\cencodetoh264.o release\ctrancetodest.o release\opencvdetect.o release\qmysqlite.o release\main.o release\audiodecodethread.o release\decodethread.o release\ffmpegwriterdest.o release\mainwindow.o release\ffmpegtorgbkun.o release\qrc_image.o release\moc_formatoption.o release\moc_infowidget.o release\moc_jdtmypushbutton.o release\moc_mycamera.o release\moc_pathwitheditbutton.o release\moc_versoninfowidget.o release\moc_configurationwin.o release\moc_plyaviewwidget.o release\moc_replaywin.o release\moc_retrievalwin.o release\moc_opencvdetect.o release\moc_decodethread.o release\moc_ffmpegwriterdest.o release\moc_mainwindow.o release\moc_ffmpegtorgbkun.o
+	-$(DEL_FILE) release\formatoption.o release\infowidget.o release\jdtmypushbutton.o release\mycamera.o release\pathwitheditbutton.o release\versoninfowidget.o release\alarmwin.o release\configurationwin.o release\loginwindow.o release\plyaviewwidget.o release\replaywin.o release\retrievalwin.o release\cdecodetorgb.o release\cdecodetoyuv.o release\cencodetoh264.o release\ctrancetodest.o release\opencvdetect.o release\qmysqlite.o release\userstorage.o release\main.o release\audiodecodethread.o release\decodethread.o release\ffmpegwriterdest.o release\mainwindow.o release\ffmpegtorgbkun.o release\qrc_image.o release\moc_formatoption.o release\moc_infowidget.o release\moc_jdtmypushbutton.o release\moc_mycamera.o release\moc_pathwitheditbutton.o release\moc_versoninfowidget.o release\moc_alarmwin.o release\moc_configurationwin.o release\moc_loginwindow.o release\moc_plyaviewwidget.o release\moc_replaywin.o release\moc_retrievalwin.o release\moc_opencvdetect.o release\moc_decodethread.o release\moc_ffmpegwriterdest.o release\moc_mainwindow.o release\moc_ffmpegtorgbkun.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -209,6 +225,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_image.cpp
 release/qrc_image.cpp: image.qrc \
 		../../../QtFile/5.12.9/mingw73_32/bin/rcc.exe \
+		waring.png \
 		image/Logo/logo.png \
 		image/UI/icon.png \
 		image/UI/Retrieval.png \
@@ -232,12 +249,12 @@ compiler_moc_predefs_clean:
 release/moc_predefs.h: ../../../QtFile/5.12.9/mingw73_32/mkspecs/features/data/dummy.cpp
 	g++ -fno-keep-inline-dllexport -O2 -std=gnu++11 -Wall -W -Wextra -dM -E -o release\moc_predefs.h ..\..\..\QtFile\5.12.9\mingw73_32\mkspecs\features\data\dummy.cpp
 
-compiler_moc_header_make_all: release/moc_formatoption.cpp release/moc_infowidget.cpp release/moc_jdtmypushbutton.cpp release/moc_mycamera.cpp release/moc_pathwitheditbutton.cpp release/moc_versoninfowidget.cpp release/moc_configurationwin.cpp release/moc_plyaviewwidget.cpp release/moc_replaywin.cpp release/moc_retrievalwin.cpp release/moc_opencvdetect.cpp release/moc_decodethread.cpp release/moc_ffmpegwriterdest.cpp release/moc_mainwindow.cpp release/moc_ffmpegtorgbkun.cpp
+compiler_moc_header_make_all: release/moc_formatoption.cpp release/moc_infowidget.cpp release/moc_jdtmypushbutton.cpp release/moc_mycamera.cpp release/moc_pathwitheditbutton.cpp release/moc_versoninfowidget.cpp release/moc_alarmwin.cpp release/moc_configurationwin.cpp release/moc_loginwindow.cpp release/moc_plyaviewwidget.cpp release/moc_replaywin.cpp release/moc_retrievalwin.cpp release/moc_opencvdetect.cpp release/moc_decodethread.cpp release/moc_ffmpegwriterdest.cpp release/moc_mainwindow.cpp release/moc_ffmpegtorgbkun.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) release\moc_formatoption.cpp release\moc_infowidget.cpp release\moc_jdtmypushbutton.cpp release\moc_mycamera.cpp release\moc_pathwitheditbutton.cpp release\moc_versoninfowidget.cpp release\moc_configurationwin.cpp release\moc_plyaviewwidget.cpp release\moc_replaywin.cpp release\moc_retrievalwin.cpp release\moc_opencvdetect.cpp release\moc_decodethread.cpp release\moc_ffmpegwriterdest.cpp release\moc_mainwindow.cpp release\moc_ffmpegtorgbkun.cpp
+	-$(DEL_FILE) release\moc_formatoption.cpp release\moc_infowidget.cpp release\moc_jdtmypushbutton.cpp release\moc_mycamera.cpp release\moc_pathwitheditbutton.cpp release\moc_versoninfowidget.cpp release\moc_alarmwin.cpp release\moc_configurationwin.cpp release\moc_loginwindow.cpp release\moc_plyaviewwidget.cpp release\moc_replaywin.cpp release\moc_retrievalwin.cpp release\moc_opencvdetect.cpp release\moc_decodethread.cpp release\moc_ffmpegwriterdest.cpp release\moc_mainwindow.cpp release\moc_ffmpegtorgbkun.cpp
 release/moc_formatoption.cpp: Control/formatoption.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QComboBox \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcombobox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobal.h \
@@ -263,6 +280,7 @@ release/moc_formatoption.cpp: Control/formatoption.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
@@ -339,16 +357,6 @@ release/moc_formatoption.cpp: Control/formatoption.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHBoxLayout \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QComboBox \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcombobox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qstyleoption.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractspinbox.h \
@@ -361,14 +369,24 @@ release/moc_formatoption.cpp: Control/formatoption.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabbar.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qrubberband.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractitemmodel.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHBoxLayout \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
 		release/moc_predefs.h \
 		../../../QtFile/5.12.9/mingw73_32/bin/moc.exe
 	D:\QtFile\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include D:/biyesheji/Security_surveillance_system/Security_surveillance_system2/release/moc_predefs.h -ID:/QtFile/5.12.9/mingw73_32/mkspecs/win32-g++ -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2 -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/OpenCV_X86/include -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/ffmpeglib/include -ID:/QtFile/5.12.9/mingw73_32/include -ID:/QtFile/5.12.9/mingw73_32/include/QtMultimedia -ID:/QtFile/5.12.9/mingw73_32/include/QtWidgets -ID:/QtFile/5.12.9/mingw73_32/include/QtGui -ID:/QtFile/5.12.9/mingw73_32/include/QtANGLE -ID:/QtFile/5.12.9/mingw73_32/include/QtNetwork -ID:/QtFile/5.12.9/mingw73_32/include/QtCore -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward Control\formatoption.h -o release\moc_formatoption.cpp
 
 release/moc_infowidget.cpp: Control/infowidget.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		Control/jdtmypushbutton.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobal.h \
@@ -394,68 +412,71 @@ release/moc_infowidget.cpp: Control/infowidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgets-config.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiterator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstring.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qchar.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearray.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringliteral.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringalgorithms.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringview.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringbuilder.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlist.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiterator.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpair.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearraylist.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringlist.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qregexp.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixmap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcoreevent.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qscopedpointer.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetatype.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpalette.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qbrush.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qmatrix.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpolygon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qregion.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixmap.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qkeysequence.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpalette.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qbrush.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfont.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontmetrics.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontinfo.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qsizepolicy.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcursor.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qkeysequence.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qevent.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvariant.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmap.h \
@@ -470,11 +491,6 @@ release/moc_infowidget.cpp: Control/infowidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
-		Control/jdtmypushbutton.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QPainter \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainter.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextoption.h \
@@ -485,14 +501,15 @@ release/moc_infowidget.cpp: Control/infowidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvariantanimation.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qeasingcurve.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractanimation.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHBoxLayout \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
 		release/moc_predefs.h \
 		../../../QtFile/5.12.9/mingw73_32/bin/moc.exe
 	D:\QtFile\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include D:/biyesheji/Security_surveillance_system/Security_surveillance_system2/release/moc_predefs.h -ID:/QtFile/5.12.9/mingw73_32/mkspecs/win32-g++ -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2 -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/OpenCV_X86/include -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/ffmpeglib/include -ID:/QtFile/5.12.9/mingw73_32/include -ID:/QtFile/5.12.9/mingw73_32/include/QtMultimedia -ID:/QtFile/5.12.9/mingw73_32/include/QtWidgets -ID:/QtFile/5.12.9/mingw73_32/include/QtGui -ID:/QtFile/5.12.9/mingw73_32/include/QtANGLE -ID:/QtFile/5.12.9/mingw73_32/include/QtNetwork -ID:/QtFile/5.12.9/mingw73_32/include/QtCore -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward Control\infowidget.h -o release\moc_infowidget.cpp
@@ -966,6 +983,119 @@ release/moc_versoninfowidget.cpp: Control/versoninfowidget.h \
 		../../../QtFile/5.12.9/mingw73_32/bin/moc.exe
 	D:\QtFile\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include D:/biyesheji/Security_surveillance_system/Security_surveillance_system2/release/moc_predefs.h -ID:/QtFile/5.12.9/mingw73_32/mkspecs/win32-g++ -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2 -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/OpenCV_X86/include -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/ffmpeglib/include -ID:/QtFile/5.12.9/mingw73_32/include -ID:/QtFile/5.12.9/mingw73_32/include/QtMultimedia -ID:/QtFile/5.12.9/mingw73_32/include/QtWidgets -ID:/QtFile/5.12.9/mingw73_32/include/QtGui -ID:/QtFile/5.12.9/mingw73_32/include/QtANGLE -ID:/QtFile/5.12.9/mingw73_32/include/QtNetwork -ID:/QtFile/5.12.9/mingw73_32/include/QtCore -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward Control\versoninfowidget.h -o release\moc_versoninfowidget.cpp
 
+release/moc_alarmwin.cpp: View/alarmwin.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qconfig.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtcore-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsystemdetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qprocessordetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcompilerdetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtypeinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsysinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlogging.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qflags.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbasicatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_bootstrap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qgenericatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_cxx11.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_msvc.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobalstatic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmutex.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnumeric.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstring.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qchar.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearray.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringliteral.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringalgorithms.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringview.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringbuilder.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiterator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpair.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearraylist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringlist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qregexp.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcoreevent.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qscopedpointer.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetatype.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpalette.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qbrush.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qmatrix.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpolygon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qregion.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixmap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfont.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontmetrics.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qsizepolicy.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcursor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qkeysequence.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qevent.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvariant.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdebug.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtextstream.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlocale.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qset.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontiguouscache.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qurl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qurlquery.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfile.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		data/qmysqlite.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
+		sqlite3.h \
+		release/moc_predefs.h \
+		../../../QtFile/5.12.9/mingw73_32/bin/moc.exe
+	D:\QtFile\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include D:/biyesheji/Security_surveillance_system/Security_surveillance_system2/release/moc_predefs.h -ID:/QtFile/5.12.9/mingw73_32/mkspecs/win32-g++ -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2 -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/OpenCV_X86/include -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/ffmpeglib/include -ID:/QtFile/5.12.9/mingw73_32/include -ID:/QtFile/5.12.9/mingw73_32/include/QtMultimedia -ID:/QtFile/5.12.9/mingw73_32/include/QtWidgets -ID:/QtFile/5.12.9/mingw73_32/include/QtGui -ID:/QtFile/5.12.9/mingw73_32/include/QtANGLE -ID:/QtFile/5.12.9/mingw73_32/include/QtNetwork -ID:/QtFile/5.12.9/mingw73_32/include/QtCore -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward View\alarmwin.h -o release\moc_alarmwin.cpp
+
 release/moc_configurationwin.cpp: View/configurationwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
@@ -1116,9 +1246,9 @@ release/moc_configurationwin.cpp: View/configurationwin.h \
 		../../../QtFile/5.12.9/mingw73_32/bin/moc.exe
 	D:\QtFile\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include D:/biyesheji/Security_surveillance_system/Security_surveillance_system2/release/moc_predefs.h -ID:/QtFile/5.12.9/mingw73_32/mkspecs/win32-g++ -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2 -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/OpenCV_X86/include -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/ffmpeglib/include -ID:/QtFile/5.12.9/mingw73_32/include -ID:/QtFile/5.12.9/mingw73_32/include/QtMultimedia -ID:/QtFile/5.12.9/mingw73_32/include/QtWidgets -ID:/QtFile/5.12.9/mingw73_32/include/QtGui -ID:/QtFile/5.12.9/mingw73_32/include/QtANGLE -ID:/QtFile/5.12.9/mingw73_32/include/QtNetwork -ID:/QtFile/5.12.9/mingw73_32/include/QtCore -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward View\configurationwin.h -o release\moc_configurationwin.cpp
 
-release/moc_plyaviewwidget.cpp: View/plyaviewwidget.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+release/moc_loginwindow.cpp: View/loginwindow.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QDialog \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobal.h \
@@ -1144,6 +1274,7 @@ release/moc_plyaviewwidget.cpp: View/plyaviewwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
@@ -1220,69 +1351,161 @@ release/moc_plyaviewwidget.cpp: View/plyaviewwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
+		data/qmysqlite.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
+		sqlite3.h \
+		release/moc_predefs.h \
+		../../../QtFile/5.12.9/mingw73_32/bin/moc.exe
+	D:\QtFile\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include D:/biyesheji/Security_surveillance_system/Security_surveillance_system2/release/moc_predefs.h -ID:/QtFile/5.12.9/mingw73_32/mkspecs/win32-g++ -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2 -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/OpenCV_X86/include -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/ffmpeglib/include -ID:/QtFile/5.12.9/mingw73_32/include -ID:/QtFile/5.12.9/mingw73_32/include/QtMultimedia -ID:/QtFile/5.12.9/mingw73_32/include/QtWidgets -ID:/QtFile/5.12.9/mingw73_32/include/QtGui -ID:/QtFile/5.12.9/mingw73_32/include/QtANGLE -ID:/QtFile/5.12.9/mingw73_32/include/QtNetwork -ID:/QtFile/5.12.9/mingw73_32/include/QtCore -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward View\loginwindow.h -o release\moc_loginwindow.cpp
+
+release/moc_plyaviewwidget.cpp: View/plyaviewwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QAction \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qaction.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qconfig.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtcore-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsystemdetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qprocessordetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcompilerdetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtypeinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsysinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlogging.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qflags.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbasicatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_bootstrap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qgenericatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_cxx11.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_msvc.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobalstatic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmutex.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnumeric.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qkeysequence.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstring.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qchar.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearray.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringliteral.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringalgorithms.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringview.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringbuilder.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiterator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpair.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearraylist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringlist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qregexp.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcoreevent.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qscopedpointer.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetatype.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpalette.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qbrush.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qmatrix.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpolygon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qregion.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixmap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfont.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontmetrics.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qsizepolicy.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcursor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qevent.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvariant.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdebug.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtextstream.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlocale.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qset.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontiguouscache.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qurl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qurlquery.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfile.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qactiongroup.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDateTime \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatetime.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QEvent \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMenu \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmenu.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QTimer \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtimer.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbasictimer.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDateTime \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatetime.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QVBoxLayout \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
-		playThread/decodethread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
-		playThread/audiodecodethread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QIODevice \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QElapsedTimer \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qelapsedtimer.h \
-		ffmpeglib/include/libavcodec/avcodec.h \
-		ffmpeglib/include/libavutil/samplefmt.h \
-		ffmpeglib/include/libavutil/avutil.h \
-		ffmpeglib/include/libavutil/common.h \
-		ffmpeglib/include/libavutil/attributes.h \
-		ffmpeglib/include/libavutil/macros.h \
-		ffmpeglib/include/libavutil/version.h \
-		ffmpeglib/include/libavutil/avconfig.h \
-		ffmpeglib/include/libavutil/mem.h \
-		ffmpeglib/include/libavutil/error.h \
-		ffmpeglib/include/libavutil/rational.h \
-		ffmpeglib/include/libavutil/mathematics.h \
-		ffmpeglib/include/libavutil/intfloat.h \
-		ffmpeglib/include/libavutil/log.h \
-		ffmpeglib/include/libavutil/pixfmt.h \
-		ffmpeglib/include/libavutil/buffer.h \
-		ffmpeglib/include/libavutil/cpu.h \
-		ffmpeglib/include/libavutil/channel_layout.h \
-		ffmpeglib/include/libavutil/dict.h \
-		ffmpeglib/include/libavutil/frame.h \
-		ffmpeglib/include/libavutil/hwcontext.h \
-		ffmpeglib/include/libavcodec/version.h \
-		ffmpeglib/include/libavformat/avformat.h \
-		ffmpeglib/include/libavformat/avio.h \
-		ffmpeglib/include/libavformat/version.h \
-		ffmpeglib/include/libswresample/swresample.h \
-		ffmpeglib/include/libswresample/version.h \
-		ffmpeglib/include/libavutil/opt.h \
-		ffmpeglib/include/libavdevice/avdevice.h \
-		ffmpeglib/include/libavdevice/version.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutex \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QWaitCondition \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qwaitcondition.h \
-		buildTarVideo/cencodetoh264.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QList \
-		ffmpeglib/include/libavfilter/avfilter.h \
-		ffmpeglib/include/libavfilter/version.h \
-		ffmpeglib/include/libswscale/swscale.h \
-		ffmpeglib/include/libswscale/version.h \
-		buildTarVideo/opencvdetect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
+		Control/mycamera.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QObject \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/QCameraInfo \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerainfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamera.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediacontrol.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmultimedia.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaservice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraexposure.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetaobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerafocus.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraimageprocessing.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraviewfindersettings.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qvideoframe.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qabstractvideobuffer.h \
+		buildTarVideo/opencvdetect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
 		OpenCV_X86/include/opencv2/highgui/highgui.hpp \
 		OpenCV_X86/include/opencv2/highgui.hpp \
 		OpenCV_X86/include/opencv2/core.hpp \
@@ -1414,12 +1637,57 @@ release/moc_plyaviewwidget.cpp: View/plyaviewwidget.h \
 		OpenCV_X86/include/opencv2/videostab/deblurring.hpp \
 		OpenCV_X86/include/opencv2/videostab/wobble_suppression.hpp \
 		OpenCV_X86/include/opencv2/videostab/ring_buffer.hpp \
+		playThread/decodethread.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
+		playThread/audiodecodethread.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QIODevice \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QElapsedTimer \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qelapsedtimer.h \
+		ffmpeglib/include/libavcodec/avcodec.h \
+		ffmpeglib/include/libavutil/samplefmt.h \
+		ffmpeglib/include/libavutil/avutil.h \
+		ffmpeglib/include/libavutil/common.h \
+		ffmpeglib/include/libavutil/attributes.h \
+		ffmpeglib/include/libavutil/macros.h \
+		ffmpeglib/include/libavutil/version.h \
+		ffmpeglib/include/libavutil/avconfig.h \
+		ffmpeglib/include/libavutil/mem.h \
+		ffmpeglib/include/libavutil/error.h \
+		ffmpeglib/include/libavutil/rational.h \
+		ffmpeglib/include/libavutil/mathematics.h \
+		ffmpeglib/include/libavutil/intfloat.h \
+		ffmpeglib/include/libavutil/log.h \
+		ffmpeglib/include/libavutil/pixfmt.h \
+		ffmpeglib/include/libavutil/buffer.h \
+		ffmpeglib/include/libavutil/cpu.h \
+		ffmpeglib/include/libavutil/channel_layout.h \
+		ffmpeglib/include/libavutil/dict.h \
+		ffmpeglib/include/libavutil/frame.h \
+		ffmpeglib/include/libavutil/hwcontext.h \
+		ffmpeglib/include/libavcodec/version.h \
+		ffmpeglib/include/libavformat/avformat.h \
+		ffmpeglib/include/libavformat/avio.h \
+		ffmpeglib/include/libavformat/version.h \
+		ffmpeglib/include/libswresample/swresample.h \
+		ffmpeglib/include/libswresample/version.h \
+		ffmpeglib/include/libavutil/opt.h \
+		ffmpeglib/include/libavdevice/avdevice.h \
+		ffmpeglib/include/libavdevice/version.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutex \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QWaitCondition \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qwaitcondition.h \
+		buildTarVideo/cencodetoh264.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QList \
+		ffmpeglib/include/libavfilter/avfilter.h \
+		ffmpeglib/include/libavfilter/version.h \
+		ffmpeglib/include/libswscale/swscale.h \
+		ffmpeglib/include/libswscale/version.h \
 		Control/pathwitheditbutton.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHBoxLayout \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
 		buildTarVideo/ctrancetodest.h \
 		Control/formatoption.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QComboBox \
@@ -1436,30 +1704,6 @@ release/moc_plyaviewwidget.cpp: View/plyaviewwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qrubberband.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractitemmodel.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QEvent \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMenu \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmenu.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qaction.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qactiongroup.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QAction \
-		Control/mycamera.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/QCameraInfo \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerainfo.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamera.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediacontrol.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaobject.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmultimedia.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaservice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraexposure.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetaobject.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerafocus.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraimageprocessing.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraviewfindersettings.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qvideoframe.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qabstractvideobuffer.h \
 		playThread/ffmpegwriterdest.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QQueue \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qqueue.h \
@@ -1626,6 +1870,7 @@ release/moc_replaywin.cpp: View/replaywin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
 		data/qmysqlite.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
 		sqlite3.h \
 		release/moc_predefs.h \
 		../../../QtFile/5.12.9/mingw73_32/bin/moc.exe
@@ -1788,6 +2033,7 @@ release/moc_retrievalwin.cpp: View/retrievalwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
 		data/qmysqlite.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
 		sqlite3.h \
 		release/moc_predefs.h \
 		../../../QtFile/5.12.9/mingw73_32/bin/moc.exe
@@ -1844,6 +2090,30 @@ release/moc_opencvdetect.cpp: buildTarVideo/opencvdetect.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qmatrix.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpolygon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qregion.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
 		OpenCV_X86/include/opencv2/highgui/highgui.hpp \
 		OpenCV_X86/include/opencv2/highgui.hpp \
 		OpenCV_X86/include/opencv2/core.hpp \
@@ -1975,30 +2245,6 @@ release/moc_opencvdetect.cpp: buildTarVideo/opencvdetect.h \
 		OpenCV_X86/include/opencv2/videostab/deblurring.hpp \
 		OpenCV_X86/include/opencv2/videostab/wobble_suppression.hpp \
 		OpenCV_X86/include/opencv2/videostab/ring_buffer.hpp \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qmatrix.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpolygon.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qregion.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
 		release/moc_predefs.h \
 		../../../QtFile/5.12.9/mingw73_32/bin/moc.exe
 	D:\QtFile\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include D:/biyesheji/Security_surveillance_system/Security_surveillance_system2/release/moc_predefs.h -ID:/QtFile/5.12.9/mingw73_32/mkspecs/win32-g++ -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2 -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/OpenCV_X86/include -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/ffmpeglib/include -ID:/QtFile/5.12.9/mingw73_32/include -ID:/QtFile/5.12.9/mingw73_32/include/QtMultimedia -ID:/QtFile/5.12.9/mingw73_32/include/QtWidgets -ID:/QtFile/5.12.9/mingw73_32/include/QtGui -ID:/QtFile/5.12.9/mingw73_32/include/QtANGLE -ID:/QtFile/5.12.9/mingw73_32/include/QtNetwork -ID:/QtFile/5.12.9/mingw73_32/include/QtCore -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward buildTarVideo\opencvdetect.h -o release\moc_opencvdetect.cpp
@@ -2577,59 +2823,37 @@ release/moc_mainwindow.cpp: view/mainwindow.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QList \
 		view/plyaviewwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QAction \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qaction.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qactiongroup.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDateTime \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMenu \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmenu.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QTimer \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtimer.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbasictimer.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDateTime \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
-		playThread/decodethread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
-		playThread/audiodecodethread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QIODevice \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QElapsedTimer \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qelapsedtimer.h \
-		ffmpeglib/include/libavcodec/avcodec.h \
-		ffmpeglib/include/libavutil/samplefmt.h \
-		ffmpeglib/include/libavutil/avutil.h \
-		ffmpeglib/include/libavutil/common.h \
-		ffmpeglib/include/libavutil/attributes.h \
-		ffmpeglib/include/libavutil/macros.h \
-		ffmpeglib/include/libavutil/version.h \
-		ffmpeglib/include/libavutil/avconfig.h \
-		ffmpeglib/include/libavutil/mem.h \
-		ffmpeglib/include/libavutil/error.h \
-		ffmpeglib/include/libavutil/rational.h \
-		ffmpeglib/include/libavutil/mathematics.h \
-		ffmpeglib/include/libavutil/intfloat.h \
-		ffmpeglib/include/libavutil/log.h \
-		ffmpeglib/include/libavutil/pixfmt.h \
-		ffmpeglib/include/libavutil/buffer.h \
-		ffmpeglib/include/libavutil/cpu.h \
-		ffmpeglib/include/libavutil/channel_layout.h \
-		ffmpeglib/include/libavutil/dict.h \
-		ffmpeglib/include/libavutil/frame.h \
-		ffmpeglib/include/libavutil/hwcontext.h \
-		ffmpeglib/include/libavcodec/version.h \
-		ffmpeglib/include/libavformat/avformat.h \
-		ffmpeglib/include/libavformat/avio.h \
-		ffmpeglib/include/libavformat/version.h \
-		ffmpeglib/include/libswresample/swresample.h \
-		ffmpeglib/include/libswresample/version.h \
-		ffmpeglib/include/libavutil/opt.h \
-		ffmpeglib/include/libavdevice/avdevice.h \
-		ffmpeglib/include/libavdevice/version.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutex \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QWaitCondition \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qwaitcondition.h \
-		buildTarVideo/cencodetoh264.h \
-		ffmpeglib/include/libavfilter/avfilter.h \
-		ffmpeglib/include/libavfilter/version.h \
-		ffmpeglib/include/libswscale/swscale.h \
-		ffmpeglib/include/libswscale/version.h \
-		buildTarVideo/opencvdetect.h \
+		Control/mycamera.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QObject \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/QCameraInfo \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerainfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamera.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediacontrol.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmultimedia.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaservice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraexposure.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetaobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerafocus.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraimageprocessing.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraviewfindersettings.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qvideoframe.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qabstractvideobuffer.h \
+		buildTarVideo/opencvdetect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
 		OpenCV_X86/include/opencv2/highgui/highgui.hpp \
 		OpenCV_X86/include/opencv2/highgui.hpp \
 		OpenCV_X86/include/opencv2/core.hpp \
@@ -2761,6 +2985,51 @@ release/moc_mainwindow.cpp: view/mainwindow.h \
 		OpenCV_X86/include/opencv2/videostab/deblurring.hpp \
 		OpenCV_X86/include/opencv2/videostab/wobble_suppression.hpp \
 		OpenCV_X86/include/opencv2/videostab/ring_buffer.hpp \
+		playThread/decodethread.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
+		playThread/audiodecodethread.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QIODevice \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QElapsedTimer \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qelapsedtimer.h \
+		ffmpeglib/include/libavcodec/avcodec.h \
+		ffmpeglib/include/libavutil/samplefmt.h \
+		ffmpeglib/include/libavutil/avutil.h \
+		ffmpeglib/include/libavutil/common.h \
+		ffmpeglib/include/libavutil/attributes.h \
+		ffmpeglib/include/libavutil/macros.h \
+		ffmpeglib/include/libavutil/version.h \
+		ffmpeglib/include/libavutil/avconfig.h \
+		ffmpeglib/include/libavutil/mem.h \
+		ffmpeglib/include/libavutil/error.h \
+		ffmpeglib/include/libavutil/rational.h \
+		ffmpeglib/include/libavutil/mathematics.h \
+		ffmpeglib/include/libavutil/intfloat.h \
+		ffmpeglib/include/libavutil/log.h \
+		ffmpeglib/include/libavutil/pixfmt.h \
+		ffmpeglib/include/libavutil/buffer.h \
+		ffmpeglib/include/libavutil/cpu.h \
+		ffmpeglib/include/libavutil/channel_layout.h \
+		ffmpeglib/include/libavutil/dict.h \
+		ffmpeglib/include/libavutil/frame.h \
+		ffmpeglib/include/libavutil/hwcontext.h \
+		ffmpeglib/include/libavcodec/version.h \
+		ffmpeglib/include/libavformat/avformat.h \
+		ffmpeglib/include/libavformat/avio.h \
+		ffmpeglib/include/libavformat/version.h \
+		ffmpeglib/include/libswresample/swresample.h \
+		ffmpeglib/include/libswresample/version.h \
+		ffmpeglib/include/libavutil/opt.h \
+		ffmpeglib/include/libavdevice/avdevice.h \
+		ffmpeglib/include/libavdevice/version.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutex \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QWaitCondition \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qwaitcondition.h \
+		buildTarVideo/cencodetoh264.h \
+		ffmpeglib/include/libavfilter/avfilter.h \
+		ffmpeglib/include/libavfilter/version.h \
+		ffmpeglib/include/libswscale/swscale.h \
+		ffmpeglib/include/libswscale/version.h \
 		Control/pathwitheditbutton.h \
 		buildTarVideo/ctrancetodest.h \
 		Control/formatoption.h \
@@ -2778,29 +3047,6 @@ release/moc_mainwindow.cpp: view/mainwindow.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qrubberband.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractitemmodel.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMenu \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmenu.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qaction.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qactiongroup.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QAction \
-		Control/mycamera.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/QCameraInfo \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerainfo.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamera.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediacontrol.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaobject.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmultimedia.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaservice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraexposure.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetaobject.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerafocus.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraimageprocessing.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraviewfindersettings.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qvideoframe.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qabstractvideobuffer.h \
 		playThread/ffmpegwriterdest.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QQueue \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qqueue.h \
@@ -2818,6 +3064,7 @@ release/moc_mainwindow.cpp: view/mainwindow.h \
 		playThread/ffmpegtorgbkun.h \
 		data/qmysqlite.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
 		sqlite3.h \
 		view/retrievalwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QCheckBox \
@@ -2835,6 +3082,7 @@ release/moc_mainwindow.cpp: view/mainwindow.h \
 		Control/infowidget.h \
 		Control/versoninfowidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QPair \
+		view/alarmwin.h \
 		release/moc_predefs.h \
 		../../../QtFile/5.12.9/mingw73_32/bin/moc.exe
 	D:\QtFile\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include D:/biyesheji/Security_surveillance_system/Security_surveillance_system2/release/moc_predefs.h -ID:/QtFile/5.12.9/mingw73_32/mkspecs/win32-g++ -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2 -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/OpenCV_X86/include -ID:/biyesheji/Security_surveillance_system/Security_surveillance_system2/ffmpeglib/include -ID:/QtFile/5.12.9/mingw73_32/include -ID:/QtFile/5.12.9/mingw73_32/include/QtMultimedia -ID:/QtFile/5.12.9/mingw73_32/include/QtWidgets -ID:/QtFile/5.12.9/mingw73_32/include/QtGui -ID:/QtFile/5.12.9/mingw73_32/include/QtANGLE -ID:/QtFile/5.12.9/mingw73_32/include/QtNetwork -ID:/QtFile/5.12.9/mingw73_32/include/QtCore -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/IDE-SDK/Qt/Qt5.9.8/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward view\mainwindow.h -o release\moc_mainwindow.cpp
@@ -2974,8 +3222,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 ####### Compile
 
 release/formatoption.o: Control/formatoption.cpp Control/formatoption.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QComboBox \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcombobox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobal.h \
@@ -3001,6 +3249,7 @@ release/formatoption.o: Control/formatoption.cpp Control/formatoption.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
@@ -3077,16 +3326,6 @@ release/formatoption.o: Control/formatoption.cpp Control/formatoption.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHBoxLayout \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QComboBox \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcombobox.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qstyleoption.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractspinbox.h \
@@ -3099,13 +3338,23 @@ release/formatoption.o: Control/formatoption.cpp Control/formatoption.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabbar.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qrubberband.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractitemmodel.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHBoxLayout \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\formatoption.o Control\formatoption.cpp
 
 release/infowidget.o: Control/infowidget.cpp Control/infowidget.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		Control/jdtmypushbutton.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobal.h \
@@ -3131,68 +3380,71 @@ release/infowidget.o: Control/infowidget.cpp Control/infowidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgets-config.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiterator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstring.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qchar.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearray.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringliteral.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringalgorithms.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringview.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringbuilder.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlist.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiterator.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpair.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearraylist.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringlist.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qregexp.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixmap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcoreevent.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qscopedpointer.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetatype.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpalette.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qbrush.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qmatrix.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpolygon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qregion.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixmap.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qkeysequence.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpalette.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qbrush.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfont.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontmetrics.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontinfo.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qsizepolicy.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcursor.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qkeysequence.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qevent.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvariant.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmap.h \
@@ -3207,11 +3459,6 @@ release/infowidget.o: Control/infowidget.cpp Control/infowidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
-		Control/jdtmypushbutton.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QPainter \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainter.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextoption.h \
@@ -3222,14 +3469,15 @@ release/infowidget.o: Control/infowidget.cpp Control/infowidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvariantanimation.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qeasingcurve.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractanimation.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHBoxLayout \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\infowidget.o Control\infowidget.cpp
 
 release/jdtmypushbutton.o: Control/jdtmypushbutton.cpp Control/jdtmypushbutton.h \
@@ -3586,13 +3834,19 @@ release/pathwitheditbutton.o: Control/pathwitheditbutton.cpp Control/pathwithedi
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
+		data/userstorage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
+		data/qmysqlite.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
+		sqlite3.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QFileDialog \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qfiledialog.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QFileDialog \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qfiledialog.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\pathwitheditbutton.o Control\pathwitheditbutton.cpp
 
 release/versoninfowidget.o: Control/versoninfowidget.cpp Control/versoninfowidget.h \
@@ -3711,8 +3965,166 @@ release/versoninfowidget.o: Control/versoninfowidget.cpp Control/versoninfowidge
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QVBoxLayout
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QVBoxLayout \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QList
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\versoninfowidget.o Control\versoninfowidget.cpp
+
+release/alarmwin.o: View/alarmwin.cpp View/alarmwin.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qconfig.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtcore-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsystemdetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qprocessordetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcompilerdetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtypeinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsysinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlogging.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qflags.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbasicatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_bootstrap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qgenericatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_cxx11.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_msvc.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobalstatic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmutex.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnumeric.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstring.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qchar.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearray.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringliteral.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringalgorithms.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringview.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringbuilder.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiterator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpair.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearraylist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringlist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qregexp.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcoreevent.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qscopedpointer.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetatype.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpalette.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qbrush.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qmatrix.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpolygon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qregion.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixmap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfont.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontmetrics.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qsizepolicy.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcursor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qkeysequence.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qevent.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvariant.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdebug.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtextstream.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlocale.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qset.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontiguouscache.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qurl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qurlquery.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfile.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		data/qmysqlite.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
+		sqlite3.h \
+		data/userstorage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QColor \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QComboBox \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qcombobox.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qstyleoption.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractspinbox.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvalidator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qregularexpression.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qslider.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractslider.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qstyle.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabbar.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qrubberband.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractitemmodel.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDateTime \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatetime.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QFrame \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHeaderView \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qheaderview.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractitemview.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qitemselectionmodel.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHBoxLayout \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QStorageInfo \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstorageinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QTableWidget \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtablewidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtableview.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QTableWidgetItem \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QVBoxLayout
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\alarmwin.o View\alarmwin.cpp
 
 release/configurationwin.o: View/configurationwin.cpp View/configurationwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
@@ -3866,9 +4278,9 @@ release/configurationwin.o: View/configurationwin.cpp View/configurationwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\configurationwin.o View\configurationwin.cpp
 
-release/plyaviewwidget.o: View/plyaviewwidget.cpp View/plyaviewwidget.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+release/loginwindow.o: View/loginwindow.cpp View/loginwindow.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QDialog \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobal.h \
@@ -3894,6 +4306,7 @@ release/plyaviewwidget.o: View/plyaviewwidget.cpp View/plyaviewwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
@@ -3970,69 +4383,192 @@ release/plyaviewwidget.o: View/plyaviewwidget.cpp View/plyaviewwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
+		data/qmysqlite.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
+		sqlite3.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QApplication \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qapplication.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcoreapplication.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qeventloop.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qguiapplication.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qinputmethod.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QColor \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QFrame \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QGraphicsDropShadowEffect \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgraphicseffect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHBoxLayout \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QIcon \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLineEdit \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlineedit.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextcursor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextformat.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpen.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextoption.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QVBoxLayout
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\loginwindow.o View\loginwindow.cpp
+
+release/plyaviewwidget.o: View/plyaviewwidget.cpp View/plyaviewwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QAction \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qaction.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qconfig.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtcore-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsystemdetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qprocessordetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcompilerdetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtypeinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsysinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlogging.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qflags.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbasicatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_bootstrap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qgenericatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_cxx11.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_msvc.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobalstatic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmutex.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnumeric.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qkeysequence.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstring.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qchar.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearray.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringliteral.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringalgorithms.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringview.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringbuilder.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiterator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpair.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearraylist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringlist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qregexp.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcoreevent.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qscopedpointer.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetatype.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpalette.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qbrush.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qmatrix.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpolygon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qregion.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixmap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfont.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontmetrics.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qsizepolicy.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcursor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qevent.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvariant.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdebug.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtextstream.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlocale.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qset.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontiguouscache.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qurl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qurlquery.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfile.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qactiongroup.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDateTime \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatetime.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QEvent \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QLabel \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qframe.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMenu \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmenu.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QTimer \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtimer.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbasictimer.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDateTime \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatetime.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QVBoxLayout \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qgridlayout.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
-		playThread/decodethread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
-		playThread/audiodecodethread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QIODevice \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QElapsedTimer \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qelapsedtimer.h \
-		ffmpeglib/include/libavcodec/avcodec.h \
-		ffmpeglib/include/libavutil/samplefmt.h \
-		ffmpeglib/include/libavutil/avutil.h \
-		ffmpeglib/include/libavutil/common.h \
-		ffmpeglib/include/libavutil/attributes.h \
-		ffmpeglib/include/libavutil/macros.h \
-		ffmpeglib/include/libavutil/version.h \
-		ffmpeglib/include/libavutil/avconfig.h \
-		ffmpeglib/include/libavutil/mem.h \
-		ffmpeglib/include/libavutil/error.h \
-		ffmpeglib/include/libavutil/rational.h \
-		ffmpeglib/include/libavutil/mathematics.h \
-		ffmpeglib/include/libavutil/intfloat.h \
-		ffmpeglib/include/libavutil/log.h \
-		ffmpeglib/include/libavutil/pixfmt.h \
-		ffmpeglib/include/libavutil/buffer.h \
-		ffmpeglib/include/libavutil/cpu.h \
-		ffmpeglib/include/libavutil/channel_layout.h \
-		ffmpeglib/include/libavutil/dict.h \
-		ffmpeglib/include/libavutil/frame.h \
-		ffmpeglib/include/libavutil/hwcontext.h \
-		ffmpeglib/include/libavcodec/version.h \
-		ffmpeglib/include/libavformat/avformat.h \
-		ffmpeglib/include/libavformat/avio.h \
-		ffmpeglib/include/libavformat/version.h \
-		ffmpeglib/include/libswresample/swresample.h \
-		ffmpeglib/include/libswresample/version.h \
-		ffmpeglib/include/libavutil/opt.h \
-		ffmpeglib/include/libavdevice/avdevice.h \
-		ffmpeglib/include/libavdevice/version.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutex \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QWaitCondition \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qwaitcondition.h \
-		buildTarVideo/cencodetoh264.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QList \
-		ffmpeglib/include/libavfilter/avfilter.h \
-		ffmpeglib/include/libavfilter/version.h \
-		ffmpeglib/include/libswscale/swscale.h \
-		ffmpeglib/include/libswscale/version.h \
-		buildTarVideo/opencvdetect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
+		Control/mycamera.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QObject \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/QCameraInfo \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerainfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamera.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediacontrol.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmultimedia.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaservice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraexposure.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetaobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerafocus.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraimageprocessing.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraviewfindersettings.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qvideoframe.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qabstractvideobuffer.h \
+		buildTarVideo/opencvdetect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
 		OpenCV_X86/include/opencv2/highgui/highgui.hpp \
 		OpenCV_X86/include/opencv2/highgui.hpp \
 		OpenCV_X86/include/opencv2/core.hpp \
@@ -4164,12 +4700,57 @@ release/plyaviewwidget.o: View/plyaviewwidget.cpp View/plyaviewwidget.h \
 		OpenCV_X86/include/opencv2/videostab/deblurring.hpp \
 		OpenCV_X86/include/opencv2/videostab/wobble_suppression.hpp \
 		OpenCV_X86/include/opencv2/videostab/ring_buffer.hpp \
+		playThread/decodethread.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
+		playThread/audiodecodethread.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QIODevice \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QElapsedTimer \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qelapsedtimer.h \
+		ffmpeglib/include/libavcodec/avcodec.h \
+		ffmpeglib/include/libavutil/samplefmt.h \
+		ffmpeglib/include/libavutil/avutil.h \
+		ffmpeglib/include/libavutil/common.h \
+		ffmpeglib/include/libavutil/attributes.h \
+		ffmpeglib/include/libavutil/macros.h \
+		ffmpeglib/include/libavutil/version.h \
+		ffmpeglib/include/libavutil/avconfig.h \
+		ffmpeglib/include/libavutil/mem.h \
+		ffmpeglib/include/libavutil/error.h \
+		ffmpeglib/include/libavutil/rational.h \
+		ffmpeglib/include/libavutil/mathematics.h \
+		ffmpeglib/include/libavutil/intfloat.h \
+		ffmpeglib/include/libavutil/log.h \
+		ffmpeglib/include/libavutil/pixfmt.h \
+		ffmpeglib/include/libavutil/buffer.h \
+		ffmpeglib/include/libavutil/cpu.h \
+		ffmpeglib/include/libavutil/channel_layout.h \
+		ffmpeglib/include/libavutil/dict.h \
+		ffmpeglib/include/libavutil/frame.h \
+		ffmpeglib/include/libavutil/hwcontext.h \
+		ffmpeglib/include/libavcodec/version.h \
+		ffmpeglib/include/libavformat/avformat.h \
+		ffmpeglib/include/libavformat/avio.h \
+		ffmpeglib/include/libavformat/version.h \
+		ffmpeglib/include/libswresample/swresample.h \
+		ffmpeglib/include/libswresample/version.h \
+		ffmpeglib/include/libavutil/opt.h \
+		ffmpeglib/include/libavdevice/avdevice.h \
+		ffmpeglib/include/libavdevice/version.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutex \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QWaitCondition \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qwaitcondition.h \
+		buildTarVideo/cencodetoh264.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QList \
+		ffmpeglib/include/libavfilter/avfilter.h \
+		ffmpeglib/include/libavfilter/version.h \
+		ffmpeglib/include/libswscale/swscale.h \
+		ffmpeglib/include/libswscale/version.h \
 		Control/pathwitheditbutton.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QHBoxLayout \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qicon.h \
 		buildTarVideo/ctrancetodest.h \
 		Control/formatoption.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QComboBox \
@@ -4186,34 +4767,14 @@ release/plyaviewwidget.o: View/plyaviewwidget.cpp View/plyaviewwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qrubberband.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractitemmodel.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QEvent \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMenu \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmenu.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qaction.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qactiongroup.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QAction \
-		Control/mycamera.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/QCameraInfo \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerainfo.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamera.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediacontrol.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaobject.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmultimedia.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaservice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraexposure.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetaobject.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerafocus.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraimageprocessing.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraviewfindersettings.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qvideoframe.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qabstractvideobuffer.h \
 		playThread/ffmpegwriterdest.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QQueue \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qqueue.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QFileInfo \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QMouseEvent \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
@@ -4379,8 +4940,14 @@ release/replaywin.o: View/replaywin.cpp View/replaywin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
 		data/qmysqlite.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
 		sqlite3.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QFileInfo
+		data/userstorage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QFileInfo \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QTextCharFormat \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtextformat.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QToolButton \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtoolbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\replaywin.o View\replaywin.cpp
 
 release/retrievalwin.o: View/retrievalwin.cpp View/retrievalwin.h \
@@ -4540,7 +5107,9 @@ release/retrievalwin.o: View/retrievalwin.cpp View/retrievalwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
 		data/qmysqlite.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
 		sqlite3.h \
+		data/userstorage.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QFileInfo
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\retrievalwin.o View\retrievalwin.cpp
 
@@ -5048,6 +5617,30 @@ release/opencvdetect.o: buildTarVideo/opencvdetect.cpp buildTarVideo/opencvdetec
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qmatrix.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpolygon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qregion.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
 		OpenCV_X86/include/opencv2/highgui/highgui.hpp \
 		OpenCV_X86/include/opencv2/highgui.hpp \
 		OpenCV_X86/include/opencv2/core.hpp \
@@ -5179,30 +5772,6 @@ release/opencvdetect.o: buildTarVideo/opencvdetect.cpp buildTarVideo/opencvdetec
 		OpenCV_X86/include/opencv2/videostab/deblurring.hpp \
 		OpenCV_X86/include/opencv2/videostab/wobble_suppression.hpp \
 		OpenCV_X86/include/opencv2/videostab/ring_buffer.hpp \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qmatrix.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpolygon.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qregion.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdebug.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
@@ -5262,11 +5831,10 @@ release/qmysqlite.o: data/qmysqlite.cpp data/qmysqlite.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qregexp.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
-		sqlite3.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmap.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdebug.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmap.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtextstream.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject.h \
@@ -5285,8 +5853,140 @@ release/qmysqlite.o: data/qmysqlite.cpp data/qmysqlite.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontiguouscache.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QStringList
+		sqlite3.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QCryptographicHash \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcryptographichash.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDateTime \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatetime.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDebug \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QFileInfo \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfile.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QStringList \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QUuid \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/quuid.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\qmysqlite.o data\qmysqlite.cpp
+
+release/userstorage.o: data/userstorage.cpp data/userstorage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstring.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qchar.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qconfig.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtcore-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsystemdetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qprocessordetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcompilerdetection.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtypeinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsysinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlogging.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qflags.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbasicatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_bootstrap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qgenericatomic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_cxx11.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qatomic_msvc.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qglobalstatic.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmutex.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnumeric.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qversiontagging.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearray.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrefcount.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qnamespace.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qarraydata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringliteral.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringalgorithms.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringview.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringbuilder.h \
+		data/qmysqlite.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvector.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qalgorithms.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiterator.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhashfunctions.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpair.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbytearraylist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringlist.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qregexp.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qstringmatcher.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qpoint.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdebug.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qhash.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtextstream.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qiodevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcoreevent.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qscopedpointer.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetatype.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvarlengtharray.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontainerfwd.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qobject_impl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qlocale.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qvariant.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qshareddata.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qset.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcontiguouscache.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		sqlite3.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QApplication \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qapplication.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtguiglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtgui-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcoreapplication.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qeventloop.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qsize.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcursor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmargins.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpaintdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qrect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpalette.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qcolor.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgb.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qrgba64.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qbrush.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qmatrix.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpolygon.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qregion.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdatastream.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qline.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtransform.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpainterpath.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qimage.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixelformat.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qpixmap.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfont.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontmetrics.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qfontinfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qsizepolicy.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qkeysequence.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qevent.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qurl.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qurlquery.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfile.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfiledevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qvector2d.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qtouchdevice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qguiapplication.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/qinputmethod.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDir \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qdir.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\userstorage.o data\userstorage.cpp
 
 release/main.o: main.cpp view/mainwindow.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QWidget \
@@ -5425,59 +6125,37 @@ release/main.o: main.cpp view/mainwindow.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QList \
 		view/plyaviewwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QAction \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qaction.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qactiongroup.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDateTime \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMenu \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmenu.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QTimer \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtimer.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbasictimer.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDateTime \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
-		playThread/decodethread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
-		playThread/audiodecodethread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QIODevice \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QElapsedTimer \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qelapsedtimer.h \
-		ffmpeglib/include/libavcodec/avcodec.h \
-		ffmpeglib/include/libavutil/samplefmt.h \
-		ffmpeglib/include/libavutil/avutil.h \
-		ffmpeglib/include/libavutil/common.h \
-		ffmpeglib/include/libavutil/attributes.h \
-		ffmpeglib/include/libavutil/macros.h \
-		ffmpeglib/include/libavutil/version.h \
-		ffmpeglib/include/libavutil/avconfig.h \
-		ffmpeglib/include/libavutil/mem.h \
-		ffmpeglib/include/libavutil/error.h \
-		ffmpeglib/include/libavutil/rational.h \
-		ffmpeglib/include/libavutil/mathematics.h \
-		ffmpeglib/include/libavutil/intfloat.h \
-		ffmpeglib/include/libavutil/log.h \
-		ffmpeglib/include/libavutil/pixfmt.h \
-		ffmpeglib/include/libavutil/buffer.h \
-		ffmpeglib/include/libavutil/cpu.h \
-		ffmpeglib/include/libavutil/channel_layout.h \
-		ffmpeglib/include/libavutil/dict.h \
-		ffmpeglib/include/libavutil/frame.h \
-		ffmpeglib/include/libavutil/hwcontext.h \
-		ffmpeglib/include/libavcodec/version.h \
-		ffmpeglib/include/libavformat/avformat.h \
-		ffmpeglib/include/libavformat/avio.h \
-		ffmpeglib/include/libavformat/version.h \
-		ffmpeglib/include/libswresample/swresample.h \
-		ffmpeglib/include/libswresample/version.h \
-		ffmpeglib/include/libavutil/opt.h \
-		ffmpeglib/include/libavdevice/avdevice.h \
-		ffmpeglib/include/libavdevice/version.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutex \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QWaitCondition \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qwaitcondition.h \
-		buildTarVideo/cencodetoh264.h \
-		ffmpeglib/include/libavfilter/avfilter.h \
-		ffmpeglib/include/libavfilter/version.h \
-		ffmpeglib/include/libswscale/swscale.h \
-		ffmpeglib/include/libswscale/version.h \
-		buildTarVideo/opencvdetect.h \
+		Control/mycamera.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QObject \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/QCameraInfo \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerainfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamera.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediacontrol.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmultimedia.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaservice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraexposure.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetaobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerafocus.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraimageprocessing.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraviewfindersettings.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qvideoframe.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qabstractvideobuffer.h \
+		buildTarVideo/opencvdetect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
 		OpenCV_X86/include/opencv2/highgui/highgui.hpp \
 		OpenCV_X86/include/opencv2/highgui.hpp \
 		OpenCV_X86/include/opencv2/core.hpp \
@@ -5609,6 +6287,51 @@ release/main.o: main.cpp view/mainwindow.h \
 		OpenCV_X86/include/opencv2/videostab/deblurring.hpp \
 		OpenCV_X86/include/opencv2/videostab/wobble_suppression.hpp \
 		OpenCV_X86/include/opencv2/videostab/ring_buffer.hpp \
+		playThread/decodethread.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
+		playThread/audiodecodethread.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QIODevice \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QElapsedTimer \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qelapsedtimer.h \
+		ffmpeglib/include/libavcodec/avcodec.h \
+		ffmpeglib/include/libavutil/samplefmt.h \
+		ffmpeglib/include/libavutil/avutil.h \
+		ffmpeglib/include/libavutil/common.h \
+		ffmpeglib/include/libavutil/attributes.h \
+		ffmpeglib/include/libavutil/macros.h \
+		ffmpeglib/include/libavutil/version.h \
+		ffmpeglib/include/libavutil/avconfig.h \
+		ffmpeglib/include/libavutil/mem.h \
+		ffmpeglib/include/libavutil/error.h \
+		ffmpeglib/include/libavutil/rational.h \
+		ffmpeglib/include/libavutil/mathematics.h \
+		ffmpeglib/include/libavutil/intfloat.h \
+		ffmpeglib/include/libavutil/log.h \
+		ffmpeglib/include/libavutil/pixfmt.h \
+		ffmpeglib/include/libavutil/buffer.h \
+		ffmpeglib/include/libavutil/cpu.h \
+		ffmpeglib/include/libavutil/channel_layout.h \
+		ffmpeglib/include/libavutil/dict.h \
+		ffmpeglib/include/libavutil/frame.h \
+		ffmpeglib/include/libavutil/hwcontext.h \
+		ffmpeglib/include/libavcodec/version.h \
+		ffmpeglib/include/libavformat/avformat.h \
+		ffmpeglib/include/libavformat/avio.h \
+		ffmpeglib/include/libavformat/version.h \
+		ffmpeglib/include/libswresample/swresample.h \
+		ffmpeglib/include/libswresample/version.h \
+		ffmpeglib/include/libavutil/opt.h \
+		ffmpeglib/include/libavdevice/avdevice.h \
+		ffmpeglib/include/libavdevice/version.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutex \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QWaitCondition \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qwaitcondition.h \
+		buildTarVideo/cencodetoh264.h \
+		ffmpeglib/include/libavfilter/avfilter.h \
+		ffmpeglib/include/libavfilter/version.h \
+		ffmpeglib/include/libswscale/swscale.h \
+		ffmpeglib/include/libswscale/version.h \
 		Control/pathwitheditbutton.h \
 		buildTarVideo/ctrancetodest.h \
 		Control/formatoption.h \
@@ -5626,29 +6349,6 @@ release/main.o: main.cpp view/mainwindow.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qrubberband.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractitemmodel.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMenu \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmenu.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qaction.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qactiongroup.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QAction \
-		Control/mycamera.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/QCameraInfo \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerainfo.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamera.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediacontrol.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaobject.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmultimedia.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaservice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraexposure.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetaobject.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerafocus.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraimageprocessing.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraviewfindersettings.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qvideoframe.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qabstractvideobuffer.h \
 		playThread/ffmpegwriterdest.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QQueue \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qqueue.h \
@@ -5666,6 +6366,7 @@ release/main.o: main.cpp view/mainwindow.h \
 		playThread/ffmpegtorgbkun.h \
 		data/qmysqlite.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
 		sqlite3.h \
 		view/retrievalwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QCheckBox \
@@ -5683,6 +6384,10 @@ release/main.o: main.cpp view/mainwindow.h \
 		Control/infowidget.h \
 		Control/versoninfowidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QPair \
+		view/alarmwin.h \
+		view/loginwindow.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QDialog \
+		data/userstorage.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QApplication \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qapplication.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qcoreapplication.h \
@@ -6118,7 +6823,9 @@ release/decodethread.o: playThread/decodethread.cpp playThread/decodethread.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qfileinfo.h \
 		data/qmysqlite.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
-		sqlite3.h
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
+		sqlite3.h \
+		data/userstorage.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\decodethread.o playThread\decodethread.cpp
 
 release/ffmpegwriterdest.o: playThread/ffmpegwriterdest.cpp playThread/ffmpegwriterdest.h \
@@ -6388,59 +7095,37 @@ release/mainwindow.o: view/mainwindow.cpp view/mainwindow.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QList \
 		view/plyaviewwidget.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QAction \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qaction.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qactiongroup.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDateTime \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMenu \
+		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmenu.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QTimer \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qtimer.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qbasictimer.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QDateTime \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QString \
-		playThread/decodethread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
-		playThread/audiodecodethread.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QIODevice \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QElapsedTimer \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qelapsedtimer.h \
-		ffmpeglib/include/libavcodec/avcodec.h \
-		ffmpeglib/include/libavutil/samplefmt.h \
-		ffmpeglib/include/libavutil/avutil.h \
-		ffmpeglib/include/libavutil/common.h \
-		ffmpeglib/include/libavutil/attributes.h \
-		ffmpeglib/include/libavutil/macros.h \
-		ffmpeglib/include/libavutil/version.h \
-		ffmpeglib/include/libavutil/avconfig.h \
-		ffmpeglib/include/libavutil/mem.h \
-		ffmpeglib/include/libavutil/error.h \
-		ffmpeglib/include/libavutil/rational.h \
-		ffmpeglib/include/libavutil/mathematics.h \
-		ffmpeglib/include/libavutil/intfloat.h \
-		ffmpeglib/include/libavutil/log.h \
-		ffmpeglib/include/libavutil/pixfmt.h \
-		ffmpeglib/include/libavutil/buffer.h \
-		ffmpeglib/include/libavutil/cpu.h \
-		ffmpeglib/include/libavutil/channel_layout.h \
-		ffmpeglib/include/libavutil/dict.h \
-		ffmpeglib/include/libavutil/frame.h \
-		ffmpeglib/include/libavutil/hwcontext.h \
-		ffmpeglib/include/libavcodec/version.h \
-		ffmpeglib/include/libavformat/avformat.h \
-		ffmpeglib/include/libavformat/avio.h \
-		ffmpeglib/include/libavformat/version.h \
-		ffmpeglib/include/libswresample/swresample.h \
-		ffmpeglib/include/libswresample/version.h \
-		ffmpeglib/include/libavutil/opt.h \
-		ffmpeglib/include/libavdevice/avdevice.h \
-		ffmpeglib/include/libavdevice/version.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutex \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QWaitCondition \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qwaitcondition.h \
-		buildTarVideo/cencodetoh264.h \
-		ffmpeglib/include/libavfilter/avfilter.h \
-		ffmpeglib/include/libavfilter/version.h \
-		ffmpeglib/include/libswscale/swscale.h \
-		ffmpeglib/include/libswscale/version.h \
-		buildTarVideo/opencvdetect.h \
+		Control/mycamera.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QObject \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/QCameraInfo \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerainfo.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamera.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediacontrol.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmultimedia.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaservice.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraexposure.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetaobject.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerafocus.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraimageprocessing.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraviewfindersettings.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qvideoframe.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qabstractvideobuffer.h \
+		buildTarVideo/opencvdetect.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtGui/QImage \
 		OpenCV_X86/include/opencv2/highgui/highgui.hpp \
 		OpenCV_X86/include/opencv2/highgui.hpp \
 		OpenCV_X86/include/opencv2/core.hpp \
@@ -6572,6 +7257,51 @@ release/mainwindow.o: view/mainwindow.cpp view/mainwindow.h \
 		OpenCV_X86/include/opencv2/videostab/deblurring.hpp \
 		OpenCV_X86/include/opencv2/videostab/wobble_suppression.hpp \
 		OpenCV_X86/include/opencv2/videostab/ring_buffer.hpp \
+		playThread/decodethread.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QThread \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qthread.h \
+		playThread/audiodecodethread.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QIODevice \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QElapsedTimer \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qelapsedtimer.h \
+		ffmpeglib/include/libavcodec/avcodec.h \
+		ffmpeglib/include/libavutil/samplefmt.h \
+		ffmpeglib/include/libavutil/avutil.h \
+		ffmpeglib/include/libavutil/common.h \
+		ffmpeglib/include/libavutil/attributes.h \
+		ffmpeglib/include/libavutil/macros.h \
+		ffmpeglib/include/libavutil/version.h \
+		ffmpeglib/include/libavutil/avconfig.h \
+		ffmpeglib/include/libavutil/mem.h \
+		ffmpeglib/include/libavutil/error.h \
+		ffmpeglib/include/libavutil/rational.h \
+		ffmpeglib/include/libavutil/mathematics.h \
+		ffmpeglib/include/libavutil/intfloat.h \
+		ffmpeglib/include/libavutil/log.h \
+		ffmpeglib/include/libavutil/pixfmt.h \
+		ffmpeglib/include/libavutil/buffer.h \
+		ffmpeglib/include/libavutil/cpu.h \
+		ffmpeglib/include/libavutil/channel_layout.h \
+		ffmpeglib/include/libavutil/dict.h \
+		ffmpeglib/include/libavutil/frame.h \
+		ffmpeglib/include/libavutil/hwcontext.h \
+		ffmpeglib/include/libavcodec/version.h \
+		ffmpeglib/include/libavformat/avformat.h \
+		ffmpeglib/include/libavformat/avio.h \
+		ffmpeglib/include/libavformat/version.h \
+		ffmpeglib/include/libswresample/swresample.h \
+		ffmpeglib/include/libswresample/version.h \
+		ffmpeglib/include/libavutil/opt.h \
+		ffmpeglib/include/libavdevice/avdevice.h \
+		ffmpeglib/include/libavdevice/version.h \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMutex \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QWaitCondition \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qwaitcondition.h \
+		buildTarVideo/cencodetoh264.h \
+		ffmpeglib/include/libavfilter/avfilter.h \
+		ffmpeglib/include/libavfilter/version.h \
+		ffmpeglib/include/libswscale/swscale.h \
+		ffmpeglib/include/libswscale/version.h \
 		Control/pathwitheditbutton.h \
 		buildTarVideo/ctrancetodest.h \
 		Control/formatoption.h \
@@ -6589,29 +7319,6 @@ release/mainwindow.o: view/mainwindow.cpp view/mainwindow.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qtabwidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qrubberband.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qabstractitemmodel.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QMenu \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qmenu.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qaction.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/qactiongroup.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QAction \
-		Control/mycamera.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/QCameraInfo \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerainfo.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamera.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediacontrol.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaobject.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmultimedia.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaservice.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraexposure.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qmetaobject.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcamerafocus.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraimageprocessing.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qcameraviewfindersettings.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qvideoframe.h \
-		../../../QtFile/5.12.9/mingw73_32/include/QtMultimedia/qabstractvideobuffer.h \
 		playThread/ffmpegwriterdest.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QQueue \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/qqueue.h \
@@ -6629,6 +7336,7 @@ release/mainwindow.o: view/mainwindow.cpp view/mainwindow.h \
 		playThread/ffmpegtorgbkun.h \
 		data/qmysqlite.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QVector \
+		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QMap \
 		sqlite3.h \
 		view/retrievalwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QCheckBox \
@@ -6646,6 +7354,7 @@ release/mainwindow.o: view/mainwindow.cpp view/mainwindow.h \
 		Control/infowidget.h \
 		Control/versoninfowidget.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtCore/QPair \
+		view/alarmwin.h \
 		../../../QtFile/5.12.9/mingw73_32/include/QtWidgets/QStyle
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o view\mainwindow.cpp
 
@@ -6822,8 +7531,14 @@ release/moc_pathwitheditbutton.o: release/moc_pathwitheditbutton.cpp
 release/moc_versoninfowidget.o: release/moc_versoninfowidget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_versoninfowidget.o release\moc_versoninfowidget.cpp
 
+release/moc_alarmwin.o: release/moc_alarmwin.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_alarmwin.o release\moc_alarmwin.cpp
+
 release/moc_configurationwin.o: release/moc_configurationwin.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_configurationwin.o release\moc_configurationwin.cpp
+
+release/moc_loginwindow.o: release/moc_loginwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_loginwindow.o release\moc_loginwindow.cpp
 
 release/moc_plyaviewwidget.o: release/moc_plyaviewwidget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_plyaviewwidget.o release\moc_plyaviewwidget.cpp

@@ -5,6 +5,7 @@
 class CDecodeToYUV
 {
 public:
+    // 构造 YUV 解码辅助对象。
     CDecodeToYUV();
 };
 

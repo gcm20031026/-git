@@ -8,8 +8,10 @@ class MyCamera : public QObject
 {
     Q_OBJECT
 public:
+    // 构造摄像头信息读取对象。
     explicit MyCamera(QObject *parent = nullptr);
     QList<QCameraInfo> infos;//摄像头信息
+    // 按序号返回摄像头设备描述，序号无效时返回空字符串。
     QString getCameraInfo(int i);
 signals:
 

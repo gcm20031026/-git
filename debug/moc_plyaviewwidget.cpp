@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_plyaViewWidget_t {
-    QByteArrayData data[24];
-    char stringdata0[268];
+    QByteArrayData data[32];
+    char stringdata0[347];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -46,24 +46,35 @@ QT_MOC_LITERAL(11, 113, 14), // "detectFaceFlag"
 QT_MOC_LITERAL(12, 128, 16), // "saveVideosSignal"
 QT_MOC_LITERAL(13, 145, 13), // "setTimeSignal"
 QT_MOC_LITERAL(14, 159, 6), // "m_time"
-QT_MOC_LITERAL(15, 166, 10), // "updateTime"
-QT_MOC_LITERAL(16, 177, 6), // "getImg"
-QT_MOC_LITERAL(17, 184, 3), // "img"
-QT_MOC_LITERAL(18, 188, 10), // "changeSize"
-QT_MOC_LITERAL(19, 199, 15), // "SlotMenuClicked"
-QT_MOC_LITERAL(20, 215, 8), // "QAction*"
-QT_MOC_LITERAL(21, 224, 6), // "action"
-QT_MOC_LITERAL(22, 231, 17), // "addMenuSwitchItem"
-QT_MOC_LITERAL(23, 249, 18) // "SlotMenuDevClicked"
+QT_MOC_LITERAL(15, 166, 13), // "doubleClicked"
+QT_MOC_LITERAL(16, 180, 5), // "index"
+QT_MOC_LITERAL(17, 186, 11), // "alarmRaised"
+QT_MOC_LITERAL(18, 198, 5), // "level"
+QT_MOC_LITERAL(19, 204, 6), // "source"
+QT_MOC_LITERAL(20, 211, 4), // "type"
+QT_MOC_LITERAL(21, 216, 10), // "updateTime"
+QT_MOC_LITERAL(22, 227, 6), // "getImg"
+QT_MOC_LITERAL(23, 234, 3), // "img"
+QT_MOC_LITERAL(24, 238, 10), // "changeSize"
+QT_MOC_LITERAL(25, 249, 15), // "SlotMenuClicked"
+QT_MOC_LITERAL(26, 265, 8), // "QAction*"
+QT_MOC_LITERAL(27, 274, 6), // "action"
+QT_MOC_LITERAL(28, 281, 17), // "addMenuSwitchItem"
+QT_MOC_LITERAL(29, 299, 18), // "SlotMenuDevClicked"
+QT_MOC_LITERAL(30, 318, 20), // "setFaceDetectEnabled"
+QT_MOC_LITERAL(31, 339, 7) // "enabled"
 
     },
     "plyaViewWidget\0sent_X_Y\0\0x\0y\0sentSwichDev\0"
     "curDevName\0targetDevName\0savePicture\0"
     "picName\0startStopDetectfaceSignal\0"
     "detectFaceFlag\0saveVideosSignal\0"
-    "setTimeSignal\0m_time\0updateTime\0getImg\0"
-    "img\0changeSize\0SlotMenuClicked\0QAction*\0"
-    "action\0addMenuSwitchItem\0SlotMenuDevClicked"
+    "setTimeSignal\0m_time\0doubleClicked\0"
+    "index\0alarmRaised\0level\0source\0type\0"
+    "updateTime\0getImg\0img\0changeSize\0"
+    "SlotMenuClicked\0QAction*\0action\0"
+    "addMenuSwitchItem\0SlotMenuDevClicked\0"
+    "setFaceDetectEnabled\0enabled"
 };
 #undef QT_MOC_LITERAL
 
@@ -73,28 +84,31 @@ static const uint qt_meta_data_plyaViewWidget[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       6,       // signalCount
+       8,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    2,   74,    2, 0x06 /* Public */,
-       5,    2,   79,    2, 0x06 /* Public */,
-       8,    1,   84,    2, 0x06 /* Public */,
-      10,    1,   87,    2, 0x06 /* Public */,
-      12,    0,   90,    2, 0x06 /* Public */,
-      13,    1,   91,    2, 0x06 /* Public */,
+       1,    2,   89,    2, 0x06 /* Public */,
+       5,    2,   94,    2, 0x06 /* Public */,
+       8,    1,   99,    2, 0x06 /* Public */,
+      10,    1,  102,    2, 0x06 /* Public */,
+      12,    0,  105,    2, 0x06 /* Public */,
+      13,    1,  106,    2, 0x06 /* Public */,
+      15,    1,  109,    2, 0x06 /* Public */,
+      17,    3,  112,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      15,    0,   94,    2, 0x0a /* Public */,
-      16,    1,   95,    2, 0x0a /* Public */,
-      18,    0,   98,    2, 0x0a /* Public */,
-      19,    1,   99,    2, 0x0a /* Public */,
-      22,    0,  102,    2, 0x0a /* Public */,
-      23,    1,  103,    2, 0x0a /* Public */,
+      21,    0,  119,    2, 0x0a /* Public */,
+      22,    1,  120,    2, 0x0a /* Public */,
+      24,    0,  123,    2, 0x0a /* Public */,
+      25,    1,  124,    2, 0x0a /* Public */,
+      28,    0,  127,    2, 0x0a /* Public */,
+      29,    1,  128,    2, 0x0a /* Public */,
+      30,    1,  131,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    3,    4,
@@ -103,14 +117,17 @@ static const uint qt_meta_data_plyaViewWidget[] = {
     QMetaType::Void, QMetaType::Bool,   11,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,   14,
+    QMetaType::Void, QMetaType::Int,   16,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString,   18,   19,   20,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QImage,   17,
+    QMetaType::Void, QMetaType::QImage,   23,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 20,   21,
+    QMetaType::Void, 0x80000000 | 26,   27,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 20,   21,
+    QMetaType::Void, 0x80000000 | 26,   27,
+    QMetaType::Void, QMetaType::Bool,   31,
 
        0        // eod
 };
@@ -127,25 +144,28 @@ void plyaViewWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 3: _t->startStopDetectfaceSignal((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 4: _t->saveVideosSignal(); break;
         case 5: _t->setTimeSignal((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 6: _t->updateTime(); break;
-        case 7: _t->getImg((*reinterpret_cast< QImage(*)>(_a[1]))); break;
-        case 8: _t->changeSize(); break;
-        case 9: _t->SlotMenuClicked((*reinterpret_cast< QAction*(*)>(_a[1]))); break;
-        case 10: _t->addMenuSwitchItem(); break;
-        case 11: _t->SlotMenuDevClicked((*reinterpret_cast< QAction*(*)>(_a[1]))); break;
+        case 6: _t->doubleClicked((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 7: _t->alarmRaised((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2])),(*reinterpret_cast< const QString(*)>(_a[3]))); break;
+        case 8: _t->updateTime(); break;
+        case 9: _t->getImg((*reinterpret_cast< QImage(*)>(_a[1]))); break;
+        case 10: _t->changeSize(); break;
+        case 11: _t->SlotMenuClicked((*reinterpret_cast< QAction*(*)>(_a[1]))); break;
+        case 12: _t->addMenuSwitchItem(); break;
+        case 13: _t->SlotMenuDevClicked((*reinterpret_cast< QAction*(*)>(_a[1]))); break;
+        case 14: _t->setFaceDetectEnabled((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 9:
+        case 11:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QAction* >(); break;
             }
             break;
-        case 11:
+        case 13:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -197,6 +217,20 @@ void plyaViewWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
                 return;
             }
         }
+        {
+            using _t = void (plyaViewWidget::*)(int );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&plyaViewWidget::doubleClicked)) {
+                *result = 6;
+                return;
+            }
+        }
+        {
+            using _t = void (plyaViewWidget::*)(const QString & , const QString & , const QString & );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&plyaViewWidget::alarmRaised)) {
+                *result = 7;
+                return;
+            }
+        }
     }
 }
 
@@ -229,13 +263,13 @@ int plyaViewWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 15;
     }
     return _id;
 }
@@ -279,6 +313,20 @@ void plyaViewWidget::setTimeSignal(QString _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 5, _a);
+}
+
+// SIGNAL 6
+void plyaViewWidget::doubleClicked(int _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 6, _a);
+}
+
+// SIGNAL 7
+void plyaViewWidget::alarmRaised(const QString & _t1, const QString & _t2, const QString & _t3)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)) };
+    QMetaObject::activate(this, &staticMetaObject, 7, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

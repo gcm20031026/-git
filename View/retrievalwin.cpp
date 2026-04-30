@@ -1,4 +1,5 @@
 #include "retrievalwin.h"
+#include "data/userstorage.h"
 #include <QFileInfo>
 
 RetrievalWin::RetrievalWin(QWidget *parent) : QWidget(parent)
@@ -14,6 +15,7 @@ RetrievalWin::RetrievalWin(QWidget *parent) : QWidget(parent)
     connect(this->fileFormat, SIGNAL(currentIndexChanged(int)), this, SLOT(refresh()));
     connect(this->fileFormat, SIGNAL(editTextChanged(QString)), this, SLOT(refresh()));
 
+    applyModernUi();
     refresh();
 }
 
@@ -128,7 +130,7 @@ void RetrievalWin::initialize_control()
     hintLayout->addWidget(hintLabel);
     hintLayout->addStretch(0);
 
-    QMySqlite::getInstance(QDir::current().filePath("monitor_records.db"))->initVideoRecordTable();
+    QMySqlite::getInstance(UserStorage::recordDbPath())->initVideoRecordTable();
 }
 
 void RetrievalWin::addControl_control()
@@ -165,6 +167,50 @@ void RetrievalWin::addControl_control()
     this->listOne_Win->setLayout(this->listOne_InSide_Layout);
 }
 
+void RetrievalWin::applyModernUi()
+{
+    font01.setFamily("Microsoft YaHei UI");
+    font02.setFamily("Microsoft YaHei UI");
+    font03.setFamily("Microsoft YaHei UI");
+
+    mainWin->setStyleSheet("background-color: #0f172a;");
+    UpWin->setStyleSheet(
+        "QWidget { background-color: #111827; border: 1px solid #263244; border-radius: 8px; }"
+        "QLabel { border: none; background: transparent; color: #dbeafe; font-weight: 700; }");
+    DownWin->setStyleSheet("QWidget { background-color: transparent; }");
+    listOne->setStyleSheet(
+        "QScrollArea { background-color: transparent; border: none; }"
+        "QScrollBar:vertical { background: #111827; width: 8px; margin: 0; border-radius: 4px; }"
+        "QScrollBar::handle:vertical { background: #475569; border-radius: 4px; min-height: 28px; }"
+        "QScrollBar::handle:vertical:hover { background: #64748b; }"
+        "QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }");
+
+    searchEdit->setPlaceholderText(QString::fromUtf8(u8"输入摄像头、文件名或保存时间"));
+    searchEdit->setStyleSheet(
+        "QLineEdit { background-color: #0f172a; border: 1px solid #334155; border-radius: 8px; color: #f8fafc; padding: 0 12px; }"
+        "QLineEdit:focus { border: 1px solid #22d3ee; }");
+
+    QString buttonStyle =
+        "QPushButton { background-color: #182235; border: 1px solid #334155; border-radius: 8px; color: #e2e8f0; font-weight: 700; }"
+        "QPushButton:hover { background-color: #233148; border-color: #22d3ee; color: #ffffff; }"
+        "QPushButton:pressed { background-color: #0f766e; border-color: #5eead4; }";
+    refreshButton->setText(QString::fromUtf8(u8"刷新"));
+    yesButton->setText(QString::fromUtf8(u8"回放"));
+    refreshButton->setStyleSheet(buttonStyle);
+    additionBtn->setStyleSheet(buttonStyle);
+    subtractionBtn->setStyleSheet(buttonStyle);
+    yesButton->setStyleSheet(
+        "QPushButton { background-color: #0f766e; border: 1px solid #14b8a6; border-radius: 8px; color: white; font-weight: 800; }"
+        "QPushButton:hover { background-color: #0d9488; border-color: #5eead4; }"
+        "QPushButton:pressed { background-color: #115e59; }");
+
+    fileFormat->setStyleSheet(
+        "QComboBox { background-color: #0f172a; border: 1px solid #334155; border-radius: 8px; color: #f8fafc; padding-left: 10px; }"
+        "QComboBox:hover { border-color: #22d3ee; }"
+        "QComboBox::drop-down { width: 24px; border: none; }"
+        "QComboBox QAbstractItemView { background-color: #111827; color: #f8fafc; selection-background-color: #0f766e; }");
+}
+
 void RetrievalWin::addRecordList(const QVector<VideoRecord> &records)
 {
     clear_FileList();
@@ -176,8 +222,8 @@ void RetrievalWin::addRecordList(const QVector<VideoRecord> &records)
         QWidget *fileWin = new QWidget();
         fileWin->setMinimumHeight(72);
         fileWin->setStyleSheet(
-            "QWidget { background-color: #2b313a; border: 1px solid #3d4652; border-radius: 8px; }"
-            "QWidget:hover { background-color: #333b46; border-color: #536071; }");
+            "QWidget { background-color: #111827; border: 1px solid #263244; border-radius: 8px; }"
+            "QWidget:hover { background-color: #182235; border-color: #22d3ee; }");
 
         QHBoxLayout *fileWinLayout = new QHBoxLayout();
         fileWinLayout->setContentsMargins(14, 8, 14, 8);
@@ -198,7 +244,7 @@ void RetrievalWin::addRecordList(const QVector<VideoRecord> &records)
                 .arg(record.filePath));
         infoLabel->setFont(this->font01);
         infoLabel->setWordWrap(true);
-        infoLabel->setStyleSheet("QLabel { color: #eef2f7; border: none; background: transparent; }");
+        infoLabel->setStyleSheet("QLabel { color: #e2e8f0; border: none; background: transparent; line-height: 150%; }");
 
         fileWinLayout->addWidget(checkBox);
         fileWinLayout->addWidget(infoLabel, 1);
@@ -259,7 +305,7 @@ void RetrievalWin::camerasNum_change_retrievalwin(QList<QPushButton *> WatchList
 void RetrievalWin::refresh()
 {
     QString format = this->fileFormat->currentText();
-    QVector<VideoRecord> records = QMySqlite::getInstance(QDir::current().filePath("monitor_records.db"))
+    QVector<VideoRecord> records = QMySqlite::getInstance(UserStorage::recordDbPath())
                                        ->queryVideoRecords(this->searchEdit->text(), format);
     addRecordList(records);
 }

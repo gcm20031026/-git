@@ -4,34 +4,30 @@ InfoWidget::InfoWidget(QWidget *parent) : QWidget(parent)
 {
     initControl();
     initLayout();
-    mainLayout->setContentsMargins(0, 10, 0, 10);  // 移除内边距
+    mainLayout->setContentsMargins(0, 10, 0, 10);
+    connect(jdtBtn, SIGNAL(stateChanged(bool)), this, SIGNAL(faceDetectChanged(bool)));
 }
 
 void InfoWidget::initControl()
 {
-    lab = new QLabel("开启人脸检测",this);
+    lab = new QLabel(QString::fromUtf8(u8"人脸检测"), this);
     jdtBtn = new JdtMyPushButton(this);
     jdtBtn->setFlagState(false);
-
+    jdtBtn->setCheckedState(false);
 }
 
 void InfoWidget::initLayout()
 {
     mainLayout = new QHBoxLayout(this);
+    mainLayout->setSpacing(12);
     mainLayout->addWidget(lab);
     mainLayout->addWidget(jdtBtn);
-    this->setStyleSheet(
-        "InfoWidget {"
-        "   border: none;"  // 移除外层边框（如果需要可以保留）
-        "   border-radius: 4px;"
-        "   background-color: #444444;"  // 背景色
-        "   color: white;"  // 默认文字颜色
-        "}"
-        "InfoWidget QLabel {"
-        "   color: white;"
-        "   padding: 3px 8px;"  // 增加内边距让边框更明显
-        "   background-color: transparent;"  // 透明背景
-        "   border: 1px solid white;"  // 添加白色边框
-        "   border-radius: 10px;"  // 圆角
-        "}");
+    setStyleSheet(
+        "InfoWidget { border: 1px solid #334155; border-radius: 8px; background-color: #182235; color: white; }"
+        "InfoWidget QLabel { color: #e2e8f0; padding: 4px 12px; background-color: #0f172a; border: 1px solid #263244; border-radius: 6px; }");
+}
+
+bool InfoWidget::faceDetectEnabled() const
+{
+    return jdtBtn->isCheckedState();
 }

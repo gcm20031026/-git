@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[12];
-    char stringdata0[119];
+    QByteArrayData data[14];
+    char stringdata0[143];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,13 +42,15 @@ QT_MOC_LITERAL(7, 72, 3), // "col"
 QT_MOC_LITERAL(8, 76, 9), // "switchDev"
 QT_MOC_LITERAL(9, 86, 7), // "devName"
 QT_MOC_LITERAL(10, 94, 13), // "targetDevName"
-QT_MOC_LITERAL(11, 108, 10) // "singleShow"
+QT_MOC_LITERAL(11, 108, 10), // "singleShow"
+QT_MOC_LITERAL(12, 119, 17), // "showSingleChannel"
+QT_MOC_LITERAL(13, 137, 5) // "index"
 
     },
     "MainWindow\0sentChangeChanleSize\0\0"
     "miniminze\0fullScreen\0changeCountTo\0"
     "row\0col\0switchDev\0devName\0targetDevName\0"
-    "singleShow"
+    "singleShow\0showSingleChannel\0index"
 };
 #undef QT_MOC_LITERAL
 
@@ -58,7 +60,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -66,14 +68,15 @@ static const uint qt_meta_data_MainWindow[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   44,    2, 0x06 /* Public */,
+       1,    0,   49,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   45,    2, 0x0a /* Public */,
-       4,    0,   46,    2, 0x0a /* Public */,
-       5,    2,   47,    2, 0x0a /* Public */,
-       8,    2,   52,    2, 0x0a /* Public */,
-      11,    0,   57,    2, 0x0a /* Public */,
+       3,    0,   50,    2, 0x0a /* Public */,
+       4,    0,   51,    2, 0x0a /* Public */,
+       5,    2,   52,    2, 0x0a /* Public */,
+       8,    2,   57,    2, 0x0a /* Public */,
+      11,    0,   62,    2, 0x0a /* Public */,
+      12,    1,   63,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -84,6 +87,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    6,    7,
     QMetaType::Void, QMetaType::QString, QMetaType::QString,    9,   10,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,   13,
 
        0        // eod
 };
@@ -100,6 +104,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 3: _t->changeCountTo((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 4: _t->switchDev((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 5: _t->singleShow(); break;
+        case 6: _t->showSingleChannel((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -143,13 +148,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

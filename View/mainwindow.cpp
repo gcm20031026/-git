@@ -33,12 +33,23 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
    connect(this->retrievalWin,SIGNAL(to_save(QStringList,QStringList)),this->replayWin,SLOT(receiveRetrievalwin_saveFileNameAndcameraName(QStringList,QStringList))); //检索界面和回放界面的通信
 
    //循环连接所有 widgets
+   connect(this->configurationWin, &ConfigurationWin::faceDetectChanged, this, [this](bool enabled) {
+       for (int i = 0; i < widgets.size(); ++i)
+       {
+           widgets.at(i)->setFaceDetectEnabled(enabled);
+       }
+   });
+   connect(this->configurationWin, &ConfigurationWin::saveFormatChanged, this, [](const QString &format) {
+       qDebug() << "configuration save format synced:" << format;
+   });
+
    for (int i = 0; i < widgets.size(); ++i)
    {
        connect(this, &MainWindow::sentChangeChanleSize, widgets.at(i), &plyaViewWidget::changeSize);
        //connect( widgets.at(i), &plyaViewWidget::sentSwichDev,this, &MainWindow::switchDev);
    }
    btnConnect();
+   applyModernUi();
     //点击浏览 回放 检索 配置 实现功能
     connect(this->mainButton01, &QPushButton::clicked, this, [this]() {
         setMainButtonSelected(mainButton01, true);
@@ -59,6 +70,10 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
         setMainButtonSelected(mainButton04, true);
         //功能
         pageTtansition(mainButton04);
+    });
+    connect(this->mainButton05, &QPushButton::clicked, this, [this]() {
+        setMainButtonSelected(mainButton05, true);
+        pageTtansition(mainButton05);
     });
 
 }
@@ -199,6 +214,12 @@ void MainWindow::initialize_window()
                 "}"
                 );
     this->systemOperation_Widget = new QWidget(); //自定义系统三大键div
+    this->mainButton05 = new QPushButton();
+    this->mainButton05->setFixedSize(150,80);
+    this->mainButton05->setText(QString::fromUtf8(u8"告警中心"));
+    this->mainButton05->setFont(font_mainTop01);
+    this->mainButton05->setIcon(QIcon(":/waring.png"));
+    this->mainButton05->setIconSize(QSize(35,35));
     this->systemOperation_Widget->setFixedSize(150,35);
     this->systemOperationLayout = new QHBoxLayout(); //自定义系统三大键div布局
     this->systemOperationLayout->setMargin(0);
@@ -297,6 +318,8 @@ void MainWindow::initialize_window()
     //配置界面
     this->configurationWin = new ConfigurationWin();
     this->configurationWin->hide();
+    this->alarmWin = new AlarmWin();
+    this->alarmWin->hide();
 }
 
 void MainWindow::addControl_window()
@@ -308,6 +331,7 @@ void MainWindow::addControl_window()
     this->custom_titleLayout->addWidget(this->mainButton01);
     this->custom_titleLayout->addWidget(this->mainButton02);
     this->custom_titleLayout->addWidget(this->mainButton03);
+    this->custom_titleLayout->addWidget(this->mainButton05);
     this->custom_titleLayout->addWidget(this->mainButton04);
     this->custom_titleLayout->addStretch(0);
     this->custom_titleLayout->addWidget(this->systemOperation_Widget);
@@ -329,6 +353,7 @@ void MainWindow::addControl_window()
     this->mainLayout->addWidget(this->retrievalWin);
     //配置界面
     this->mainLayout->addWidget(this->configurationWin);
+    this->mainLayout->addWidget(this->alarmWin);
 }
 
 void MainWindow::initialize_control()
@@ -368,61 +393,86 @@ void MainWindow::initialize_control()
     this->listItem_Widget = new QWidget(); //滑块内列表项界面
     this->cameraListLayout = new QVBoxLayout(); //摄像头列表布局
     //-------------先测试，后面使用函数添加摄像头(配置)01-------------
-    this->btn01 = new QPushButton("摄像头0");
+    this->btn01 = new QPushButton(QString::fromUtf8("摄像头1"));
     this->btn01->setFixedHeight(30);
     this->btn01->setStyleSheet("color: white;"); // 设置字体颜色为白色，背景颜色为黑色
     // 设置objectName（重要）
     btn01->setObjectName(QString("%1").arg(1));
 
-    this->btn02 = new QPushButton("摄像头1");
+    this->btn02 = new QPushButton(QString::fromUtf8("摄像头2"));
     this->btn02->setFixedHeight(30);
     this->btn02->setStyleSheet("color: white;");
     btn02->setObjectName(QString("%1").arg(2));
 
-    this->btn03 = new QPushButton("摄像头2");
+    this->btn03 = new QPushButton(QString::fromUtf8("模拟摄像头3"));
     this->btn03->setFixedHeight(30);
     this->btn03->setStyleSheet("color: white; ");
     btn03->setObjectName(QString("%1").arg(3));
 
-    this->btn04 = new QPushButton("摄像头3");
+    this->btn04 = new QPushButton(QString::fromUtf8("模拟摄像头4"));
     this->btn04->setFixedHeight(30);
     this->btn04->setStyleSheet("color: white; ");
     btn04->setObjectName(QString("%1").arg(4));
 
-    this->btn05 = new QPushButton("摄像头4");
+    this->btn05 = new QPushButton(QString::fromUtf8("模拟摄像头5"));
     this->btn05->setFixedHeight(30);
     this->btn05->setStyleSheet("color: white;");
     btn05->setObjectName(QString("%1").arg(5));
 
-    this->btn06 = new QPushButton("摄像头5");
+    this->btn06 = new QPushButton(QString::fromUtf8("模拟摄像头6"));
     this->btn06->setFixedHeight(30);
     this->btn06->setStyleSheet("color: white;");
     btn06->setObjectName(QString("%1").arg(6));
 
-    this->btn07 = new QPushButton("摄像头6");
+    this->btn07 = new QPushButton(QString::fromUtf8("模拟摄像头7"));
     this->btn07->setFixedHeight(30);
     this->btn07->setStyleSheet("color: white; ");
     btn07->setObjectName(QString("%1").arg(7));
 
-    this->btn08 = new QPushButton("摄像头7");
+    this->btn08 = new QPushButton(QString::fromUtf8("模拟摄像头8"));
     this->btn08->setFixedHeight(30);
     this->btn08->setStyleSheet("color: white;");
     btn08->setObjectName(QString("%1").arg(8));
 
-    this->btn09 = new QPushButton("摄像头8");
+    this->btn09 = new QPushButton(QString::fromUtf8("模拟摄像头9"));
     this->btn09->setFixedHeight(30);
     this->btn09->setStyleSheet("color: white;");
     btn09->setObjectName(QString("%1").arg(9));
 
-    this->btn10 = new QPushButton("摄像头9");
+    this->btn10 = new QPushButton(QString::fromUtf8("模拟摄像头10"));
     this->btn10->setFixedHeight(30);
     this->btn10->setStyleSheet("color: white; ");
     btn10->setObjectName(QString("%1").arg(10));
 
-    this->btn11 = new QPushButton("摄像头10");
+    this->btn11 = new QPushButton(QString::fromUtf8("模拟摄像头11"));
     this->btn11->setFixedHeight(30);
     this->btn11->setStyleSheet("color: white;");
     btn11->setObjectName(QString("%1").arg(11));
+
+    this->btn12 = new QPushButton(QString::fromUtf8("模拟摄像头12"));
+    this->btn12->setFixedHeight(30);
+    this->btn12->setStyleSheet("color: white;");
+    btn12->setObjectName(QString("%1").arg(12));
+
+    this->btn13 = new QPushButton(QString::fromUtf8("模拟摄像头13"));
+    this->btn13->setFixedHeight(30);
+    this->btn13->setStyleSheet("color: white;");
+    btn13->setObjectName(QString("%1").arg(13));
+
+    this->btn14 = new QPushButton(QString::fromUtf8("模拟摄像头14"));
+    this->btn14->setFixedHeight(30);
+    this->btn14->setStyleSheet("color: white;");
+    btn14->setObjectName(QString("%1").arg(14));
+
+    this->btn15 = new QPushButton(QString::fromUtf8("模拟摄像头15"));
+    this->btn15->setFixedHeight(30);
+    this->btn15->setStyleSheet("color: white;");
+    btn15->setObjectName(QString("%1").arg(15));
+
+    this->btn16 = new QPushButton(QString::fromUtf8("模拟摄像头16"));
+    this->btn16->setFixedHeight(30);
+    this->btn16->setStyleSheet("color: white;");
+    btn16->setObjectName(QString("%1").arg(16));
 
 
 }
@@ -447,6 +497,11 @@ void MainWindow::addControl_control()
     this->cameraListLayout->addWidget(this->btn09);
     this->cameraListLayout->addWidget(this->btn10);
     this->cameraListLayout->addWidget(this->btn11);
+    this->cameraListLayout->addWidget(this->btn12);
+    this->cameraListLayout->addWidget(this->btn13);
+    this->cameraListLayout->addWidget(this->btn14);
+    this->cameraListLayout->addWidget(this->btn15);
+    this->cameraListLayout->addWidget(this->btn16);
     this->cameraListLayout->addStretch(0);
     //----------------------------------------------------------
     //this->listWinLayout->addWidget(this->qCalendarWidgetTime);
@@ -535,7 +590,12 @@ void MainWindow::initAddWidgets()
        for (int i = 0; i < 16; ++i)
        {
            QString devName = QString("摄像头%1").arg(i);
-           plyaViewWidget *widget = new plyaViewWidget(this,i,devName);
+           QString displayName = i < 2
+                   ? QString::fromUtf8("摄像头%1").arg(i + 1)
+                   : QString::fromUtf8("模拟视频%1").arg(i + 1);
+           plyaViewWidget *widget = new plyaViewWidget(this,i,displayName);
+           connect(widget, &plyaViewWidget::doubleClicked, this, &MainWindow::showSingleChannel);
+           connect(widget, &plyaViewWidget::alarmRaised, this->alarmWin, &AlarmWin::addRealtimeAlarm);
            widgets.push_back(widget);
        }
 }
@@ -606,6 +666,17 @@ void MainWindow::changeCountTo(int row, int col)
             if (index < widgets.size())
             {
                 // 设置动态计算的大小
+                if (index < 2)
+                {
+                    widgets.at(index)->startPreviewIfNeeded();
+                }
+                else
+                {
+                    plyaViewWidget *previewWidget = widgets.at(index);
+                    QTimer::singleShot((index - 1) * 150, previewWidget, [previewWidget]() {
+                        previewWidget->startPreviewIfNeeded();
+                    });
+                }
                 widgets.at(index)->setFixedSize(w, h);
                 chanleViewLayout->addWidget(widgets.at(index), r, c);
                 widgets.at(index)->setVisible(true);
@@ -644,6 +715,9 @@ void MainWindow::singleShow()
         QMessageBox::information(this, "提示", "摄像头编号无效。");
         return;
     }
+    showSingleChannel(selectedIndex);
+    return;
+    widgets.at(selectedIndex)->startPreviewIfNeeded();
     if (!widgets.at(selectedIndex)->isCameraAvailable())
     {
         QMessageBox::information(this, "提示", "该摄像头不存在或未连接。");
@@ -675,6 +749,7 @@ void MainWindow::singleShow()
         QMessageBox::information(this, "提示", "摄像头编号无效。");
         return;
     }
+    widgets.at(i)->startPreviewIfNeeded();
     if (!widgets.at(i)->isCameraAvailable())
     {
         QMessageBox::information(this, "提示", "该摄像头不存在或未连接。");
@@ -689,6 +764,7 @@ void MainWindow::singleShow()
             if (index < widgets.size())
             {
                 //设置大小
+                widgets.at(i)->startPreviewIfNeeded();
                 widgets.at(i)->setFixedSize (w,h);
                 chanleViewLayout->addWidget(widgets.at(i), r, c);
                 widgets.at(i)->setVisible(true);
@@ -702,6 +778,37 @@ void MainWindow::singleShow()
 
 }
 //切换设备
+void MainWindow::showSingleChannel(int index)
+{
+    if (index < 0 || index >= widgets.size())
+    {
+        QMessageBox::information(this, QString::fromUtf8("提示"), QString::fromUtf8("摄像头编号无效。"));
+        return;
+    }
+
+    widgets.at(index)->startPreviewIfNeeded();
+    if (!widgets.at(index)->isCameraAvailable())
+    {
+        QMessageBox::information(this, QString::fromUtf8("提示"), QString::fromUtf8("该摄像头不存在或未连接。"));
+        return;
+    }
+
+    hide_video_all();
+    currentRow = 1;
+    currentCol = 1;
+
+    int windowWidth = this->vedioWin_Widget->width();
+    int windowHeight = this->vedioWin_Widget->height();
+    if (windowWidth <= 0) windowWidth = 800;
+    if (windowHeight <= 0) windowHeight = 600;
+
+    widgets.at(index)->setFixedSize(windowWidth, windowHeight);
+    chanleViewLayout->addWidget(widgets.at(index), 0, 0);
+    widgets.at(index)->setVisible(true);
+
+    emit this->sentChangeChanleSize();
+}
+
 void MainWindow::replaceWidgetInGrid(QGridLayout* grid, QWidget* oldWidget, QWidget* newWidget)
 {
     // 检查两个控件是否都在 grid 中
@@ -759,6 +866,80 @@ void MainWindow::btnConnect()
     connect(btn09, &QPushButton::clicked, this, &MainWindow::singleShow);
     connect(btn10, &QPushButton::clicked, this, &MainWindow::singleShow);
     connect(btn11, &QPushButton::clicked, this, &MainWindow::singleShow);
+    connect(btn12, &QPushButton::clicked, this, &MainWindow::singleShow);
+    connect(btn13, &QPushButton::clicked, this, &MainWindow::singleShow);
+    connect(btn14, &QPushButton::clicked, this, &MainWindow::singleShow);
+    connect(btn15, &QPushButton::clicked, this, &MainWindow::singleShow);
+    connect(btn16, &QPushButton::clicked, this, &MainWindow::singleShow);
+}
+
+void MainWindow::applyModernUi()
+{
+    this->setStyleSheet("background-color:#0f172a;");
+    this->custom_title_Widget->setStyleSheet("QWidget { background-color: #111827; border-bottom: 1px solid #263244; }");
+    this->downMain_Widget->setStyleSheet("background-color: #0f172a;");
+    this->listWin_Widget->setStyleSheet("QWidget { background-color: #111827; border-right: 1px solid #263244; }");
+    this->vedioWin_Widget->setStyleSheet("background-color: #050816;");
+    this->chanl_Widget->setStyleSheet("QWidget { background-color: #111827; border-top: 1px solid #263244; }");
+
+    QString navStyle =
+        "QPushButton { border: none; color: #cbd5e1; background-color: transparent; text-align: left; padding-left: 18px; font-size: 15px; font-weight: 700; }"
+        "QPushButton:hover { background-color: #1f2937; color: #ffffff; }"
+        "QPushButton:pressed { background-color: #0f766e; color: #ffffff; }"
+        "QPushButton[selected=true] { background-color: #0f766e; color: #ffffff; border-left: 4px solid #5eead4; padding-left: 14px; }";
+    QList<QPushButton*> navButtons;
+    navButtons << mainButton01 << mainButton02 << mainButton03 << mainButton04 << mainButton05;
+    for (int i = 0; i < navButtons.size(); ++i)
+    {
+        navButtons.at(i)->setFixedSize(132, 80);
+        navButtons.at(i)->setStyleSheet(navStyle);
+        navButtons.at(i)->setCursor(Qt::PointingHandCursor);
+    }
+
+    QString windowButtonStyle =
+        "QPushButton { border: none; border-radius: 8px; background-repeat: no-repeat; background-position: center; }"
+        "QPushButton:hover { background-color: #334155; }"
+        "QPushButton:pressed { background-color: #0f766e; }";
+    miniminze_btn->setStyleSheet(windowButtonStyle + "QPushButton { background-image:url(:/image/UI/Minimize_Button.png); }");
+    fullScreen_btn->setStyleSheet(windowButtonStyle + "QPushButton { background-image:url(:/image/UI/FullScreen_Button.png); }");
+    close_btn->setStyleSheet(windowButtonStyle + "QPushButton { background-image:url(:/image/UI/Close_Button.png); } QPushButton:hover { background-color: #dc2626; }");
+
+    QString cameraButtonStyle =
+        "QPushButton { min-height: 38px; border: 1px solid #243044; border-radius: 8px; padding: 0 12px; text-align: left; color: #dbeafe; background-color: #182235; }"
+        "QPushButton:hover { background-color: #233148; border-color: #14b8a6; color: #ffffff; }"
+        "QPushButton:pressed { background-color: #0f766e; border-color: #5eead4; }";
+    QList<QPushButton*> cameraButtons;
+    cameraButtons << btn01 << btn02 << btn03 << btn04 << btn05 << btn06 << btn07 << btn08
+                  << btn09 << btn10 << btn11 << btn12 << btn13 << btn14 << btn15 << btn16;
+    for (int i = 0; i < cameraButtons.size(); ++i)
+    {
+        cameraButtons.at(i)->setStyleSheet(cameraButtonStyle);
+        cameraButtons.at(i)->setCursor(Qt::PointingHandCursor);
+    }
+
+    QString channelButtonStyle =
+        "QPushButton { min-width: 58px; min-height: 30px; border: 1px solid #334155; border-radius: 8px; color: #cbd5e1; background-color: #182235; font-weight: 700; }"
+        "QPushButton:hover { color: #ffffff; border-color: #22d3ee; background-color: #233148; }"
+        "QPushButton:pressed { background-color: #0f766e; border-color: #5eead4; }";
+    QList<QPushButton*> channelButtons;
+    channelButtons << chanel_Btn1 << chanel_Btn2 << chanel_Btn4 << chanel_Btn8 << chanel_Btn9 << chanel_Btn16;
+    for (int i = 0; i < channelButtons.size(); ++i)
+    {
+        channelButtons.at(i)->setStyleSheet(channelButtonStyle);
+        channelButtons.at(i)->setCursor(Qt::PointingHandCursor);
+    }
+
+    cameraArea_scrollArea->setStyleSheet(
+        "QScrollArea { background: transparent; border: none; }"
+        "QScrollBar:vertical { background: #111827; width: 8px; margin: 0; border-radius: 4px; }"
+        "QScrollBar::handle:vertical { background: #475569; border-radius: 4px; min-height: 28px; }"
+        "QScrollBar::handle:vertical:hover { background: #64748b; }"
+        "QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }"
+        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical { background: transparent; }");
+    cameraListLayout->setContentsMargins(14, 14, 14, 14);
+    cameraListLayout->setSpacing(8);
+    chanleHLayout->setContentsMargins(14, 8, 14, 8);
+    chanleHLayout->setSpacing(8);
 }
 
 void MainWindow::setMainButtonSelected(QPushButton* button, bool selected)
@@ -805,6 +986,10 @@ void MainWindow::pageTtansition(QPushButton* Button)
     {
         this->configurationWin->hide();
     }
+    else if (this->trackingMainWidget==this->alarmWin)
+    {
+        this->alarmWin->hide();
+    }
     //返回按钮对应的界面
     this->trackingMainWidget=buttonCorrespondsToInterface(Button);
     //如果是预览按钮则显示两个窗口
@@ -836,6 +1021,12 @@ QWidget* MainWindow::buttonCorrespondsToInterface(QPushButton *Button)
     {
         return configurationWin; //配置界面
     }
+    else if(Button==this->mainButton05)
+    {
+        this->alarmWin->refreshTable();
+        return alarmWin;
+    }
+    return PreviewWin;
 }
 
 void MainWindow::initChanelSize()

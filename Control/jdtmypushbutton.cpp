@@ -58,6 +58,7 @@ void JdtMyPushButton::mousePressEvent(QMouseEvent *event)
                 m_isOnLeft = !m_isOnLeft;
                 int targetX = m_isOnLeft ? height()/2 : width() - height()/2;
                 startAnimation(targetX);
+                emit stateChanged(isCheckedState());
 
                 this->setCursor(Qt::PointingHandCursor);
 
@@ -68,6 +69,7 @@ void JdtMyPushButton::mousePressEvent(QMouseEvent *event)
             m_isOnLeft = !m_isOnLeft;
             int targetX = m_isOnLeft ? height()/2 : width() - height()/2;
             startAnimation(targetX);
+            emit stateChanged(isCheckedState());
             this->setCursor(Qt::PointingHandCursor);
 
         }
@@ -86,6 +88,18 @@ void JdtMyPushButton::resizeEvent(QResizeEvent *event)
 void JdtMyPushButton::setFlagState(bool flag)
 {
     this->flag = flag;
+}
+
+void JdtMyPushButton::setCheckedState(bool checked)
+{
+    m_isOnLeft = !checked;
+    updateAppearance();
+    emit stateChanged(isCheckedState());
+}
+
+bool JdtMyPushButton::isCheckedState() const
+{
+    return !m_isOnLeft;
 }
 
 void JdtMyPushButton::updateAppearance()

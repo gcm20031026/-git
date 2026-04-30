@@ -31,7 +31,9 @@ SOURCES += \
         Control/mycamera.cpp \
         Control/pathwitheditbutton.cpp \
         Control/versoninfowidget.cpp \
+        View/alarmwin.cpp \
         View/configurationwin.cpp \
+        View/loginwindow.cpp \
         View/plyaviewwidget.cpp \
         View/replaywin.cpp \
         View/retrievalwin.cpp \
@@ -41,6 +43,7 @@ SOURCES += \
         buildTarVideo/ctrancetodest.cpp \
         buildTarVideo/opencvdetect.cpp \
     data/qmysqlite.cpp \
+    data/userstorage.cpp \
         main.cpp \
         playThread/audiodecodethread.cpp \
         playThread/decodethread.cpp \
@@ -55,7 +58,9 @@ HEADERS += \
         Control/mycamera.h \
         Control/pathwitheditbutton.h \
         Control/versoninfowidget.h \
+        View/alarmwin.h \
         View/configurationwin.h \
+        View/loginwindow.h \
         View/plyaviewwidget.h \
         View/replaywin.h \
         View/retrievalwin.h \
@@ -65,6 +70,7 @@ HEADERS += \
         buildTarVideo/ctrancetodest.h \
         buildTarVideo/opencvdetect.h \
     data/qmysqlite.h \
+    data/userstorage.h \
         playThread/audiodecodethread.h \
         playThread/decodethread.h \
         playThread/ffmpegwriterdest.h \

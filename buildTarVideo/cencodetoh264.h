@@ -17,20 +17,22 @@ extern "C"
 class CEncodeToh264 :public QThread
 {
 public:
+    // 构造 H.264 编码线程并设置目标文件名。
     CEncodeToh264(QString fileName);
     //编码的初始化
-    void initEncode();
+    void initEncode(); // 初始化编码器、输出流和封装上下文。
     //将每一帧的像素数据AVFrame压缩成AVPacket
+    // 将一帧 YUV 图像编码成 H.264 码流包。
     int encondeFrameToH264(AVFrame *pictureYUV);  //不成功返回-1
     //写入尾帧
-    void writeTailer();
+    void writeTailer(); // 写入文件尾并结束封装。
     //获取宽度和高度
-    void getWidthAndHeight(int width,int height);
-    void addFrame(AVFrame *frame);
+    void getWidthAndHeight(int width,int height); // 设置待编码视频宽高。
+    void addFrame(AVFrame *frame); // 将待编码帧加入线程安全队列。
     //生成文件
-    void generDetsH264();
-    void run() override;
-    void setFilename(QString fileName);
+    void generDetsH264(); // 生成目标 H.264 文件。
+    void run() override; // 编码线程入口。
+    void setFilename(QString fileName); // 修改输出文件名。
 private:
     AVOutputFormat *poutformat;
     AVFormatContext *pformatContext;  //上下文封装结构体

@@ -22,31 +22,32 @@ class FFmpegWriterDest : public QThread
 {
     Q_OBJECT
 public:
+    // 构造视频写入线程。
     explicit FFmpegWriterDest(QObject *parent = nullptr);
-    ~FFmpegWriterDest();
+    ~FFmpegWriterDest(); // 析构时停止线程并释放 FFmpeg 资源。
 
     // 初始化FFmpeg编码器和输出文件
-    bool initialize(const QString &filename, int width, int height, int fps);
+    bool initialize(const QString &filename, int width, int height, int fps); // 初始化 FFmpeg 编码器和输出文件。
 
     // 添加视频帧到写入队列（线程安全）
-    void addFrame(const QImage &image);
+    void addFrame(const QImage &image); // 添加视频帧到写入队列，线程安全。
 
     // 停止录制并等待线程结束
-    void stop();
+    void stop(); // 停止录制并等待线程结束。
 
 protected:
     // 线程主运行函数（重写QThread）
-    void run() override;
+    void run() override; // 写入线程主循环。
 
 private:
     // 初始化FFmpeg相关资源
-    bool initFFmpeg();
+    bool initFFmpeg(); // 初始化 FFmpeg 相关资源。
 
     // 清理FFmpeg资源
-    void cleanup();
+    void cleanup(); // 清理 FFmpeg 资源。
 
     // 将AVFrame写入文件
-    bool writeFrame(AVFrame *frame);
+    bool writeFrame(AVFrame *frame); // 将 AVFrame 写入输出文件。
     // 线程同步
     QMutex m_mutex;               // 保护帧队列的互斥锁
     QWaitCondition m_condition;   // 线程等待条件
